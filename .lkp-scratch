@@ -1,0 +1,2 @@
+        cap = int(box_h * (0.95 if not body else 0.60))
+        hf, hlines, hlh = fit(d, headline.upper(), "Anton-Regular.ttf", box_w, cap, 260, 34, 1.10)
