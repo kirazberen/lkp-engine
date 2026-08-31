@@ -1,548 +1,117 @@
 [
   {
+    "daily_no": "001",
     "case_name": "Alaska Airlines Flight 261",
     "event_date": "2000-01-31",
-    "location": "Pacific Ocean, approximately 2.7 miles north of Anacapa Island, California",
-    "coordinates": "34.0583\u00b0 N, 119.3467\u00b0 W",
-    "agency": "National Transportation Safety Board (NTSB)",
+    "location": "Pacific Ocean, 2.7 miles north of Anacapa Island, California",
+    "coordinates": "34.0583\u00b0N 119.3467\u00b0W",
+    "agency": "National Transportation Safety Board",
     "docket_url": "https://data.ntsb.gov/Docket/?NTSBNumber=DCA00MA023",
     "the_number": "88",
-    "the_unresolved_thing": "Whether the mechanical stop (lower end play) fractured in-flight or upon impact, and the precise sequence of failure of the gimbal nut threads relative to torque tube fracture.",
+    "the_unresolved_thing": "The lubrication interval on the jackscrew was extended four times between 1987 and 1996 and the FAA approved every extension. No investigation established what data the FAA believed it was reviewing.",
     "tier": "C",
-    "structural_test": {
-      "result": "FAIL",
-      "why": "The investigation did settle the primary mechanical cause (acme nut thread failure from insufficient lubrication), but early in the investigation a real disagreement existed over whether the mechanical stop broke in-flight (shifting liability toward Boeing design) versus on impact. The NTSB's final report attributes the uncontrollable dive to torque tube fracture followed by fairing bracket failure, but contemporaneous statements from Boeing and NTSB investigators reflect unresolved questions about exact sequence and timing."
-    },
+    "structural_test": { "result": "PASS", "why": "Approval chain, not failure sequence. Four approvals, no supporting data on the record." },
     "commonly_wrong": [
-      {
-        "claim": "The mechanical stop (end play) broke off and that's what caused the uncontrollable dive.",
-        "record": "The cause of the final dive was the low-cycle fatigue fracture of the torque tube, followed by failure of the vertical stabilizer tip fairing brackets, which allowed the horizontal stabilizer leading edge to move upward well beyond what a normally operating jackscrew assembly permits, creating excessive upward aerodynamic tail load and uncontrollable downward pitching.",
-        "source": "NTSB/AAR-02/01",
-        "why_it_matters": "Collapses two distinct failure events into one, obscuring that the jackscrew's acme nut thread loss and the later structural fracture were separate stages of the accident sequence."
-      },
-      {
-        "claim": "The jackscrew itself broke during flight.",
-        "record": "The acme nut threads on the jackscrew failed and stripped away. Later analysis estimated 90% of the threads in the acme nut had been previously worn away, and were completely sheared off during the accident flight.",
-        "source": "NTSB/AAR-02/01",
-        "why_it_matters": "The jackscrew (the shaft) survived; it was the acme nut riding on it that lost its threads. Confusing the two misattributes the failure mode."
-      },
-      {
-        "claim": "This was purely a random mechanical failure with no warning.",
-        "record": "Two years earlier, a lead mechanic at Alaska Airlines' Oakland maintenance facility found the jackscrew end play worn to its maximum limit of 0.040 inch and ordered it replaced. The aircraft was returned to service days later with the worn assembly still installed.",
-        "source": "NTSB/AAR-02/01; NTSB Docket DCA00MA023",
-        "why_it_matters": "There was a documented maintenance flag on this exact assembly years before the crash, which matters for any claim that the failure was unforeseeable."
-      }
+      { "claim": "The jackscrew broke in flight.", "record": "The jackscrew survived. The acme nut riding on it lost its threads; roughly 90% had already worn away.", "source": "NTSB/AAR-02/01", "why_it_matters": "Confusing the shaft with the nut misattributes the failure mode entirely." },
+      { "claim": "A mechanic missed a lubrication.", "record": "The interval itself was extended, repeatedly and with approval. The NTSB named the extensions and the FAA's approval of them as contributing causes.", "source": "NTSB/AAR-02/01", "why_it_matters": "It was not an individual lapse. It was an authorised schedule." },
+      { "claim": "There was no warning.", "record": "In 1997 a lead mechanic found the end play at its 0.040 inch limit and ordered the assembly replaced. The aircraft returned to service days later with it installed.", "source": "NTSB/AAR-02/01; Docket DCA00MA023", "why_it_matters": "There is a documented flag on this exact assembly, years early." }
     ],
-    "investigators_disagree": [
-      {
-        "question": "Did the mechanical stop (lower end play) fracture in-flight or on impact with the ocean?",
-        "position_a": "NTSB investigator Dan Bowers determined that re-creating the final part of the dive required tilting the stabilizer up 22 degrees, achievable only if the jackscrew separated from the end stop before impact.",
-        "position_b": "Boeing spokeswoman Liz Verdier stated: 'Everyone agrees that it did break off but we don't know where' or when \u2014 leaving open whether it failed in flight or on impact.",
-        "status": "The NTSB's final report settled on torque tube fracture and fairing bracket failure as the mechanism for the final uncontrollable dive, but the precise timing of end-stop separation relative to other failures was not conclusively fixed in contemporaneous investigative statements."
-      }
-    ],
+    "investigators_disagree": [],
     "could_not_verify": [
-      {
-        "item": "Whether Alaska Airlines specifically used an unapproved type of grease on the jackscrew assembly (one source claims MIL-G-23827 instead of MIL-G-81322)",
-        "disposition": "CUT",
-        "note": "Not directly quoted from NTSB AAR-02/01; only found in secondary sources."
-      },
-      {
-        "item": "Exact details of the tools used in the end-play check and whether they were non-standard",
-        "disposition": "CUT",
-        "note": "Mentioned in secondary sources but not directly accessed from the official docket."
-      },
-      {
-        "item": "Specific words spoken by the pilots on the CVR transcript",
-        "disposition": "ATTRIBUTE",
-        "note": "Only agency summaries of CVR content are available in these primary sources; any quoted dialogue would need direct docket transcript citation."
-      }
+      { "item": "Specific CVR dialogue", "disposition": "ATTRIBUTE", "note": "Only agency summaries accessed; direct quotes would need the docket transcript." },
+      { "item": "Claim that an unapproved grease type was used", "disposition": "CUT", "note": "Secondary sources only, not in AAR-02/01." }
     ],
     "assets": [
-      {
-        "asset": "Recovered jackscrew assembly from horizontal stabilizer",
-        "source_url": "https://data.ntsb.gov/Docket/?NTSBNumber=DCA00MA023",
-        "rights": "PD",
-        "use_for": "Slide 2 \u2014 artifact drop, primary physical evidence",
-        "primary": true
-      },
-      {
-        "asset": "Gimbal nut and lower mechanical stop",
-        "source_url": "https://data.ntsb.gov/Docket/?NTSBNumber=DCA00MA023",
-        "rights": "PD",
-        "use_for": "Slide 3 \u2014 visual anchor for unresolved timing question",
-        "primary": false
-      },
-      {
-        "asset": "MIG-4 maintenance card (September 27\u201330, 1997)",
-        "source_url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR0201.pdf",
-        "rights": "PD",
-        "use_for": "Slide 2 \u2014 document proof of prior maintenance flag",
-        "primary": true
-      },
-      {
-        "asset": "Cockpit Voice Recorder (Fairchild A100A, s/n 62892)",
-        "source_url": "https://data.ntsb.gov/Docket/?NTSBNumber=DCA00MA023",
-        "rights": "PD",
-        "use_for": "Background context, not for direct visual use without transcript citation",
-        "primary": false
-      },
-      {
-        "asset": "Horizontal stabilizer wreckage",
-        "source_url": "https://data.ntsb.gov/Docket/?NTSBNumber=DCA00MA023",
-        "rights": "PD",
-        "use_for": "Slide 1 \u2014 establishing wreckage visual",
-        "primary": false
-      }
+      { "asset": "Recovered jackscrew assembly", "source_url": "https://data.ntsb.gov/Docket/?NTSBNumber=DCA00MA023", "rights": "PD", "use_for": "slide 1 backdrop", "primary": true },
+      { "asset": "MIG-4 maintenance card, Figure 11", "source_url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR0201.pdf", "rights": "PD", "use_for": "document slide", "primary": false }
     ],
     "slides": [
-      {
-        "n": 1,
-        "text": "88 people died when Alaska Airlines Flight 261 went into the Pacific Ocean 2.7 miles north of Anacapa Island, California, on January 31, 2000.",
-        "visual": "Recovered horizontal stabilizer wreckage, NTSB docket photo, PD"
-      },
-      {
-        "n": 2,
-        "text": "Two years before the crash, a mechanic found this jackscrew's end play worn to its failure limit. He ordered it replaced. The plane flew again days later with the same worn part.",
-        "visual": "MIG-4 maintenance card, Figure 11, NTSB/AAR-02/01, PD"
-      },
-      {
-        "n": 3,
-        "text": "NTSB found the acme nut threads failed in flight. Boeing said the mechanical stop broke off \u2014 but couldn't say when or where. That sequence was never fully settled.",
-        "visual": "Recovered gimbal nut and lower mechanical stop, NTSB docket photo, PD"
-      }
+      { "n": 1, "kind": "anomaly", "headline": "88", "text": "Everyone aboard Alaska Airlines Flight 261 died in the Pacific, 2.7 miles north of Anacapa Island, on 31 January 2000." },
+      { "n": 2, "kind": "correction", "label": "What everyone gets wrong", "headline": "The jackscrew never broke.", "text": "The shaft survived the impact. What failed was the acme nut riding on it. Roughly 90% of its threads had already worn away before the aircraft ever left the gate." },
+      { "n": 3, "kind": "barrier", "label": "The barrier", "headline": "One screw. No backup.", "text": "The MD-80 horizontal stabilizer is driven by a single jackscrew. Lose the acme nut threads and you lose pitch control entirely. There is no second system." },
+      { "n": 4, "kind": "document", "label": "The document", "headline": "0.040 inches. Replace it.", "text": "In 1997 a lead mechanic measured the end play at its maximum allowable limit and ordered the assembly replaced. The aircraft was back in service within days, same part fitted." },
+      { "n": 5, "kind": "signal", "label": "The interval", "headline": "500 hours became 2,550.", "text": "The lubrication interval was extended four times between 1987 and 1996. By July 1996 it stood at eight calendar months. The end play inspection interval was stretched as well." },
+      { "n": 6, "kind": "rationalization", "label": "Who approved it", "headline": "The FAA signed all four.", "text": "Every extension was authorised. The NTSB found no supporting data was offered for any of them, and named both the extensions and their approval as contributing causes." },
+      { "n": 7, "kind": "names", "headline": "88", "text": "83 passengers and 5 crew. There were no survivors." },
+      { "n": 8, "kind": "contradiction", "label": "Unresolved", "headline": "Reviewing what, exactly?", "text": "No investigation ever established what data the FAA believed it was assessing when it approved four consecutive extensions to the interval that kept this assembly alive." }
     ],
-    "source_line": "NTSB Aircraft Accident Report NTSB/AAR-02/01, 'Loss of Control and Impact with Pacific Ocean, Alaska Airlines Flight 261, McDonnell Douglas MD-83, N963AS, About 2.7 Miles North of Anacapa Island, California, January 31, 2000' (December 10, 2002); NTSB Docket DCA00MA023.",
-    "caption": "88 people died when Alaska Airlines Flight 261 went into the Pacific Ocean 2.7 miles north of Anacapa Island, California, on January 31, 2000.\nThe NTSB traced the crash to a worn acme nut on the horizontal stabilizer jackscrew \u2014 a part flagged for replacement two years earlier. What investigators never fully pinned down was exactly when the mechanical stop failed relative to the final structural fracture.\nSource: NTSB/AAR-02/01; NTSB Docket DCA00MA023.\n34.0583\u00b0 N, 119.3467\u00b0 W",
-    "hashtags": [
-      "#aviation",
-      "#disaster",
-      "#NTSB",
-      "#AlaskaAirlines261",
-      "#MD83",
-      "#aircraftmaintenance",
-      "#planecrash"
-    ],
-    "hook_alternates": [
-      {
-        "shape": "contradiction",
-        "hook": "Boeing: 'Everyone agrees it broke off.' Boeing: 'We don't know where. Or when.'"
-      },
-      {
-        "shape": "document",
-        "hook": "NTSB Exhibit 7V: a jackscrew wrapped in metallic spiral, pulled off the ocean floor February 8, 2000."
-      },
-      {
-        "shape": "countdown",
-        "hook": "Two years before Flight 261 went down, a mechanic found this part worn to its failure limit."
-      }
-    ],
-    "longform_note": "Tier C only. The primary mechanical cause (acme nut thread wear from insufficient lubrication) is settled and well-documented \u2014 this is a correction/artifact post, not a mystery case. The one open thread (timing of end-stop fracture, in-flight vs. impact) is a footnote-level dispute among investigators, not a load-bearing unresolved question, and does not meet the bar for long-form.",
-    "generated_at": "2026-08-31T12:02:52.675341Z",
+    "source_line": "NTSB Aircraft Accident Report NTSB/AAR-02/01, 10 December 2002; NTSB Docket DCA00MA023.",
+    "caption": "The jackscrew on Alaska 261 never broke. The nut riding on it lost its threads.\n\nThe lubrication interval for that assembly started at 500 flight hours. By 1996 it had been extended four times, to roughly 2,550. The FAA approved every extension and the NTSB found no supporting data was offered for any of them.\n\nSource: NTSB Aircraft Accident Report AAR-02/01; NTSB Docket DCA00MA023.\n\nDAILY 001 \u00b7 34.0583\u00b0N 119.3467\u00b0W",
+    "hashtags": ["#AlaskaAirlines261", "#NTSB", "#aviationsafety", "#aircraftmaintenance", "#MD83", "#casefile"],
+    "x_post": "The Alaska 261 jackscrew lubrication interval started at 500 flight hours.\n\nIt was extended four times between 1987 and 1996, ending near 2,550. The FAA approved each one.\n\nNTSB AAR-02/01 lists the extensions, and the approvals, as contributing causes.",
+    "x_post_type": "exhibit",
+    "x_reply": "Full case file: https://www.youtube.com/@LastKnownPositionTV",
+    "longform_note": "The episode is the FAA approval chain, not the metallurgy.",
+    "generated_at": "2026-08-31T12:02:52Z",
     "status": "pending_approval",
-    "daily_no": "001",
-    "rendered": [
-      "/home/runner/work/lkp-engine/lkp-engine/out/001-alaska-airlines-flight-261/slide_1.jpg",
-      "/home/runner/work/lkp-engine/lkp-engine/out/001-alaska-airlines-flight-261/slide_2.jpg",
-      "/home/runner/work/lkp-engine/lkp-engine/out/001-alaska-airlines-flight-261/slide_3.jpg"
-    ]
+    "rendered": null
   },
   {
+    "daily_no": "002",
     "case_name": "North Hollywood Shootout",
     "event_date": "1997-02-28",
     "location": "Bank of America branch, North Hollywood, Los Angeles",
-    "coordinates": "34.1899\u00b0 N, 118.3764\u00b0 W",
-    "agency": "Los Angeles Police Department (LAPD); incident response",
+    "coordinates": "34.1899\u00b0N 118.3764\u00b0W",
+    "agency": "Los Angeles Police Department",
     "docket_url": "https://www.documentcloud.org/documents/3475142-UseofForceReview6-12-98/",
-    "the_number": "44 minutes duration; 2,000+ rounds exchanged; 11 officers and 7 bystanders wounded; 0 civilian/officer fatalities",
-    "the_unresolved_thing": "LAPD patrol shotguns were restricted to buckshot-only ammunition at the time of the incident. No primary source\u2014including the official LAPD Use of Force Review Board report filed June 12, 1998\u2014documents who authorized this ammunition restriction, on what ballistic or policy grounds, or whether any safety recommendation about patrol armament standards was formally issued, accepted, or closed as unacceptable. The regulation permitting the condition that failed was never revisited or challenged in surviving official records.",
+    "the_number": "44 minutes, 2,000+ rounds, 18 wounded, 0 of them killed",
+    "the_unresolved_thing": "LAPD patrol shotguns were restricted to buckshot only. No primary source establishes who authorised that restriction, on what ballistic grounds, or whether any recommendation about patrol armament was ever issued or closed.",
     "tier": "A",
-    "structural_test": {
-      "result": "PASS",
-      "why": "PASS\u2014regulatory approval chain unresolved. The mechanism (buckshot cannot defeat rifle-rated body armor) is well understood; who set that ammunition policy and why is not."
-    },
+    "structural_test": { "result": "PASS", "why": "The mechanism is understood. The approval chain for the ammunition policy is not." },
     "commonly_wrong": [
-      {
-        "claim": "Officers were armed with rifles from the beginning of the encounter",
-        "record": "Patrol officers initially carried only sidearms. Per the after-action report, officers did not confirm the suspects wore body armor until 9:33 a.m., roughly 16 minutes into the incident, then improvised by obtaining AR-15s from a nearby civilian gun dealer, B&B Gun Sales.",
-        "source": "LAPD Use of Force Review Board Report, June 12, 1998",
-        "why_it_matters": "The 16-minute gap is the entire structural failure the department later had to account for."
-      },
-      {
-        "claim": "The suspects used true armor-piercing ammunition",
-        "record": "Media reported 'armor-piercing bullets,' but the robbers used standard high-velocity rifle ammunition\u20147.62\u00d739mm and 5.56mm\u2014not formally designated AP rounds. No independent ballistic test of the actual rounds used appears in the surviving docket.",
-        "source": "Secondary reporting cross-checked against available docket materials; no ballistic test report located",
-        "why_it_matters": "The gap between handgun and rifle rounds, not exotic ammunition, is what defeated patrol officers' weapons."
-      },
-      {
-        "claim": "SWAT rifles were immediately effective once they arrived",
-        "record": "SWAT arrived 18 minutes after first shots. AR-15 fire had little effect on the heaviest armored areas; fatal hits came from unarmored zones\u2014Phillips' hand and a self-inflicted head wound, Matasareanu's legs after a SWAT officer fired beneath a vehicle undercarriage.",
-        "source": "Wikipedia summary cross-referenced with after-action narrative; primary ballistic detail not fully documented in surviving docket",
-        "why_it_matters": "The ending is often flattened into 'SWAT rifles won'; the record shows armor gaps, not rifle superiority, ended it."
-      }
+      { "claim": "The robbers used armor-piercing ammunition.", "record": "They used standard high-velocity rifle ammunition, 7.62x39mm and 5.56mm. Not formally designated AP rounds.", "source": "Cross-checked against available docket materials", "why_it_matters": "The gap between handgun and rifle rounds beat the officers, not exotic bullets." },
+      { "claim": "Officers had rifles from the start.", "record": "Patrol officers carried sidearms. Armor was not confirmed until 9:33am, about 16 minutes in, after which officers obtained AR-15s from a nearby gun dealer.", "source": "LAPD Use of Force Review Board Report, 12 June 1998", "why_it_matters": "That 16-minute gap is the structural failure the department had to account for." }
     ],
     "investigators_disagree": [
-      {
-        "question": "How many officers and bystanders were wounded?",
-        "position_a": "NBC Los Angeles and Wikipedia: 11 officers, 7 bystanders wounded",
-        "position_b": "Recoil Magazine: 10 officers, 4 civilians wounded",
-        "status": "Police1.com reports 11 officers, 6 bystanders; other outlets cite 12 and 8. The 1998 LAPD report should be the controlling figure, but public secondary sources have never converged."
-      }
+      { "question": "How many were wounded?", "position_a": "11 officers and 7 bystanders, per several outlets", "position_b": "10 officers and 4 civilians, per others; 11 and 6 elsewhere", "status": "The 1998 LAPD report should control. Public secondary sources have never converged." }
     ],
     "could_not_verify": [
-      {
-        "item": "Exact ballistic specifications of the homemade body armor beyond 'Type III-A with trauma plate'",
-        "disposition": "CUT",
-        "note": "No layer count, Kevlar weight, or construction detail located in primary sources."
-      },
-      {
-        "item": "Whether the shotgun buckshot-only restriction was written policy or informal practice",
-        "disposition": "ATTRIBUTE",
-        "note": "Central to the unresolved thread; stated as unresolved, not asserted either way."
-      },
-      {
-        "item": "Any written LAPD safety recommendation on patrol rifle procurement or body armor threat assessment following the incident",
-        "disposition": "ATTRIBUTE",
-        "note": "No such document located; absence itself is part of the unresolved claim."
-      },
-      {
-        "item": "Federal data or inspection requirements attached to the 600 M-16 rifles the Pentagon supplied LAPD in fall 1997",
-        "disposition": "CUT",
-        "note": "No primary documentation found."
-      },
-      {
-        "item": "Precise coordinates of where Matasareanu was cornered, roughly three blocks from the bank",
-        "disposition": "CUT",
-        "note": "Not located in primary sources; bank coordinates used instead."
-      }
+      { "item": "Whether the buckshot-only restriction was written policy or informal practice", "disposition": "ATTRIBUTE", "note": "Central to the unresolved thread. Stated as unresolved, never asserted either way." },
+      { "item": "Any written LAPD recommendation on patrol rifle procurement after the incident", "disposition": "ATTRIBUTE", "note": "No such document located. The absence is part of the claim." }
     ],
     "assets": [
-      {
-        "asset": "Use of Force Review Board Report on North Hollywood Shootout",
-        "source_url": "https://www.documentcloud.org/documents/3475142-UseofForceReview6-12-98/",
-        "rights": "PD",
-        "use_for": "Primary document, slide overlay and citation",
-        "primary": true
-      },
-      {
-        "asset": "Live TV helicopter coverage, KTLA/NBC LA archives",
-        "source_url": "",
-        "rights": "RESTRICTED",
-        "use_for": "Do not use without rights clearance",
-        "primary": false
-      },
-      {
-        "asset": "Bullet-riddled patrol car windshield photo, Gene Blevins/LA Daily News",
-        "source_url": "",
-        "rights": "DO NOT USE",
-        "use_for": "N/A",
-        "primary": false
-      },
-      {
-        "asset": "Bank employees emerging after shootout, Gene Blevins/LA Daily News",
-        "source_url": "",
-        "rights": "DO NOT USE",
-        "use_for": "N/A",
-        "primary": false
-      },
-      {
-        "asset": "Ski-masked robber firing photo, Gene Blevins/LA Daily News",
-        "source_url": "",
-        "rights": "DO NOT USE",
-        "use_for": "N/A",
-        "primary": false
-      }
+      { "asset": "Use of Force Review Board Report, 12 June 1998", "source_url": "https://www.documentcloud.org/documents/3475142-UseofForceReview6-12-98/", "rights": "PD", "use_for": "document slide", "primary": true },
+      { "asset": "KTLA / NBC LA helicopter coverage", "source_url": "", "rights": "RESTRICTED", "use_for": "do not use without clearance", "primary": false },
+      { "asset": "Gene Blevins / LA Daily News photographs", "source_url": "", "rights": "DO NOT USE", "use_for": "n/a", "primary": false }
     ],
     "slides": [
-      {
-        "n": 1,
-        "text": "44 minutes. 2,000+ rounds fired. 11 officers and 7 bystanders wounded. Zero deaths among them.",
-        "visual": "Black slide, white type, LAPD report cover page ghosted behind text"
-      },
-      {
-        "n": 2,
-        "text": "Two robbers in homemade body armor. Patrol officers carrying 9mm handguns, .38 revolvers, and shotguns loaded with buckshot. None of it penetrated.",
-        "visual": "Simple diagram: handgun/shotgun icons vs. armor icon, red X"
-      },
-      {
-        "n": 3,
-        "text": "Officers didn't confirm the armor until 9:33 a.m.\u201416 minutes in. They got rifles by commandeering them from a gun store three blocks away.",
-        "visual": "Timeline strip, 9:17 first shots \u2192 9:33 armor confirmed \u2192 B&B Gun Sales marker"
-      },
-      {
-        "n": 4,
-        "text": "Patrol shotguns were restricted to buckshot only. That restriction is the reason those weapons failed. No surviving record says who set it.",
-        "visual": "Excerpt frame from Use of Force Review Board report, ammunition section highlighted"
-      },
-      {
-        "n": 5,
-        "text": "The LAPD's own 1998 review never asked who approved the ammunition policy that left patrol officers outgunned\u2014or why it was never revisited.",
-        "visual": "Final black slide, report citation, coordinates strip"
-      }
+      { "n": 1, "kind": "anomaly", "headline": "44 minutes. 2,000 rounds. Nobody died.", "text": "Eleven officers and seven bystanders were hit outside a Bank of America in North Hollywood on 28 February 1997. Every one of them lived." },
+      { "n": 2, "kind": "correction", "label": "What everyone gets wrong", "headline": "They weren't armor-piercing rounds.", "text": "The press said armor-piercing. The record says standard 7.62x39 and 5.56 rifle ammunition. What beat the officers was the gap between a handgun and a rifle, not exotic bullets." },
+      { "n": 3, "kind": "barrier", "label": "The barrier", "headline": "A 9mm against a rifle plate.", "text": "Patrol officers carried 9mm sidearms, .38 revolvers and shotguns. The robbers wore homemade Type III-A armor with a trauma plate. Nothing the officers carried went through it." },
+      { "n": 4, "kind": "document", "label": "The document", "headline": "Buckshot only.", "text": "LAPD patrol shotguns were restricted to buckshot. That single ammunition choice is the reason the one long gun on scene could not answer the threat." },
+      { "n": 5, "kind": "signal", "label": "The signal", "headline": "9:33 a.m.", "text": "Sixteen minutes into the firefight, officers confirmed what they were shooting at was armored. Until that moment they were still firing rounds that could not work." },
+      { "n": 6, "kind": "rationalization", "label": "The improvisation", "headline": "They borrowed the rifles.", "text": "Officers drove to a gun shop three blocks away and commandeered AR-15s off the rack. A department of nine thousand officers armed itself mid-incident from a retail shelf." },
+      { "n": 7, "kind": "clock", "label": "The clock", "headline": "09:17 first shots\n09:33 armor confirmed\n09:35 rifles commandeered\n10:01 last shot fired", "text": "" },
+      { "n": 8, "kind": "names", "headline": "18 wounded. 0 killed.", "text": "Both robbers died. Every officer and bystander who was hit survived, several because rounds passed through unarmored gaps rather than through anything the department had issued." },
+      { "n": 9, "kind": "contradiction", "label": "Unresolved", "headline": "Nobody signed it.", "text": "The 1998 Use of Force Review Board report never establishes who restricted patrol shotguns to buckshot, on what ballistic grounds, or whether that decision was ever formally reviewed." },
+      { "n": 10, "kind": "outro", "label": "Case file 002", "headline": "The mechanism was obvious. The permission was not.", "text": "Full case file on YouTube. @LastKnownPositionTV" }
     ],
-    "source_line": "LAPD Board of Police Commissioners, Use of Force Review Board Report, June 12, 1998.",
-    "caption": "44 minutes. 2,000+ rounds fired. 11 officers and 7 bystanders wounded. Zero deaths among them.\nTwo robbers in homemade body armor fought LAPD patrol officers armed with handguns and buckshot-loaded shotguns\u2014neither could penetrate. The 1998 Use of Force Review Board report never establishes who restricted patrol shotguns to buckshot in the first place, or whether that restriction was ever formally reviewed.\nSource: LAPD Board of Police Commissioners, Use of Force Review Board Report, June 12, 1998.\n34.1899\u00b0 N, 118.3764\u00b0 W",
-    "hashtags": [
-      "#PoliceHistory",
-      "#CriminalJusticeReform",
-      "#UseOfForcePolicy",
-      "#PatrolWeapons",
-      "#NorthHollywoodShootout",
-      "#LAPD1997"
-    ],
-    "x_post": "Everyone says LAPD officers were simply outgunned on Feb 28, 1997. The 1998 Use of Force Review Board report says something narrower: patrol shotguns were restricted to buckshot only. No surviving record says who set that restriction, or why it was never revisited.",
+    "source_line": "LAPD Board of Police Commissioners, Use of Force Review Board Report, 12 June 1998.",
+    "caption": "44 minutes. Over 2,000 rounds fired. 11 officers and 7 bystanders wounded. Zero deaths among them.\n\nTwo robbers in homemade body armor fought LAPD patrol officers carrying handguns and buckshot-loaded shotguns. None of it penetrated. Officers eventually got rifles by commandeering them from a gun store three blocks away.\n\nThe 1998 Use of Force Review Board report never establishes who restricted patrol shotguns to buckshot in the first place.\n\nSource: LAPD Board of Police Commissioners, Use of Force Review Board Report, 12 June 1998.\n\nDAILY 002 \u00b7 34.1899\u00b0N 118.3764\u00b0W",
+    "hashtags": ["#NorthHollywoodShootout", "#LAPD", "#useofforce", "#policehistory", "#1997", "#casefile"],
+    "x_post": "Everyone says LAPD officers were simply outgunned on 28 Feb 1997. The 1998 Use of Force Review Board report says something narrower: patrol shotguns were restricted to buckshot only. No surviving record says who set that restriction, or why it was never revisited.",
     "x_post_type": "correction",
     "x_reply": "Full case file: https://www.youtube.com/@LastKnownPositionTV",
-    "hook_alternates": [
-      {
-        "shape": "document",
-        "hook": "Page one of the 1998 LAPD Use of Force Review Board report doesn't name who restricted patrol shotguns to buckshot."
-      },
-      {
-        "shape": "countdown",
-        "hook": "Minute 16: officers confirm the robbers' armor stops their bullets. Minute 18: SWAT arrives with rifles."
-      },
-      {
-        "shape": "contradiction",
-        "hook": "LAPD had 600 military rifles within the year. On Feb 28, 1997, officers borrowed guns from a gun store."
-      }
-    ],
-    "longform_note": "Long-form candidate: full docket exists (LAPD Use of Force Review Board Report, June 12, 1998), and the unresolved thread is institutional, not forensic\u2014the ammunition-restriction approval chain, not the mechanics of the firefight. Structure the episode around the 44-minute timeline, then pivot at minute 30 to the open question: no surviving record shows who authorized buckshot-only patrol shotguns, whether any post-incident safety recommendation on patrol armament was issued, or whether it was ever closed. Avoid treating Phillips or Matasareanu's tactics as the causal center; the systemic gap is the armament policy, not the robbers' preparation.",
-    "generated_at": "2026-08-31T19:54:49.889999+00:00",
+    "longform_note": "Long-form candidate. The unresolved thread is institutional, not forensic: the ammunition-restriction approval chain.",
+    "generated_at": "2026-08-31T19:54:49Z",
     "status": "pending_approval",
-    "daily_no": "002",
-    "rendered": [
-      "out/002-north-hollywood-shootout/slide_1.jpg",
-      "out/002-north-hollywood-shootout/slide_2.jpg",
-      "out/002-north-hollywood-shootout/slide_3.jpg",
-      "out/002-north-hollywood-shootout/slide_4.jpg",
-      "out/002-north-hollywood-shootout/slide_5.jpg"
-    ]
+    "rendered": null
   },
   {
-    "case_name": "US Airways Flight 1549",
-    "event_date": "January 15, 2009",
-    "location": "Hudson River, Weehawken, New Jersey, opposite Intrepid Sea Air and Space Museum",
-    "coordinates": "40.7695\u00b0N 74.0046\u00b0W",
-    "agency": "NTSB",
-    "docket_url": "https://data.ntsb.gov/Docket?ProjectID=105544",
-    "the_number": "155",
-    "the_unresolved_thing": "The FAA approved the CFM56-5B4/P for service in 1996 under a bird ingestion standard that did not require testing for large birds on engines under 2.5 square meters inlet area, nor for core damage, nor for dual-engine failure scenarios. When Flight 1549 demonstrated that multiple large geese could destroy both engines simultaneously and cause total thrust loss at 2,800 feet, the NTSB recommended changes to that standard. For 13 years, no rule closed the gap between what the engine was certified to survive and what it met in service. The FAA's 2018 and 2023 rules changed the fan-speed condition for medium-bird testing. They did not extend large-bird testing to engines this size.",
-    "tier": "C",
-    "structural_test": {
-      "result": "FAIL",
-      "why": "The core mechanism, both engines losing thrust from a multiple large-bird strike, is settled and undisputed. What stayed open is regulatory: the FAA's 1996 certification of the CFM56-5B4/P exempted engines under 2.5 square meters inlet area from large-bird ingestion testing, and that threshold was never revised, even after the NTSB recommended it be reconsidered."
-    },
-    "commonly_wrong": [
-      {
-        "claim": "Simulators proved Sullenberger could have made it back to LaGuardia; he chose the river instead.",
-        "record": "Immediate-turn simulator runs succeeded in 7 of 13 attempts. The NTSB then inserted a 35-second delay to model real recognition and decision time. With that delay, 1 of 1 runs to runway 13 crashed short. US Airways testified a delayed return to runway 22 was never even attempted after the first four immediate-turn runs failed.",
-        "source": "NTSB Docket SA-532, Exhibit 2DD Attachment 28, Simulator Results Document",
-        "why_it_matters": "The clean version treats the ditching as a choice among equal options. The record shows the only tested return scenario with realistic delay ended in a crash."
-      },
-      {
-        "claim": "The bird strike was an act of God no regulation could have anticipated.",
-        "record": "The CFM56 was certified in 1996 against medium and small flocking birds only, and was exempt from large-bird ingestion testing because its inlet area falls under the 2.5 square meter threshold. That exemption, not the bird strike, is what the NTSB targeted with recommendations A-10-64 and A-10-65.",
-        "source": "NTSB/AAR-10/03, Section 2.2.5",
-        "why_it_matters": "It reframes an engineering gap that was known and codified in 1996 as an unforeseeable event in 2009."
-      },
-      {
-        "claim": "All 155 survived because of the plane's design and luck.",
-        "record": "The NTSB attributed survival to crew resource management, the captain's decision to ditch, and the aircraft's certification for extended overwater operations, including slide/rafts. The report noted that without that certification, 64 people on rafts would have faced 41-degree water, where cold shock and drowning can occur within five minutes.",
-        "source": "NTSB/AAR-10/03, Section 2.3",
-        "why_it_matters": "Luck did the work of the water and the ferries. The rafts and the ditching decision were a certification requirement and a testified judgment call."
-      }
-    ],
-    "investigators_disagree": [
-      {
-        "question": "Should engines with inlet areas under 2.5 square meters be required to pass large-bird ingestion testing?",
-        "position_a": "NTSB, May 2010: recommended the FAA re-evaluate the 2.5 square meter threshold entirely, finding the CFM56 core sustained severe damage from multiple large geese under a standard that never tested for it.",
-        "position_b": "FAA, Federal Register, July 6, 2018: 'The evidence from the Flight 1549 accident did not indicate a deficiency in current bird ingestion requirements for the fan blades.' The FAA modified the medium-bird test speed instead of extending large-bird testing downward.",
-        "status": "Recommendation A-10-64 closed with the 2023 fan-speed rule. The inlet-area threshold itself was never changed."
-      }
-    ],
-    "could_not_verify": [
-      {
-        "item": "Whether Airbus, before this accident, had flagged concerns about dual-engine bird strike vulnerability during high-altitude climb at reduced fan speed.",
-        "disposition": "CUT",
-        "note": "No NTSB docket document or Airbus submission located that addresses pre-accident internal concern."
-      },
-      {
-        "item": "Internal FAA or CFM documentation from the 1996 certification showing what dual-engine bird strike data, if any, was reviewed.",
-        "disposition": "CUT",
-        "note": "No certification review file located in the public docket or Federal Register record."
-      }
-    ],
-    "assets": [
-      {
-        "asset": "NTSB Simulator Results Document, immediate-turn and delayed-turn LaGuardia return scenarios",
-        "source_url": "https://data.ntsb.gov/Docket/Document/docBLOB?ID=40314093",
-        "rights": "PD",
-        "use_for": "Slide 2, correction on the LaGuardia return claim",
-        "primary": true
-      },
-      {
-        "asset": "NTSB Public Hearing Transcript, Day 1, Sullenberger and Skiles testimony",
-        "source_url": "https://data.ntsb.gov/Docket/Document/docBLOB?ID=40315650",
-        "rights": "PD",
-        "use_for": "Slide 6, rationalization / testimony framing",
-        "primary": false
-      },
-      {
-        "asset": "NTSB Public Hearing Transcript, Day 3, FAA testimony on bird ingestion regulation history",
-        "source_url": "https://data.ntsb.gov/Docket/Document/docBLOB?ID=40315652",
-        "rights": "PD",
-        "use_for": "Slide 4, document / certification history",
-        "primary": true
-      },
-      {
-        "asset": "NTSB Flight Data Recorder Factual Report, N1/N2 spool-down sequence",
-        "source_url": "https://data.ntsb.gov/Docket/Document/docBLOB?ID=40312608",
-        "rights": "PD",
-        "use_for": "Slide 5, signal / instrument data",
-        "primary": true
-      },
-      {
-        "asset": "NTSB Structures Group Factual Report, engine separation and fuselage damage photographs",
-        "source_url": "https://data.ntsb.gov/Docket/Document/docBLOB?ID=40313057",
-        "rights": "PD",
-        "use_for": "Slide 3, barrier / structural integrity",
-        "primary": false
-      },
-      {
-        "asset": "NTSB Aircraft Accident Report AAR-10/03, full report",
-        "source_url": "https://www.ntsb.gov/investigations/accidentreports/reports/aar1003.pdf",
-        "rights": "PD",
-        "use_for": "General citation, all slides",
-        "primary": true
-      },
-      {
-        "asset": "Federal Register notice, July 6, 2018, FAA response to NTSB recommendations",
-        "source_url": "https://www.federalregister.gov/documents/2018/07/06/2018-14270/medium-flocking-bird-test-at-climb-condition",
-        "rights": "PD",
-        "use_for": "Slide 4 and Slide 9, document and contradiction",
-        "primary": true
-      },
-      {
-        "asset": "FAA Final Rule Amendment 33-3, 2023",
-        "source_url": "https://public-inspection.federalregister.gov/2023-06413.pdf",
-        "rights": "PD",
-        "use_for": "Slide 7, clock / timeline endpoint",
-        "primary": false
-      }
-    ],
-    "slides": [
-      {
-        "n": 1,
-        "kind": "anomaly",
-        "headline": "155",
-        "text": "Every passenger and crew member aboard US Airways Flight 1549 survived the ditching in the Hudson River on January 15, 2009.",
-        "visual": "Full-bleed NTSB structures photo of the aircraft floating intact on the Hudson, cropped tight, no people visible."
-      },
-      {
-        "n": 2,
-        "kind": "correction",
-        "label": "What everyone gets wrong",
-        "headline": "Simulators didn't clear LaGuardia",
-        "text": "Immediate-turn runs succeeded 7 of 13 times. With a realistic 35-second delay built in, the only completed run to runway 13 crashed short. A delayed return to runway 22 was never attempted after the first four tries failed.",
-        "visual": "NTSB Simulator Results Document, Exhibit 2DD Attachment 28, table of run outcomes with the delay column highlighted."
-      },
-      {
-        "n": 3,
-        "kind": "barrier",
-        "label": "What worked",
-        "headline": "The rafts were a requirement",
-        "text": "The A320 was certified for extended overwater operations, which meant slides that convert to rafts. The NTSB found that without that certification, 64 people would have faced 41-degree water where cold shock and drowning can occur within five minutes.",
-        "visual": "NTSB Structures Group photo of the intact fuselage and evacuation slides, Exhibit 7-A."
-      },
-      {
-        "n": 4,
-        "kind": "document",
-        "label": "The certification",
-        "headline": "\"Did not indicate a deficiency\"",
-        "text": "The CFM56-5B4/P was certified in 1996 against medium and small flocking birds. Engines under 2.5 square meters inlet area, like this one, were exempt from large-bird testing. In 2018 the FAA wrote that Flight 1549 did not show a deficiency in the fan blade requirements.",
-        "visual": "Federal Register notice, July 6, 2018, text excerpt rendered as a document scan with the quoted sentence boxed."
-      },
-      {
-        "n": 5,
-        "kind": "signal",
-        "label": "The instant it read true",
-        "headline": "80% fan speed, 2,800 feet",
-        "text": "The flight data recorder shows N1 and N2 on both engines degrading within seconds of the strike, at reduced climb fan speed, the exact condition the certification test never simulated.",
-        "visual": "NTSB FDR Factual Report chart, N1/N2 trace over time, Exhibit 10A."
-      },
-      {
-        "n": 6,
-        "kind": "rationalization",
-        "label": "Why the standard held",
-        "headline": "The fan blades passed. The core didn't.",
-        "text": "FAA testimony at the June 2009 hearing traced the bird ingestion standard back through amendments in 2000 and 2007. Each revision addressed fan blade survivability. None addressed core damage from multiple large birds.",
-        "visual": "NTSB Public Hearing Transcript, Day 3, page excerpt on regulatory history, rendered as document text."
-      },
-      {
-        "n": 7,
-        "kind": "clock",
-        "label": "",
-        "headline": "1996: engine certified, large-bird exempt\n2009: geese strike both engines at 2,800 ft\n2010: NTSB recommends re-evaluating the exemption\n2018: FAA declines, cites no fan blade deficiency\n2023: new rule changes bird-test speed, not the exemption",
-        "text": "",
-        "visual": "Plain timeline graphic, no imagery, white text on black."
-      },
-      {
-        "n": 8,
-        "kind": "names",
-        "label": "",
-        "headline": "155",
-        "text": "150 passengers, 3 flight attendants, 1 first officer, 1 captain. No fatalities were recorded in this accident.",
-        "visual": "Black slide, white serif numeral, no names listed, no photographs."
-      },
-      {
-        "n": 9,
-        "kind": "contradiction",
-        "label": "Unresolved",
-        "headline": "The exemption is still on the books",
-        "text": "The 2.5 square meter inlet threshold that excused this engine from large-bird testing in 1996 has never been revised. The FAA's 2023 rule changed the fan-speed condition for medium-bird tests. It did not require large-bird testing on engines this size.",
-        "visual": "Split frame: 1996 certification standard text beside the 2023 Federal Register rule text, no imagery."
-      },
-      {
-        "n": 10,
-        "kind": "outro",
-        "label": "",
-        "headline": "Full case file on YouTube",
-        "text": "@LastKnownPositionTV",
-        "visual": "Channel logo on black."
-      }
-    ],
-    "source_line": "NTSB Aircraft Accident Report NTSB/AAR-10/03, May 4, 2010; NTSB Docket SA-532, public hearing transcripts June 2009; Federal Register notices 2018 and 2023; FAA Lessons Learned database.",
-    "caption": "155.\n\nEvery person aboard US Airways Flight 1549 survived the ditching in the Hudson River on January 15, 2009. The engines that failed had been certified in 1996 under a standard that exempted engines their size from large-bird ingestion testing, a standard the FAA never fully revised.\n\nNTSB/AAR-10/03; Docket SA-532; Federal Register 2018, 2023.\n\n40.7695\u00b0N 74.0046\u00b0W",
-    "hashtags": [
-      "#AviationSafety",
-      "#NTSB",
-      "#BirdStrike",
-      "#EngineCertification",
-      "#Flight1549",
-      "#HudsonRiver"
-    ],
-    "x_post": "US Airways 1549's CFM56 engines were certified in 1996 against medium and small birds only. Engines under 2.5 sq meters inlet area, like this one, were exempt from large-bird testing. That exemption is still in the rulebook.",
-    "x_post_type": "exhibit",
-    "x_reply": "Full case file: https://www.youtube.com/@LastKnownPositionTV",
-    "hook_alternates": [
-      {
-        "shape": "document",
-        "hook": "FAA, 2018: \"The evidence... did not indicate a deficiency in current bird ingestion requirements.\""
-      },
-      {
-        "shape": "countdown",
-        "hook": "14 years between the recommendation and a rule. The rule didn't touch the exemption."
-      },
-      {
-        "shape": "contradiction",
-        "hook": "The NTSB said re-test the threshold. The FAA changed the fan speed instead."
-      }
-    ],
-    "longform_note": "Tier C. The failure mechanism (dual bird strike, both engines) is fully settled and not disputable. The long-form hook, if this case is ever revisited for A-tier treatment, is the 2.5 square meter certification threshold itself: why it was set there in 1996, what data supported it, and why 13 years of recommendation traffic never touched it. That paper trail (FAA rulemaking docket, CFM/Airbus certification basis documents) was not available in this research pass and would need to be pulled before any long-form claim is made.",
-    "generated_at": "2026-08-31T22:18:05.635316+00:00",
-    "status": "pending_approval",
     "daily_no": "003",
+    "case_name": "US Airways Flight 1549",
+    "event_date": "2009-01-15",
+    "location": "Hudson River, New York",
+    "coordinates": "40.7695\u00b0N 74.0046\u00b0W",
+    "agency": "National Transportation Safety Board",
+    "docket_url": "https://data.ntsb.gov/Docket/?NTSBNumber=DCA09MA026",
+    "the_number": "155",
+    "the_unresolved_thing": "The 2.5 square metre inlet threshold that exempted this engine class from large-bird ingestion testing was set in 1996 and has never been revised.",
+    "tier": "A",
+    "structural_test": { "result": "PASS", "why": "NTSB recommended re-evaluating the exemption in 2010; the FAA declined in 2018; the threshold still stands." },
+    "source_line": "NTSB Aircraft Accident Report NTSB/AAR-10/03, 4 May 2010; NTSB Docket SA-532; public hearing transcripts June 2009; Federal Register notices 2018 and 2023.",
+    "status": "scheduled",
+    "note": "Published to IG and TikTok manually on 2026-08-31 for Sep 1 16:20 PT. Do not republish.",
     "rendered": [
       "out/003-us-airways-flight-1549/slide_01.jpg",
       "out/003-us-airways-flight-1549/slide_02.jpg",
