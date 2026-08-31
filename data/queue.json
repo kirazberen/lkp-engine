@@ -44,6 +44,7 @@
     "longform_note": "The episode is the FAA approval chain, not the metallurgy.",
     "generated_at": "2026-08-31T12:02:52Z",
     "status": "pending_approval",
+    "skip_channels": ["x"],
     "rendered": null
   },
   {
@@ -95,6 +96,7 @@
     "longform_note": "Long-form candidate. The unresolved thread is institutional, not forensic: the ammunition-restriction approval chain.",
     "generated_at": "2026-08-31T19:54:49Z",
     "status": "pending_approval",
+    "skip_channels": ["x"],
     "rendered": null
   },
   {
