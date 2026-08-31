@@ -318,5 +318,242 @@
       "out/002-north-hollywood-shootout/slide_4.jpg",
       "out/002-north-hollywood-shootout/slide_5.jpg"
     ]
+  },
+  {
+    "case_name": "US Airways Flight 1549",
+    "event_date": "January 15, 2009",
+    "location": "Hudson River, Weehawken, New Jersey, opposite Intrepid Sea Air and Space Museum",
+    "coordinates": "40.7695\u00b0N 74.0046\u00b0W",
+    "agency": "NTSB",
+    "docket_url": "https://data.ntsb.gov/Docket?ProjectID=105544",
+    "the_number": "155",
+    "the_unresolved_thing": "The FAA approved the CFM56-5B4/P for service in 1996 under a bird ingestion standard that did not require testing for large birds on engines under 2.5 square meters inlet area, nor for core damage, nor for dual-engine failure scenarios. When Flight 1549 demonstrated that multiple large geese could destroy both engines simultaneously and cause total thrust loss at 2,800 feet, the NTSB recommended changes to that standard. For 13 years, no rule closed the gap between what the engine was certified to survive and what it met in service. The FAA's 2018 and 2023 rules changed the fan-speed condition for medium-bird testing. They did not extend large-bird testing to engines this size.",
+    "tier": "C",
+    "structural_test": {
+      "result": "FAIL",
+      "why": "The core mechanism, both engines losing thrust from a multiple large-bird strike, is settled and undisputed. What stayed open is regulatory: the FAA's 1996 certification of the CFM56-5B4/P exempted engines under 2.5 square meters inlet area from large-bird ingestion testing, and that threshold was never revised, even after the NTSB recommended it be reconsidered."
+    },
+    "commonly_wrong": [
+      {
+        "claim": "Simulators proved Sullenberger could have made it back to LaGuardia; he chose the river instead.",
+        "record": "Immediate-turn simulator runs succeeded in 7 of 13 attempts. The NTSB then inserted a 35-second delay to model real recognition and decision time. With that delay, 1 of 1 runs to runway 13 crashed short. US Airways testified a delayed return to runway 22 was never even attempted after the first four immediate-turn runs failed.",
+        "source": "NTSB Docket SA-532, Exhibit 2DD Attachment 28, Simulator Results Document",
+        "why_it_matters": "The clean version treats the ditching as a choice among equal options. The record shows the only tested return scenario with realistic delay ended in a crash."
+      },
+      {
+        "claim": "The bird strike was an act of God no regulation could have anticipated.",
+        "record": "The CFM56 was certified in 1996 against medium and small flocking birds only, and was exempt from large-bird ingestion testing because its inlet area falls under the 2.5 square meter threshold. That exemption, not the bird strike, is what the NTSB targeted with recommendations A-10-64 and A-10-65.",
+        "source": "NTSB/AAR-10/03, Section 2.2.5",
+        "why_it_matters": "It reframes an engineering gap that was known and codified in 1996 as an unforeseeable event in 2009."
+      },
+      {
+        "claim": "All 155 survived because of the plane's design and luck.",
+        "record": "The NTSB attributed survival to crew resource management, the captain's decision to ditch, and the aircraft's certification for extended overwater operations, including slide/rafts. The report noted that without that certification, 64 people on rafts would have faced 41-degree water, where cold shock and drowning can occur within five minutes.",
+        "source": "NTSB/AAR-10/03, Section 2.3",
+        "why_it_matters": "Luck did the work of the water and the ferries. The rafts and the ditching decision were a certification requirement and a testified judgment call."
+      }
+    ],
+    "investigators_disagree": [
+      {
+        "question": "Should engines with inlet areas under 2.5 square meters be required to pass large-bird ingestion testing?",
+        "position_a": "NTSB, May 2010: recommended the FAA re-evaluate the 2.5 square meter threshold entirely, finding the CFM56 core sustained severe damage from multiple large geese under a standard that never tested for it.",
+        "position_b": "FAA, Federal Register, July 6, 2018: 'The evidence from the Flight 1549 accident did not indicate a deficiency in current bird ingestion requirements for the fan blades.' The FAA modified the medium-bird test speed instead of extending large-bird testing downward.",
+        "status": "Recommendation A-10-64 closed with the 2023 fan-speed rule. The inlet-area threshold itself was never changed."
+      }
+    ],
+    "could_not_verify": [
+      {
+        "item": "Whether Airbus, before this accident, had flagged concerns about dual-engine bird strike vulnerability during high-altitude climb at reduced fan speed.",
+        "disposition": "CUT",
+        "note": "No NTSB docket document or Airbus submission located that addresses pre-accident internal concern."
+      },
+      {
+        "item": "Internal FAA or CFM documentation from the 1996 certification showing what dual-engine bird strike data, if any, was reviewed.",
+        "disposition": "CUT",
+        "note": "No certification review file located in the public docket or Federal Register record."
+      }
+    ],
+    "assets": [
+      {
+        "asset": "NTSB Simulator Results Document, immediate-turn and delayed-turn LaGuardia return scenarios",
+        "source_url": "https://data.ntsb.gov/Docket/Document/docBLOB?ID=40314093",
+        "rights": "PD",
+        "use_for": "Slide 2, correction on the LaGuardia return claim",
+        "primary": true
+      },
+      {
+        "asset": "NTSB Public Hearing Transcript, Day 1, Sullenberger and Skiles testimony",
+        "source_url": "https://data.ntsb.gov/Docket/Document/docBLOB?ID=40315650",
+        "rights": "PD",
+        "use_for": "Slide 6, rationalization / testimony framing",
+        "primary": false
+      },
+      {
+        "asset": "NTSB Public Hearing Transcript, Day 3, FAA testimony on bird ingestion regulation history",
+        "source_url": "https://data.ntsb.gov/Docket/Document/docBLOB?ID=40315652",
+        "rights": "PD",
+        "use_for": "Slide 4, document / certification history",
+        "primary": true
+      },
+      {
+        "asset": "NTSB Flight Data Recorder Factual Report, N1/N2 spool-down sequence",
+        "source_url": "https://data.ntsb.gov/Docket/Document/docBLOB?ID=40312608",
+        "rights": "PD",
+        "use_for": "Slide 5, signal / instrument data",
+        "primary": true
+      },
+      {
+        "asset": "NTSB Structures Group Factual Report, engine separation and fuselage damage photographs",
+        "source_url": "https://data.ntsb.gov/Docket/Document/docBLOB?ID=40313057",
+        "rights": "PD",
+        "use_for": "Slide 3, barrier / structural integrity",
+        "primary": false
+      },
+      {
+        "asset": "NTSB Aircraft Accident Report AAR-10/03, full report",
+        "source_url": "https://www.ntsb.gov/investigations/accidentreports/reports/aar1003.pdf",
+        "rights": "PD",
+        "use_for": "General citation, all slides",
+        "primary": true
+      },
+      {
+        "asset": "Federal Register notice, July 6, 2018, FAA response to NTSB recommendations",
+        "source_url": "https://www.federalregister.gov/documents/2018/07/06/2018-14270/medium-flocking-bird-test-at-climb-condition",
+        "rights": "PD",
+        "use_for": "Slide 4 and Slide 9, document and contradiction",
+        "primary": true
+      },
+      {
+        "asset": "FAA Final Rule Amendment 33-3, 2023",
+        "source_url": "https://public-inspection.federalregister.gov/2023-06413.pdf",
+        "rights": "PD",
+        "use_for": "Slide 7, clock / timeline endpoint",
+        "primary": false
+      }
+    ],
+    "slides": [
+      {
+        "n": 1,
+        "kind": "anomaly",
+        "headline": "155",
+        "text": "Every passenger and crew member aboard US Airways Flight 1549 survived the ditching in the Hudson River on January 15, 2009.",
+        "visual": "Full-bleed NTSB structures photo of the aircraft floating intact on the Hudson, cropped tight, no people visible."
+      },
+      {
+        "n": 2,
+        "kind": "correction",
+        "label": "What everyone gets wrong",
+        "headline": "Simulators didn't clear LaGuardia",
+        "text": "Immediate-turn runs succeeded 7 of 13 times. With a realistic 35-second delay built in, the only completed run to runway 13 crashed short. A delayed return to runway 22 was never attempted after the first four tries failed.",
+        "visual": "NTSB Simulator Results Document, Exhibit 2DD Attachment 28, table of run outcomes with the delay column highlighted."
+      },
+      {
+        "n": 3,
+        "kind": "barrier",
+        "label": "What worked",
+        "headline": "The rafts were a requirement",
+        "text": "The A320 was certified for extended overwater operations, which meant slides that convert to rafts. The NTSB found that without that certification, 64 people would have faced 41-degree water where cold shock and drowning can occur within five minutes.",
+        "visual": "NTSB Structures Group photo of the intact fuselage and evacuation slides, Exhibit 7-A."
+      },
+      {
+        "n": 4,
+        "kind": "document",
+        "label": "The certification",
+        "headline": "\"Did not indicate a deficiency\"",
+        "text": "The CFM56-5B4/P was certified in 1996 against medium and small flocking birds. Engines under 2.5 square meters inlet area, like this one, were exempt from large-bird testing. In 2018 the FAA wrote that Flight 1549 did not show a deficiency in the fan blade requirements.",
+        "visual": "Federal Register notice, July 6, 2018, text excerpt rendered as a document scan with the quoted sentence boxed."
+      },
+      {
+        "n": 5,
+        "kind": "signal",
+        "label": "The instant it read true",
+        "headline": "80% fan speed, 2,800 feet",
+        "text": "The flight data recorder shows N1 and N2 on both engines degrading within seconds of the strike, at reduced climb fan speed, the exact condition the certification test never simulated.",
+        "visual": "NTSB FDR Factual Report chart, N1/N2 trace over time, Exhibit 10A."
+      },
+      {
+        "n": 6,
+        "kind": "rationalization",
+        "label": "Why the standard held",
+        "headline": "The fan blades passed. The core didn't.",
+        "text": "FAA testimony at the June 2009 hearing traced the bird ingestion standard back through amendments in 2000 and 2007. Each revision addressed fan blade survivability. None addressed core damage from multiple large birds.",
+        "visual": "NTSB Public Hearing Transcript, Day 3, page excerpt on regulatory history, rendered as document text."
+      },
+      {
+        "n": 7,
+        "kind": "clock",
+        "label": "",
+        "headline": "1996: engine certified, large-bird exempt\n2009: geese strike both engines at 2,800 ft\n2010: NTSB recommends re-evaluating the exemption\n2018: FAA declines, cites no fan blade deficiency\n2023: new rule changes bird-test speed, not the exemption",
+        "text": "",
+        "visual": "Plain timeline graphic, no imagery, white text on black."
+      },
+      {
+        "n": 8,
+        "kind": "names",
+        "label": "",
+        "headline": "155",
+        "text": "150 passengers, 3 flight attendants, 1 first officer, 1 captain. No fatalities were recorded in this accident.",
+        "visual": "Black slide, white serif numeral, no names listed, no photographs."
+      },
+      {
+        "n": 9,
+        "kind": "contradiction",
+        "label": "Unresolved",
+        "headline": "The exemption is still on the books",
+        "text": "The 2.5 square meter inlet threshold that excused this engine from large-bird testing in 1996 has never been revised. The FAA's 2023 rule changed the fan-speed condition for medium-bird tests. It did not require large-bird testing on engines this size.",
+        "visual": "Split frame: 1996 certification standard text beside the 2023 Federal Register rule text, no imagery."
+      },
+      {
+        "n": 10,
+        "kind": "outro",
+        "label": "",
+        "headline": "Full case file on YouTube",
+        "text": "@LastKnownPositionTV",
+        "visual": "Channel logo on black."
+      }
+    ],
+    "source_line": "NTSB Aircraft Accident Report NTSB/AAR-10/03, May 4, 2010; NTSB Docket SA-532, public hearing transcripts June 2009; Federal Register notices 2018 and 2023; FAA Lessons Learned database.",
+    "caption": "155.\n\nEvery person aboard US Airways Flight 1549 survived the ditching in the Hudson River on January 15, 2009. The engines that failed had been certified in 1996 under a standard that exempted engines their size from large-bird ingestion testing, a standard the FAA never fully revised.\n\nNTSB/AAR-10/03; Docket SA-532; Federal Register 2018, 2023.\n\n40.7695\u00b0N 74.0046\u00b0W",
+    "hashtags": [
+      "#AviationSafety",
+      "#NTSB",
+      "#BirdStrike",
+      "#EngineCertification",
+      "#Flight1549",
+      "#HudsonRiver"
+    ],
+    "x_post": "US Airways 1549's CFM56 engines were certified in 1996 against medium and small birds only. Engines under 2.5 sq meters inlet area, like this one, were exempt from large-bird testing. That exemption is still in the rulebook.",
+    "x_post_type": "exhibit",
+    "x_reply": "Full case file: https://www.youtube.com/@LastKnownPositionTV",
+    "hook_alternates": [
+      {
+        "shape": "document",
+        "hook": "FAA, 2018: \"The evidence... did not indicate a deficiency in current bird ingestion requirements.\""
+      },
+      {
+        "shape": "countdown",
+        "hook": "14 years between the recommendation and a rule. The rule didn't touch the exemption."
+      },
+      {
+        "shape": "contradiction",
+        "hook": "The NTSB said re-test the threshold. The FAA changed the fan speed instead."
+      }
+    ],
+    "longform_note": "Tier C. The failure mechanism (dual bird strike, both engines) is fully settled and not disputable. The long-form hook, if this case is ever revisited for A-tier treatment, is the 2.5 square meter certification threshold itself: why it was set there in 1996, what data supported it, and why 13 years of recommendation traffic never touched it. That paper trail (FAA rulemaking docket, CFM/Airbus certification basis documents) was not available in this research pass and would need to be pulled before any long-form claim is made.",
+    "generated_at": "2026-08-31T22:18:05.635316+00:00",
+    "status": "pending_approval",
+    "daily_no": "003",
+    "rendered": [
+      "out/003-us-airways-flight-1549/slide_01.jpg",
+      "out/003-us-airways-flight-1549/slide_02.jpg",
+      "out/003-us-airways-flight-1549/slide_03.jpg",
+      "out/003-us-airways-flight-1549/slide_04.jpg",
+      "out/003-us-airways-flight-1549/slide_05.jpg",
+      "out/003-us-airways-flight-1549/slide_06.jpg",
+      "out/003-us-airways-flight-1549/slide_07.jpg",
+      "out/003-us-airways-flight-1549/slide_08.jpg",
+      "out/003-us-airways-flight-1549/slide_09.jpg",
+      "out/003-us-airways-flight-1549/slide_10.jpg"
+    ]
   }
 ]
