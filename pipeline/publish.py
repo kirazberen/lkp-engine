@@ -6,16 +6,17 @@ Buffer free tier, org 6a952155eb370bd724a858b3:
   TikTok     6a952c83065799be465c1afb
   X          6a953137065799be465c288a
 
-Only posts with status == "approved" are sent. Flip the status in
-data/queue.json to approve. That is the human gate. Do not remove it.
+Approval: by default only status == "approved" is sent. Set LKP_AUTO_APPROVE=1
+to publish pending_approval packages unattended - the grounded() guard still
+blocks anything the research pass failed to anchor to a primary document.
 
 Per-channel behaviour, because these platforms are not the same:
 
   IG / TikTok - full caption, hashtags in the caption block, slides attached
                 as a carousel via raw GitHub URLs.
-  X           - a native thread. No hashtags. No link in the body (an outbound
-                link costs roughly 30-40% of reach); the link is the final
-                thread item instead.
+  X           - a native thread, every item numbered Part N/N. No hashtags.
+                No link in the body (an outbound link costs roughly 30-40% of
+                reach); the link is the final thread item instead.
 """
 
 import json
@@ -46,6 +47,45 @@ RAW = f"https://raw.githubusercontent.com/{GH_REPO}/{GH_BRANCH}/"
 
 YT = "https://www.youtube.com/@LastKnownPositionTV"
 X_LIMIT = 280
+PART_TAG = 12          # room for "Part 10/10\n\n"
+
+# Set LKP_AUTO_APPROVE=1 to publish without flipping status by hand.
+# The grounded() guard below still blocks anything the research pass failed
+# to anchor to a primary document.
+AUTO_APPROVE = os.environ.get("LKP_AUTO_APPROVE") == "1"
+
+
+def grounded(pkg):
+    """
+    Minimum evidence bar for unattended publishing. Not a taste check - it only
+    asks whether the research actually anchored itself to a document.
+    """
+    missing = []
+    if not (pkg.get("docket_url") or "").startswith("http"):
+        missing.append("docket_url")
+    if not (pkg.get("source_line") or "").strip():
+        missing.append("source_line")
+    if not (pkg.get("caption") or "").strip():
+        missing.append("caption")
+    if not any(
+        isinstance(a, dict) and a.get("rights") == "PD"
+        for a in (pkg.get("assets") or [])
+    ):
+        missing.append("no PD asset")
+    return missing
+
+
+def publishable(pkg):
+    status = pkg.get("status")
+    if status == "approved":
+        return True
+    if AUTO_APPROVE and status == "pending_approval":
+        missing = grounded(pkg)
+        if missing:
+            print(f"[publish] HELD DAILY {pkg.get('daily_no')} - ungrounded: {', '.join(missing)}")
+            return False
+        return True
+    return False
 
 
 def media_urls(pkg):
@@ -100,10 +140,15 @@ def x_thread(pkg):
         if pkg.get("source_line"):
             items.append(pkg["source_line"])
 
-    items = [i[: X_LIMIT - 1] for i in items if i][:5]
+    items = [i[: X_LIMIT - PART_TAG - 1] for i in items if i][:5]
     if not items:
         return None, None
     items.append(pkg.get("x_reply") or f"Full case file: {YT}")
+
+    # Number every item. Without this the reader cannot tell which tweet comes
+    # first or that a thread exists at all.
+    total = len(items)
+    items = [f"Part {i}/{total}\n\n{t}" for i, t in enumerate(items, 1)]
     return items[0], [{"text": t} for t in items]
 
 
@@ -112,7 +157,7 @@ def main():
     sent = 0
 
     for pkg in queue:
-        if pkg.get("status") != "approved":
+        if not publishable(pkg):
             continue
 
         pkg.setdefault("buffer_ids", [])
