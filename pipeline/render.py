@@ -136,8 +136,10 @@ def render(package):
         )
         p = outdir / f"slide_{n}.jpg"
         img.save(p, quality=92)
-        paths.append(str(p))
-        print(f"[render] {p.name}")
+        # store repo-relative, not runner-absolute: publish.py turns these
+        # into raw.githubusercontent.com URLs for Buffer
+        paths.append(str(p.relative_to(ROOT)))
+        print(f"[render] {p.relative_to(ROOT)}")
 
     return paths
 
