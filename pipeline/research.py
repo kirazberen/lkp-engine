@@ -1,5 +1,5 @@
 """
-Node 01 + 02 — MINE and WRITE, in one API call.
+Node 01 + 02 - MINE and WRITE, in one API call.
 
 Researches a case from primary government sources and returns a verified
 post package as JSON. Uses the server-side web_search tool so the model
@@ -54,7 +54,7 @@ investigation channel. You work only from primary government sources.
 SOURCE STACK
 {SOURCE_STACK}
 
-STRUCTURAL TEST — run first.
+STRUCTURAL TEST - run first.
 Name, in one sentence, the specific thing the investigation could not settle.
 "Nobody knows what happened" = FAIL, mystery-channel material.
 "Two agencies published opposite conclusions and both still stand" = PASS.
@@ -115,7 +115,7 @@ SCHEMA = """
   "investigators_disagree": [{"question": str, "position_a": str, "position_b": str, "status": str}],
   "could_not_verify": [{"item": str, "disposition": "ATTRIBUTE" | "CUT", "note": str}],
   "assets": [{"asset": str, "source_url": str, "rights": "PD" | "RESTRICTED" | "DO NOT USE", "use_for": str, "primary": bool}],
-  "slides": [{"n": int, "text": str, "visual": str}],
+  "slides": [{"n": int, "kind": str, "label": str, "headline": str, "text": str, "visual": str}],
   "source_line": str,
   "caption": str,
   "hashtags": [str],
@@ -165,15 +165,20 @@ Search the primary source databases. Find the actual report or docket, not
 news coverage of it. Then produce:
 
 1. The structural test result
-2. commonly_wrong  — what popular retellings get wrong vs what the document says
-3. investigators_disagree — any point where two bodies reached different conclusions
-4. could_not_verify — anything you could not trace to a primary document
-5. assets — every usable visual with its rights status
+2. commonly_wrong  - what popular retellings get wrong vs what the document says
+3. investigators_disagree - any point where two bodies reached different conclusions
+4. could_not_verify - anything you could not trace to a primary document
+5. assets - every usable visual with its rights status
 
 Before settling the structural test, check the approval chain specifically:
 who authorised the condition that failed, what data they had, and whether any
 safety recommendation about it was issued, closed, or ignored. That thread
 outranks a failure-sequence timing dispute every time.
+
+The post will run to 8-10 slides, so gather enough distinct, sourced detail to
+carry that many beats: the safeguard, the document, the reading, the
+rationalisation, the timeline, the toll, and the unresolved thing. Thin
+research produces a boring carousel.
 
 Return JSON with those keys plus case_name, event_date, location, coordinates,
 agency, docket_url, the_number, the_unresolved_thing, tier, structural_test."""
@@ -191,7 +196,7 @@ agency, docket_url, the_number, the_unresolved_thing, tier, structural_test."""
 
 def write(findings, tier):
     """Pass 2: copy. Sonnet, no tools, cheap because input is small."""
-    n_slides = {"A": 5, "B": 0, "C": 3}[tier]
+    n_slides = {"A": 10, "B": 0, "C": 8}[tier]
     fmt = (
         f"{n_slides} carousel slides"
         if n_slides
@@ -204,10 +209,38 @@ def write(findings, tier):
 
 Format: {fmt}
 
-Slide 1 / the first 3 seconds opens on the verified number. The last slide
-closes on the unresolved thing. Caption's first line is the hook verbatim
-because IG and TikTok truncate after one line. Then two sentences of context,
-then the source line, then the coordinate strip.
+SLIDE ARCHITECTURE. Each slide is an object with:
+  kind     one of: anomaly, correction, barrier, document, signal,
+           rationalization, clock, names, contradiction, outro
+  label    2-4 word section tag, e.g. "What everyone gets wrong". Omit on slide 1.
+  headline 3-9 words. SHORT. This renders very large. A full sentence will
+           shrink to nothing - never put a paragraph here.
+  text     1-3 sentences of body copy underneath. May be empty on a clock slide.
+  visual   which asset and how treated.
+
+Run them in this order, flexing 3-6 to fit the case:
+  1  anomaly         the number, huge. No question mark, no "you won't believe".
+  2  correction      what everyone gets wrong. This is the swipe-bait slide.
+  3  barrier         the safeguard that existed.
+  4  document        the email, memo, order, or approval. Strongest slide.
+  5  signal          the reading or moment the system told them the truth.
+  6  rationalization why they didn't believe it. Do not villainise the dead.
+  7  clock           3-5 timecoded lines in headline, separated by newlines,
+                     tightening. Leave text empty. Last line is the event.
+  8  names           the count in type. Never photographs.
+  9  contradiction   the unresolved thing, stated flat. DOES NOT RESOLVE.
+  10 outro           one line + "Full case file on YouTube. @LastKnownPositionTV"
+
+Slides 1, 2, 9 and 10 are fixed and carry the thesis. One idea per slide - if
+it needs two sentences of headline, it is two slides.
+
+Every slide must carry a piece of evidence or a specific number. A slide that
+only restates the previous one is why a carousel gets swiped past.
+
+Slide 1 opens on the verified number. Slide 9 closes on the unresolved thing.
+Caption's first line is the hook verbatim because IG and TikTok truncate after
+one line. Then two sentences of context, then the source line, then the
+coordinate strip.
 
 5 to 7 hashtags, two broad two niche two case-specific. No generic tags like
 #mystery or #disaster on their own.
@@ -312,7 +345,7 @@ def main():
                 r["status"] = "processed"
         (DATA / "case_bank.json").write_text(json.dumps(bank, indent=2))
 
-    print(f"[research] queued DAILY {package['daily_no']} — {package.get('case_name')}")
+    print(f"[research] queued DAILY {package['daily_no']} - {package.get('case_name')}")
     print(f"[research] tier {package.get('tier')} | unresolved: {package.get('the_unresolved_thing')}")
 
 
