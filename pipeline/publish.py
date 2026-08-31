@@ -11,17 +11,15 @@ to publish pending_approval packages unattended - the grounded() guard still
 blocks anything the research pass failed to anchor to a primary document.
 
 This node is self-sufficient: if a publishable package has no slides yet it
-renders them, commits and pushes them, then posts. It does not depend on the
-workflow's render step having run first.
+renders them, commits and pushes them, waits for raw.githubusercontent to
+actually serve them, then posts. It does not depend on the workflow's render
+step having run first.
 
-Per-channel behaviour:
-  IG / TikTok - full caption, hashtags in the caption block, slides attached
-                as a carousel via raw GitHub URLs.
-  X           - a native thread, every item numbered Part N/N. No hashtags.
-                No link in the body; the link is the final thread item.
+Outcome is written back into data/queue.json - status becomes "scheduled" or
+"publish_failed" with the error text - so the result of every run is readable
+from the repo without needing the Actions log.
 
-Set "skip_channels": ["x"] on a package to suppress a channel it is already
-covered on.
+Set "skip_channels": ["x"] on a package to suppress a channel it already has.
 """
 
 import json
@@ -155,6 +153,8 @@ def x_thread(pkg):
         return None, None
     items.append(pkg.get("x_reply") or f"Full case file: {YT}")
 
+    # Number every item. Without this the reader cannot tell which tweet comes
+    # first or that a thread exists at all.
     total = len(items)
     items = [f"Part {i}/{total}\n\n{t}" for i, t in enumerate(items, 1)]
     return items[0], [{"text": t} for t in items]
@@ -185,9 +185,38 @@ def ensure_rendered(queue):
         subprocess.run(["git", "commit", "-m", "lkp: slides for publish"], check=True)
         subprocess.run(["git", "push"], check=True)
         print("[publish] slides committed and pushed")
-        time.sleep(8)  # let raw.githubusercontent pick up the new blobs
     except subprocess.CalledProcessError as e:
         print(f"[publish] commit/push failed ({e}); Buffer cannot fetch media")
+        return
+
+    # Do not guess at CDN propagation. Poll until raw actually serves the new
+    # blobs, because Buffer validates media at create time and a 404 there
+    # marks the whole package publish_failed.
+    probe = next((u for pkg in queue for u in media_urls(pkg)), None)
+    if probe:
+        wait_for_raw(probe)
+
+
+def wait_for_raw(url, timeout=300, interval=10):
+    """Block until raw.githubusercontent serves url, or timeout."""
+    deadline = time.time() + timeout
+    attempt = 0
+    while time.time() < deadline:
+        attempt += 1
+        try:
+            req = urllib.request.Request(url, method="HEAD",
+                                         headers={"User-Agent": "lkp-engine/1.0"})
+            with urllib.request.urlopen(req, timeout=20) as r:
+                if r.status == 200:
+                    print(f"[publish] raw serving slides after {attempt} probe(s)")
+                    time.sleep(5)   # cushion for the remaining blobs
+                    return True
+        except Exception:
+            pass
+        print(f"[publish] waiting on raw propagation, probe {attempt}")
+        time.sleep(interval)
+    print("[publish] raw never served the slide within timeout; posting anyway")
+    return False
 
 
 def main():
