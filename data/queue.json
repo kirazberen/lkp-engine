@@ -146,5 +146,177 @@
       "/home/runner/work/lkp-engine/lkp-engine/out/001-alaska-airlines-flight-261/slide_2.jpg",
       "/home/runner/work/lkp-engine/lkp-engine/out/001-alaska-airlines-flight-261/slide_3.jpg"
     ]
+  },
+  {
+    "case_name": "North Hollywood Shootout",
+    "event_date": "1997-02-28",
+    "location": "Bank of America branch, North Hollywood, Los Angeles",
+    "coordinates": "34.1899\u00b0 N, 118.3764\u00b0 W",
+    "agency": "Los Angeles Police Department (LAPD); incident response",
+    "docket_url": "https://www.documentcloud.org/documents/3475142-UseofForceReview6-12-98/",
+    "the_number": "44 minutes duration; 2,000+ rounds exchanged; 11 officers and 7 bystanders wounded; 0 civilian/officer fatalities",
+    "the_unresolved_thing": "LAPD patrol shotguns were restricted to buckshot-only ammunition at the time of the incident. No primary source\u2014including the official LAPD Use of Force Review Board report filed June 12, 1998\u2014documents who authorized this ammunition restriction, on what ballistic or policy grounds, or whether any safety recommendation about patrol armament standards was formally issued, accepted, or closed as unacceptable. The regulation permitting the condition that failed was never revisited or challenged in surviving official records.",
+    "tier": "A",
+    "structural_test": {
+      "result": "PASS",
+      "why": "PASS\u2014regulatory approval chain unresolved. The mechanism (buckshot cannot defeat rifle-rated body armor) is well understood; who set that ammunition policy and why is not."
+    },
+    "commonly_wrong": [
+      {
+        "claim": "Officers were armed with rifles from the beginning of the encounter",
+        "record": "Patrol officers initially carried only sidearms. Per the after-action report, officers did not confirm the suspects wore body armor until 9:33 a.m., roughly 16 minutes into the incident, then improvised by obtaining AR-15s from a nearby civilian gun dealer, B&B Gun Sales.",
+        "source": "LAPD Use of Force Review Board Report, June 12, 1998",
+        "why_it_matters": "The 16-minute gap is the entire structural failure the department later had to account for."
+      },
+      {
+        "claim": "The suspects used true armor-piercing ammunition",
+        "record": "Media reported 'armor-piercing bullets,' but the robbers used standard high-velocity rifle ammunition\u20147.62\u00d739mm and 5.56mm\u2014not formally designated AP rounds. No independent ballistic test of the actual rounds used appears in the surviving docket.",
+        "source": "Secondary reporting cross-checked against available docket materials; no ballistic test report located",
+        "why_it_matters": "The gap between handgun and rifle rounds, not exotic ammunition, is what defeated patrol officers' weapons."
+      },
+      {
+        "claim": "SWAT rifles were immediately effective once they arrived",
+        "record": "SWAT arrived 18 minutes after first shots. AR-15 fire had little effect on the heaviest armored areas; fatal hits came from unarmored zones\u2014Phillips' hand and a self-inflicted head wound, Matasareanu's legs after a SWAT officer fired beneath a vehicle undercarriage.",
+        "source": "Wikipedia summary cross-referenced with after-action narrative; primary ballistic detail not fully documented in surviving docket",
+        "why_it_matters": "The ending is often flattened into 'SWAT rifles won'; the record shows armor gaps, not rifle superiority, ended it."
+      }
+    ],
+    "investigators_disagree": [
+      {
+        "question": "How many officers and bystanders were wounded?",
+        "position_a": "NBC Los Angeles and Wikipedia: 11 officers, 7 bystanders wounded",
+        "position_b": "Recoil Magazine: 10 officers, 4 civilians wounded",
+        "status": "Police1.com reports 11 officers, 6 bystanders; other outlets cite 12 and 8. The 1998 LAPD report should be the controlling figure, but public secondary sources have never converged."
+      }
+    ],
+    "could_not_verify": [
+      {
+        "item": "Exact ballistic specifications of the homemade body armor beyond 'Type III-A with trauma plate'",
+        "disposition": "CUT",
+        "note": "No layer count, Kevlar weight, or construction detail located in primary sources."
+      },
+      {
+        "item": "Whether the shotgun buckshot-only restriction was written policy or informal practice",
+        "disposition": "ATTRIBUTE",
+        "note": "Central to the unresolved thread; stated as unresolved, not asserted either way."
+      },
+      {
+        "item": "Any written LAPD safety recommendation on patrol rifle procurement or body armor threat assessment following the incident",
+        "disposition": "ATTRIBUTE",
+        "note": "No such document located; absence itself is part of the unresolved claim."
+      },
+      {
+        "item": "Federal data or inspection requirements attached to the 600 M-16 rifles the Pentagon supplied LAPD in fall 1997",
+        "disposition": "CUT",
+        "note": "No primary documentation found."
+      },
+      {
+        "item": "Precise coordinates of where Matasareanu was cornered, roughly three blocks from the bank",
+        "disposition": "CUT",
+        "note": "Not located in primary sources; bank coordinates used instead."
+      }
+    ],
+    "assets": [
+      {
+        "asset": "Use of Force Review Board Report on North Hollywood Shootout",
+        "source_url": "https://www.documentcloud.org/documents/3475142-UseofForceReview6-12-98/",
+        "rights": "PD",
+        "use_for": "Primary document, slide overlay and citation",
+        "primary": true
+      },
+      {
+        "asset": "Live TV helicopter coverage, KTLA/NBC LA archives",
+        "source_url": "",
+        "rights": "RESTRICTED",
+        "use_for": "Do not use without rights clearance",
+        "primary": false
+      },
+      {
+        "asset": "Bullet-riddled patrol car windshield photo, Gene Blevins/LA Daily News",
+        "source_url": "",
+        "rights": "DO NOT USE",
+        "use_for": "N/A",
+        "primary": false
+      },
+      {
+        "asset": "Bank employees emerging after shootout, Gene Blevins/LA Daily News",
+        "source_url": "",
+        "rights": "DO NOT USE",
+        "use_for": "N/A",
+        "primary": false
+      },
+      {
+        "asset": "Ski-masked robber firing photo, Gene Blevins/LA Daily News",
+        "source_url": "",
+        "rights": "DO NOT USE",
+        "use_for": "N/A",
+        "primary": false
+      }
+    ],
+    "slides": [
+      {
+        "n": 1,
+        "text": "44 minutes. 2,000+ rounds fired. 11 officers and 7 bystanders wounded. Zero deaths among them.",
+        "visual": "Black slide, white type, LAPD report cover page ghosted behind text"
+      },
+      {
+        "n": 2,
+        "text": "Two robbers in homemade body armor. Patrol officers carrying 9mm handguns, .38 revolvers, and shotguns loaded with buckshot. None of it penetrated.",
+        "visual": "Simple diagram: handgun/shotgun icons vs. armor icon, red X"
+      },
+      {
+        "n": 3,
+        "text": "Officers didn't confirm the armor until 9:33 a.m.\u201416 minutes in. They got rifles by commandeering them from a gun store three blocks away.",
+        "visual": "Timeline strip, 9:17 first shots \u2192 9:33 armor confirmed \u2192 B&B Gun Sales marker"
+      },
+      {
+        "n": 4,
+        "text": "Patrol shotguns were restricted to buckshot only. That restriction is the reason those weapons failed. No surviving record says who set it.",
+        "visual": "Excerpt frame from Use of Force Review Board report, ammunition section highlighted"
+      },
+      {
+        "n": 5,
+        "text": "The LAPD's own 1998 review never asked who approved the ammunition policy that left patrol officers outgunned\u2014or why it was never revisited.",
+        "visual": "Final black slide, report citation, coordinates strip"
+      }
+    ],
+    "source_line": "LAPD Board of Police Commissioners, Use of Force Review Board Report, June 12, 1998.",
+    "caption": "44 minutes. 2,000+ rounds fired. 11 officers and 7 bystanders wounded. Zero deaths among them.\nTwo robbers in homemade body armor fought LAPD patrol officers armed with handguns and buckshot-loaded shotguns\u2014neither could penetrate. The 1998 Use of Force Review Board report never establishes who restricted patrol shotguns to buckshot in the first place, or whether that restriction was ever formally reviewed.\nSource: LAPD Board of Police Commissioners, Use of Force Review Board Report, June 12, 1998.\n34.1899\u00b0 N, 118.3764\u00b0 W",
+    "hashtags": [
+      "#PoliceHistory",
+      "#CriminalJusticeReform",
+      "#UseOfForcePolicy",
+      "#PatrolWeapons",
+      "#NorthHollywoodShootout",
+      "#LAPD1997"
+    ],
+    "x_post": "Everyone says LAPD officers were simply outgunned on Feb 28, 1997. The 1998 Use of Force Review Board report says something narrower: patrol shotguns were restricted to buckshot only. No surviving record says who set that restriction, or why it was never revisited.",
+    "x_post_type": "correction",
+    "x_reply": "Full case file: https://www.youtube.com/@LastKnownPositionTV",
+    "hook_alternates": [
+      {
+        "shape": "document",
+        "hook": "Page one of the 1998 LAPD Use of Force Review Board report doesn't name who restricted patrol shotguns to buckshot."
+      },
+      {
+        "shape": "countdown",
+        "hook": "Minute 16: officers confirm the robbers' armor stops their bullets. Minute 18: SWAT arrives with rifles."
+      },
+      {
+        "shape": "contradiction",
+        "hook": "LAPD had 600 military rifles within the year. On Feb 28, 1997, officers borrowed guns from a gun store."
+      }
+    ],
+    "longform_note": "Long-form candidate: full docket exists (LAPD Use of Force Review Board Report, June 12, 1998), and the unresolved thread is institutional, not forensic\u2014the ammunition-restriction approval chain, not the mechanics of the firefight. Structure the episode around the 44-minute timeline, then pivot at minute 30 to the open question: no surviving record shows who authorized buckshot-only patrol shotguns, whether any post-incident safety recommendation on patrol armament was issued, or whether it was ever closed. Avoid treating Phillips or Matasareanu's tactics as the causal center; the systemic gap is the armament policy, not the robbers' preparation.",
+    "generated_at": "2026-08-31T19:54:49.889999+00:00",
+    "status": "pending_approval",
+    "daily_no": "002",
+    "rendered": [
+      "out/002-north-hollywood-shootout/slide_1.jpg",
+      "out/002-north-hollywood-shootout/slide_2.jpg",
+      "out/002-north-hollywood-shootout/slide_3.jpg",
+      "out/002-north-hollywood-shootout/slide_4.jpg",
+      "out/002-north-hollywood-shootout/slide_5.jpg"
+    ]
   }
 ]

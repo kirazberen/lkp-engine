@@ -1,19 +1,98 @@
 [
-  { "hint": "North Hollywood shootout 1997 - LAPD after action report, why patrol sidearms could not penetrate the body armour and what changed in police procurement", "tier": "A", "status": "queued", "hook_familiarity": "the Heat bank robbery" },
-  { "hint": "US Airways 1549 Hudson River ditching 2009 - NTSB docket, the simulator runs that showed a return to LaGuardia was survivable only with instant reaction", "tier": "A", "status": "queued", "hook_familiarity": "Sully" },
-  { "hint": "Apollo 13 oxygen tank 2 failure 1970 - NASA Cortright Commission report, the thermostat switch never upgraded to 65 volts", "tier": "A", "status": "queued", "hook_familiarity": "Apollo 13" },
-  { "hint": "Challenger STS-51-L 1986 - Rogers Commission report, the O-ring temperature data and the night before teleconference", "tier": "A", "status": "queued", "hook_familiarity": "Challenger, the Netflix series" },
-  { "hint": "United 232 Sioux City 1989 - NTSB AAR-90/06, the fan disk metallurgy and the hydraulic system with no fourth backup", "tier": "A", "status": "queued", "hook_familiarity": "A Thousand Heroes" },
-  { "hint": "Boeing 737 MAX MCAS - House Transportation Committee final report and the FAA ODA delegation that let Boeing certify itself", "tier": "A", "status": "queued", "hook_familiarity": "Downfall on Netflix" },
-  { "hint": "Exxon Valdez 1989 - NTSB marine accident report, the collision avoidance radar that had been broken for over a year", "tier": "B", "status": "queued", "hook_familiarity": "the name itself" },
-  { "hint": "Three Mile Island 1979 - NRC and Kemeny Commission, the stuck open relief valve and the indicator light that showed the command not the valve", "tier": "C", "status": "queued", "hook_familiarity": "Meltdown on Netflix" },
-  { "hint": "Andrea Gail 1991 - Coast Guard marine casualty report, what the record actually establishes versus what the book invented", "tier": "C", "status": "queued", "hook_familiarity": "The Perfect Storm" },
-  { "hint": "Titanic 1912 - US Senate inquiry report, the binocular locker and the lifeboat capacity that met regulation exactly", "tier": "C", "status": "queued", "hook_familiarity": "Titanic" },
-  { "hint": "Deepwater Horizon Macondo negative pressure test, April 20 2010", "tier": "A", "status": "queued", "hook_familiarity": "the 2016 film" },
-  { "hint": "BP Texas City refinery explosion 2005, CSB Anatomy of a Disaster", "tier": "A", "status": "queued" },
-  { "hint": "Hyatt Regency walkway collapse 1981, NBS BSS 143, the original design was already below code", "tier": "C", "status": "queued" },
-  { "hint": "El Faro VDR bridge audio, 2015 sinking, NTSB docket", "tier": "B", "status": "queued" },
-  { "hint": "Upper Big Branch mine 2010, MSHA report versus the independent panel", "tier": "C", "status": "queued" },
-  { "hint": "West Fertilizer 2013 CSB investigation regulatory gap", "tier": "B", "status": "queued" },
-  { "hint": "Imperial Food Products fire 1991 locked exit doors inspection record", "tier": "C", "status": "queued" }
+  {
+    "hint": "North Hollywood shootout 1997 - LAPD after action report, why patrol sidearms could not penetrate the body armour and what changed in police procurement",
+    "tier": "A",
+    "status": "processed",
+    "hook_familiarity": "the Heat bank robbery"
+  },
+  {
+    "hint": "US Airways 1549 Hudson River ditching 2009 - NTSB docket, the simulator runs that showed a return to LaGuardia was survivable only with instant reaction",
+    "tier": "A",
+    "status": "queued",
+    "hook_familiarity": "Sully"
+  },
+  {
+    "hint": "Apollo 13 oxygen tank 2 failure 1970 - NASA Cortright Commission report, the thermostat switch never upgraded to 65 volts",
+    "tier": "A",
+    "status": "queued",
+    "hook_familiarity": "Apollo 13"
+  },
+  {
+    "hint": "Challenger STS-51-L 1986 - Rogers Commission report, the O-ring temperature data and the night before teleconference",
+    "tier": "A",
+    "status": "queued",
+    "hook_familiarity": "Challenger, the Netflix series"
+  },
+  {
+    "hint": "United 232 Sioux City 1989 - NTSB AAR-90/06, the fan disk metallurgy and the hydraulic system with no fourth backup",
+    "tier": "A",
+    "status": "queued",
+    "hook_familiarity": "A Thousand Heroes"
+  },
+  {
+    "hint": "Boeing 737 MAX MCAS - House Transportation Committee final report and the FAA ODA delegation that let Boeing certify itself",
+    "tier": "A",
+    "status": "queued",
+    "hook_familiarity": "Downfall on Netflix"
+  },
+  {
+    "hint": "Exxon Valdez 1989 - NTSB marine accident report, the collision avoidance radar that had been broken for over a year",
+    "tier": "B",
+    "status": "queued",
+    "hook_familiarity": "the name itself"
+  },
+  {
+    "hint": "Three Mile Island 1979 - NRC and Kemeny Commission, the stuck open relief valve and the indicator light that showed the command not the valve",
+    "tier": "C",
+    "status": "queued",
+    "hook_familiarity": "Meltdown on Netflix"
+  },
+  {
+    "hint": "Andrea Gail 1991 - Coast Guard marine casualty report, what the record actually establishes versus what the book invented",
+    "tier": "C",
+    "status": "queued",
+    "hook_familiarity": "The Perfect Storm"
+  },
+  {
+    "hint": "Titanic 1912 - US Senate inquiry report, the binocular locker and the lifeboat capacity that met regulation exactly",
+    "tier": "C",
+    "status": "queued",
+    "hook_familiarity": "Titanic"
+  },
+  {
+    "hint": "Deepwater Horizon Macondo negative pressure test, April 20 2010",
+    "tier": "A",
+    "status": "queued",
+    "hook_familiarity": "the 2016 film"
+  },
+  {
+    "hint": "BP Texas City refinery explosion 2005, CSB Anatomy of a Disaster",
+    "tier": "A",
+    "status": "queued"
+  },
+  {
+    "hint": "Hyatt Regency walkway collapse 1981, NBS BSS 143, the original design was already below code",
+    "tier": "C",
+    "status": "queued"
+  },
+  {
+    "hint": "El Faro VDR bridge audio, 2015 sinking, NTSB docket",
+    "tier": "B",
+    "status": "queued"
+  },
+  {
+    "hint": "Upper Big Branch mine 2010, MSHA report versus the independent panel",
+    "tier": "C",
+    "status": "queued"
+  },
+  {
+    "hint": "West Fertilizer 2013 CSB investigation regulatory gap",
+    "tier": "B",
+    "status": "queued"
+  },
+  {
+    "hint": "Imperial Food Products fire 1991 locked exit doors inspection record",
+    "tier": "C",
+    "status": "queued"
+  }
 ]
