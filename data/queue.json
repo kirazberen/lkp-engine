@@ -1,1 +1,150 @@
-[]
+[
+  {
+    "case_name": "Alaska Airlines Flight 261",
+    "event_date": "2000-01-31",
+    "location": "Pacific Ocean, approximately 2.7 miles north of Anacapa Island, California",
+    "coordinates": "34.0583\u00b0 N, 119.3467\u00b0 W",
+    "agency": "National Transportation Safety Board (NTSB)",
+    "docket_url": "https://data.ntsb.gov/Docket/?NTSBNumber=DCA00MA023",
+    "the_number": "88",
+    "the_unresolved_thing": "Whether the mechanical stop (lower end play) fractured in-flight or upon impact, and the precise sequence of failure of the gimbal nut threads relative to torque tube fracture.",
+    "tier": "C",
+    "structural_test": {
+      "result": "FAIL",
+      "why": "The investigation did settle the primary mechanical cause (acme nut thread failure from insufficient lubrication), but early in the investigation a real disagreement existed over whether the mechanical stop broke in-flight (shifting liability toward Boeing design) versus on impact. The NTSB's final report attributes the uncontrollable dive to torque tube fracture followed by fairing bracket failure, but contemporaneous statements from Boeing and NTSB investigators reflect unresolved questions about exact sequence and timing."
+    },
+    "commonly_wrong": [
+      {
+        "claim": "The mechanical stop (end play) broke off and that's what caused the uncontrollable dive.",
+        "record": "The cause of the final dive was the low-cycle fatigue fracture of the torque tube, followed by failure of the vertical stabilizer tip fairing brackets, which allowed the horizontal stabilizer leading edge to move upward well beyond what a normally operating jackscrew assembly permits, creating excessive upward aerodynamic tail load and uncontrollable downward pitching.",
+        "source": "NTSB/AAR-02/01",
+        "why_it_matters": "Collapses two distinct failure events into one, obscuring that the jackscrew's acme nut thread loss and the later structural fracture were separate stages of the accident sequence."
+      },
+      {
+        "claim": "The jackscrew itself broke during flight.",
+        "record": "The acme nut threads on the jackscrew failed and stripped away. Later analysis estimated 90% of the threads in the acme nut had been previously worn away, and were completely sheared off during the accident flight.",
+        "source": "NTSB/AAR-02/01",
+        "why_it_matters": "The jackscrew (the shaft) survived; it was the acme nut riding on it that lost its threads. Confusing the two misattributes the failure mode."
+      },
+      {
+        "claim": "This was purely a random mechanical failure with no warning.",
+        "record": "Two years earlier, a lead mechanic at Alaska Airlines' Oakland maintenance facility found the jackscrew end play worn to its maximum limit of 0.040 inch and ordered it replaced. The aircraft was returned to service days later with the worn assembly still installed.",
+        "source": "NTSB/AAR-02/01; NTSB Docket DCA00MA023",
+        "why_it_matters": "There was a documented maintenance flag on this exact assembly years before the crash, which matters for any claim that the failure was unforeseeable."
+      }
+    ],
+    "investigators_disagree": [
+      {
+        "question": "Did the mechanical stop (lower end play) fracture in-flight or on impact with the ocean?",
+        "position_a": "NTSB investigator Dan Bowers determined that re-creating the final part of the dive required tilting the stabilizer up 22 degrees, achievable only if the jackscrew separated from the end stop before impact.",
+        "position_b": "Boeing spokeswoman Liz Verdier stated: 'Everyone agrees that it did break off but we don't know where' or when \u2014 leaving open whether it failed in flight or on impact.",
+        "status": "The NTSB's final report settled on torque tube fracture and fairing bracket failure as the mechanism for the final uncontrollable dive, but the precise timing of end-stop separation relative to other failures was not conclusively fixed in contemporaneous investigative statements."
+      }
+    ],
+    "could_not_verify": [
+      {
+        "item": "Whether Alaska Airlines specifically used an unapproved type of grease on the jackscrew assembly (one source claims MIL-G-23827 instead of MIL-G-81322)",
+        "disposition": "CUT",
+        "note": "Not directly quoted from NTSB AAR-02/01; only found in secondary sources."
+      },
+      {
+        "item": "Exact details of the tools used in the end-play check and whether they were non-standard",
+        "disposition": "CUT",
+        "note": "Mentioned in secondary sources but not directly accessed from the official docket."
+      },
+      {
+        "item": "Specific words spoken by the pilots on the CVR transcript",
+        "disposition": "ATTRIBUTE",
+        "note": "Only agency summaries of CVR content are available in these primary sources; any quoted dialogue would need direct docket transcript citation."
+      }
+    ],
+    "assets": [
+      {
+        "asset": "Recovered jackscrew assembly from horizontal stabilizer",
+        "source_url": "https://data.ntsb.gov/Docket/?NTSBNumber=DCA00MA023",
+        "rights": "PD",
+        "use_for": "Slide 2 \u2014 artifact drop, primary physical evidence",
+        "primary": true
+      },
+      {
+        "asset": "Gimbal nut and lower mechanical stop",
+        "source_url": "https://data.ntsb.gov/Docket/?NTSBNumber=DCA00MA023",
+        "rights": "PD",
+        "use_for": "Slide 3 \u2014 visual anchor for unresolved timing question",
+        "primary": false
+      },
+      {
+        "asset": "MIG-4 maintenance card (September 27\u201330, 1997)",
+        "source_url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR0201.pdf",
+        "rights": "PD",
+        "use_for": "Slide 2 \u2014 document proof of prior maintenance flag",
+        "primary": true
+      },
+      {
+        "asset": "Cockpit Voice Recorder (Fairchild A100A, s/n 62892)",
+        "source_url": "https://data.ntsb.gov/Docket/?NTSBNumber=DCA00MA023",
+        "rights": "PD",
+        "use_for": "Background context, not for direct visual use without transcript citation",
+        "primary": false
+      },
+      {
+        "asset": "Horizontal stabilizer wreckage",
+        "source_url": "https://data.ntsb.gov/Docket/?NTSBNumber=DCA00MA023",
+        "rights": "PD",
+        "use_for": "Slide 1 \u2014 establishing wreckage visual",
+        "primary": false
+      }
+    ],
+    "slides": [
+      {
+        "n": 1,
+        "text": "88 people died when Alaska Airlines Flight 261 went into the Pacific Ocean 2.7 miles north of Anacapa Island, California, on January 31, 2000.",
+        "visual": "Recovered horizontal stabilizer wreckage, NTSB docket photo, PD"
+      },
+      {
+        "n": 2,
+        "text": "Two years before the crash, a mechanic found this jackscrew's end play worn to its failure limit. He ordered it replaced. The plane flew again days later with the same worn part.",
+        "visual": "MIG-4 maintenance card, Figure 11, NTSB/AAR-02/01, PD"
+      },
+      {
+        "n": 3,
+        "text": "NTSB found the acme nut threads failed in flight. Boeing said the mechanical stop broke off \u2014 but couldn't say when or where. That sequence was never fully settled.",
+        "visual": "Recovered gimbal nut and lower mechanical stop, NTSB docket photo, PD"
+      }
+    ],
+    "source_line": "NTSB Aircraft Accident Report NTSB/AAR-02/01, 'Loss of Control and Impact with Pacific Ocean, Alaska Airlines Flight 261, McDonnell Douglas MD-83, N963AS, About 2.7 Miles North of Anacapa Island, California, January 31, 2000' (December 10, 2002); NTSB Docket DCA00MA023.",
+    "caption": "88 people died when Alaska Airlines Flight 261 went into the Pacific Ocean 2.7 miles north of Anacapa Island, California, on January 31, 2000.\nThe NTSB traced the crash to a worn acme nut on the horizontal stabilizer jackscrew \u2014 a part flagged for replacement two years earlier. What investigators never fully pinned down was exactly when the mechanical stop failed relative to the final structural fracture.\nSource: NTSB/AAR-02/01; NTSB Docket DCA00MA023.\n34.0583\u00b0 N, 119.3467\u00b0 W",
+    "hashtags": [
+      "#aviation",
+      "#disaster",
+      "#NTSB",
+      "#AlaskaAirlines261",
+      "#MD83",
+      "#aircraftmaintenance",
+      "#planecrash"
+    ],
+    "hook_alternates": [
+      {
+        "shape": "contradiction",
+        "hook": "Boeing: 'Everyone agrees it broke off.' Boeing: 'We don't know where. Or when.'"
+      },
+      {
+        "shape": "document",
+        "hook": "NTSB Exhibit 7V: a jackscrew wrapped in metallic spiral, pulled off the ocean floor February 8, 2000."
+      },
+      {
+        "shape": "countdown",
+        "hook": "Two years before Flight 261 went down, a mechanic found this part worn to its failure limit."
+      }
+    ],
+    "longform_note": "Tier C only. The primary mechanical cause (acme nut thread wear from insufficient lubrication) is settled and well-documented \u2014 this is a correction/artifact post, not a mystery case. The one open thread (timing of end-stop fracture, in-flight vs. impact) is a footnote-level dispute among investigators, not a load-bearing unresolved question, and does not meet the bar for long-form.",
+    "generated_at": "2026-08-31T12:02:52.675341Z",
+    "status": "pending_approval",
+    "daily_no": "001",
+    "rendered": [
+      "/home/runner/work/lkp-engine/lkp-engine/out/001-alaska-airlines-flight-261/slide_1.jpg",
+      "/home/runner/work/lkp-engine/lkp-engine/out/001-alaska-airlines-flight-261/slide_2.jpg",
+      "/home/runner/work/lkp-engine/lkp-engine/out/001-alaska-airlines-flight-261/slide_3.jpg"
+    ]
+  }
+]
