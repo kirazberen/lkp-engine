@@ -160,7 +160,9 @@ agency, docket_url, the_number, the_unresolved_thing, tier, structural_test."""
         SYSTEM,
         tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 8}],
     )
-    return parse_json(text_of(resp))
+    findings = parse_json(text_of(resp))
+    findings["structural_test"] = norm_structural_test(findings.get("structural_test"))
+    return findings
 
 
 def write(findings, tier):
@@ -196,6 +198,26 @@ fields you were given:
     return parse_json(text_of(resp))
 
 
+def norm_structural_test(v):
+    """Coerce structural_test to its documented {"result", "why"} shape.
+
+    The model is asked for an object but sometimes returns a bare string.
+    findings.get("structural_test", {}) does not protect against this: the key
+    is present, it is just the wrong type, so the {} default never applies and
+    the following .get() raises AttributeError. Idempotent.
+    """
+    if isinstance(v, dict):
+        result = str(v.get("result", "")).strip().upper()
+        why = str(v.get("why", ""))
+    elif isinstance(v, str):
+        why = v.strip()
+        result = why.upper()
+    else:
+        return {"result": "UNKNOWN", "why": ""}
+    result = "FAIL" if "FAIL" in result else "PASS" if "PASS" in result else "UNKNOWN"
+    return {"result": result, "why": why}
+
+
 def parse_json(s):
     s = s.strip()
     if s.startswith("```"):
@@ -228,7 +250,7 @@ def main():
     print(f"[research] {hint}  tier={tier}")
     findings = research(hint, tier)
 
-    if findings.get("structural_test", {}).get("result") == "FAIL" and tier == "A":
+    if norm_structural_test(findings.get("structural_test"))["result"] == "FAIL" and tier == "A":
         print("[research] structural test FAILED for tier A, demoting to C")
         tier = findings["tier"] = "C"
 
