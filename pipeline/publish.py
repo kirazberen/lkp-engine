@@ -10,21 +10,31 @@ Approval: by default only status == "approved" is sent. Set LKP_AUTO_APPROVE=1
 to publish pending_approval packages unattended - the grounded() guard still
 blocks anything the research pass failed to anchor to a primary document.
 
-Per-channel behaviour, because these platforms are not the same:
+This node is self-sufficient: if a publishable package has no slides yet it
+renders them, commits and pushes them, then posts. It does not depend on the
+workflow's render step having run first.
 
+Per-channel behaviour:
   IG / TikTok - full caption, hashtags in the caption block, slides attached
                 as a carousel via raw GitHub URLs.
   X           - a native thread, every item numbered Part N/N. No hashtags.
-                No link in the body (an outbound link costs roughly 30-40% of
-                reach); the link is the final thread item instead.
+                No link in the body; the link is the final thread item.
+
+Set "skip_channels": ["x"] on a package to suppress a channel it is already
+covered on.
 """
 
 import json
 import os
 import pathlib
+import subprocess
+import sys
 import time
 import urllib.parse
 import urllib.request
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import render as R
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -39,19 +49,14 @@ CHANNELS = {
 
 CREATE = "https://api.bufferapp.com/1/updates/create.json"
 
-# Slides are committed to the repo. Buffer needs a fetchable URL for media,
-# and raw.githubusercontent.com only serves these without auth on a PUBLIC repo.
 GH_REPO = os.environ.get("GH_REPO", "kirazberen/lkp-engine")
 GH_BRANCH = os.environ.get("GH_BRANCH", "main")
 RAW = f"https://raw.githubusercontent.com/{GH_REPO}/{GH_BRANCH}/"
 
 YT = "https://www.youtube.com/@LastKnownPositionTV"
 X_LIMIT = 280
-PART_TAG = 12          # room for "Part 10/10\n\n"
+PART_TAG = 12
 
-# Set LKP_AUTO_APPROVE=1 to publish without flipping status by hand.
-# The grounded() guard below still blocks anything the research pass failed
-# to anchor to a primary document.
 AUTO_APPROVE = os.environ.get("LKP_AUTO_APPROVE") == "1"
 
 
@@ -91,9 +96,8 @@ def publishable(pkg):
 def media_urls(pkg):
     """Repo-relative slide paths -> raw URLs Buffer can fetch.
 
-    Older packages stored runner-absolute paths
-    (/home/runner/work/lkp-engine/lkp-engine/out/...). Recover the repo-relative
-    tail rather than dropping them, or those posts silently lose their carousel.
+    Older packages stored runner-absolute paths. Recover the repo-relative tail
+    rather than dropping them, or those posts silently lose their carousel.
     """
     out = []
     for rel in pkg.get("rendered") or []:
@@ -133,17 +137,14 @@ def caption_ig_tiktok(pkg):
 
 
 def x_thread(pkg):
-    """
-    Build the thread. Prefers the model's native x_post; falls back to slide
-    copy. The link is always the final item, never the body.
-    """
+    """Prefers the model's native x_post; falls back to slide copy."""
     items = []
     body = (pkg.get("x_post") or "").strip()
     if body:
         items.append(body)
     else:
         for s in pkg.get("slides", []):
-            t = (s.get("text") or "").strip()
+            t = (s.get("headline") or s.get("text") or "").strip()
             if t:
                 items.append(t)
         if pkg.get("source_line"):
@@ -154,15 +155,44 @@ def x_thread(pkg):
         return None, None
     items.append(pkg.get("x_reply") or f"Full case file: {YT}")
 
-    # Number every item. Without this the reader cannot tell which tweet comes
-    # first or that a thread exists at all.
     total = len(items)
     items = [f"Part {i}/{total}\n\n{t}" for i, t in enumerate(items, 1)]
     return items[0], [{"text": t} for t in items]
 
 
+def ensure_rendered(queue):
+    """
+    Render any publishable package that has no slides yet, then commit and push
+    so raw.githubusercontent serves them BEFORE Buffer is asked to fetch them.
+    Buffer validates media at create time, so the commit cannot wait for the
+    workflow's own commit step at the end of the job.
+    """
+    made = False
+    for pkg in queue:
+        if publishable(pkg) and not (pkg.get("rendered") or []):
+            print(f"[publish] rendering DAILY {pkg.get('daily_no')} on demand")
+            pkg["rendered"] = R.render(pkg)
+            made = made or bool(pkg["rendered"])
+
+    if not made:
+        return
+
+    (DATA / "queue.json").write_text(json.dumps(queue, indent=2))
+    try:
+        subprocess.run(["git", "config", "user.name", "lkp-engine"], check=True)
+        subprocess.run(["git", "config", "user.email", "actions@github.com"], check=True)
+        subprocess.run(["git", "add", "out", "data"], check=True)
+        subprocess.run(["git", "commit", "-m", "lkp: slides for publish"], check=True)
+        subprocess.run(["git", "push"], check=True)
+        print("[publish] slides committed and pushed")
+        time.sleep(8)  # let raw.githubusercontent pick up the new blobs
+    except subprocess.CalledProcessError as e:
+        print(f"[publish] commit/push failed ({e}); Buffer cannot fetch media")
+
+
 def main():
     queue = json.loads((DATA / "queue.json").read_text())
+    ensure_rendered(queue)
     sent = 0
 
     for pkg in queue:
@@ -171,9 +201,10 @@ def main():
 
         pkg.setdefault("buffer_ids", [])
         media = media_urls(pkg)
+        skip = set(pkg.get("skip_channels") or [])
 
         try:
-            if media:
+            if media and not {"instagram", "tiktok"} <= skip:
                 res = push(caption_ig_tiktok(pkg),
                            [CHANNELS["instagram"], CHANNELS["tiktok"]],
                            media=media)
@@ -183,7 +214,7 @@ def main():
                 print(f"[publish] DAILY {pkg['daily_no']} -> no slides, skipping IG/TikTok")
 
             head, thread = x_thread(pkg)
-            if thread:
+            if thread and "x" not in skip:
                 time.sleep(1)
                 res_x = push(head, [CHANNELS["x"]], thread=thread)
                 pkg["buffer_ids"] += [u.get("id") for u in res_x.get("updates", [])]
