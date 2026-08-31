@@ -1,0 +1,12 @@
+[
+  { "hint": "Deepwater Horizon Macondo negative pressure test, April 20 2010", "tier": "A", "status": "queued" },
+  { "hint": "Deepwater Horizon general alarm inhibited mode - the alarms were not switched off", "tier": "C", "status": "queued" },
+  { "hint": "Deepwater Horizon cancelled Schlumberger cement bond log and what it cost", "tier": "B", "status": "queued" },
+  { "hint": "Alaska Airlines 261 jackscrew acme nut lubrication interval extension, 2000", "tier": "A", "status": "queued" },
+  { "hint": "Hyatt Regency walkway collapse 1981, the design change approved by phone", "tier": "C", "status": "queued" },
+  { "hint": "El Faro VDR bridge audio, 2015 sinking, NTSB docket", "tier": "B", "status": "queued" },
+  { "hint": "Upper Big Branch mine 2010, MSHA report versus the independent panel", "tier": "A", "status": "queued" },
+  { "hint": "BP Texas City refinery explosion 2005, CSB Anatomy of a Disaster", "tier": "A", "status": "queued" },
+  { "hint": "West Fertilizer 2013 CSB investigation regulatory gap", "tier": "B", "status": "queued" },
+  { "hint": "Imperial Food Products fire 1991 locked exit doors inspection record", "tier": "C", "status": "queued" }
+]

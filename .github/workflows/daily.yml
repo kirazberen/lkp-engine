@@ -1,0 +1,69 @@
+name: LKP daily
+
+on:
+  schedule:
+    - cron: "0 14 * * *"   # 14:00 UTC daily — research + render
+    - cron: "0 2 * * *"    # 02:00 UTC daily — publish approved + score
+  workflow_dispatch:
+    inputs:
+      case_hint:
+        description: "Optional: research this case instead of the next queued one"
+        required: false
+      tier:
+        description: "A, B or C"
+        required: false
+        default: "A"
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # ---- morning leg: research + render ----
+      - name: Research
+        if: github.event.schedule == '0 14 * * *' || github.event_name == 'workflow_dispatch'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -n "${{ inputs.case_hint }}" ]; then
+            python pipeline/research.py "${{ inputs.case_hint }}" "${{ inputs.tier }}"
+          else
+            python pipeline/research.py
+          fi
+
+      - name: Render
+        if: github.event.schedule == '0 14 * * *' || github.event_name == 'workflow_dispatch'
+        run: python pipeline/render.py
+
+      # ---- night leg: publish approved + score ----
+      - name: Publish approved
+        if: github.event.schedule == '0 2 * * *'
+        env:
+          BUFFER_ACCESS_TOKEN: ${{ secrets.BUFFER_ACCESS_TOKEN }}
+          BUFFER_PROFILE_IDS: ${{ secrets.BUFFER_PROFILE_IDS }}
+        run: python pipeline/publish.py
+
+      - name: Score
+        if: github.event.schedule == '0 2 * * *'
+        env:
+          BUFFER_ACCESS_TOKEN: ${{ secrets.BUFFER_ACCESS_TOKEN }}
+        run: python pipeline/score.py
+
+      - name: Commit state
+        run: |
+          git config user.name  "lkp-engine"
+          git config user.email "actions@github.com"
+          git add data out
+          git diff --staged --quiet || git commit -m "lkp: $(date -u +%F)"
+          git push
