@@ -22,6 +22,8 @@ API_KEY = os.environ["ANTHROPIC_API_KEY"]
 
 MODEL_RESEARCH = os.environ.get("LKP_MODEL_RESEARCH", "claude-haiku-4-5-20251001")
 MODEL_WRITE = os.environ.get("LKP_MODEL_WRITE", "claude-sonnet-5")
+# times to ask the model to repair unparseable JSON before giving up
+JSON_RETRIES = int(os.environ.get("LKP_JSON_RETRIES", "2"))
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -183,13 +185,13 @@ research produces a boring carousel.
 Return JSON with those keys plus case_name, event_date, location, coordinates,
 agency, docket_url, the_number, the_unresolved_thing, tier, structural_test."""
 
-    resp = call(
+    findings = call_json(
         MODEL_RESEARCH,
-        [{"role": "user", "content": prompt}],
+        prompt,
         SYSTEM,
         tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 8}],
+        label="research",
     )
-    findings = parse_json(text_of(resp))
     findings["structural_test"] = norm_structural_test(findings.get("structural_test"))
     return findings
 
@@ -269,8 +271,7 @@ Return the complete JSON object matching this schema, merging in the research
 fields you were given:
 {SCHEMA}"""
 
-    resp = call(MODEL_WRITE, [{"role": "user", "content": prompt}], SYSTEM)
-    return parse_json(text_of(resp))
+    return call_json(MODEL_WRITE, prompt, SYSTEM, label="write")
 
 
 def norm_structural_test(v):
@@ -293,17 +294,105 @@ def norm_structural_test(v):
     return {"result": result, "why": why}
 
 
-def parse_json(s):
+def _extract_json(s):
+    """Isolate the JSON object in a model reply."""
     s = s.strip()
     if s.startswith("```"):
-        s = s.split("```")[1]
-        if s.startswith("json"):
+        parts = s.split("```")
+        if len(parts) > 1:
+            s = parts[1]
+        s = s.lstrip()
+        if s[:4].lower() == "json":
             s = s[4:]
     start, end = s.find("{"), s.rfind("}")
     if start == -1 or end == -1:
         raise ValueError(f"No JSON object in model output:\n{s[:600]}")
-    return json.loads(s[start : end + 1])
+    return s[start : end + 1]
 
+
+def _repair_json(s):
+    """Undo the two ways models most often bend JSON.
+
+    1. A raw newline/tab inside a string literal, which json rejects.
+    2. A trailing comma before a closing brace or bracket.
+
+    Both passes track whether they are inside a string literal, so a comma or
+    a brace that merely appears inside prose is never touched. An unescaped
+    quote inside a string is deliberately NOT repaired: fixing it means
+    guessing where the string was meant to end, and guessing wrong silently
+    corrupts the copy. That case is left to the retry path.
+    """
+    chars, comma_at, in_str, esc = [], [], False, False
+    for ch in s:
+        if esc:
+            chars.append(ch)
+            esc = False
+        elif ch == "\\":
+            chars.append(ch)
+            esc = True
+        elif ch == '"':
+            in_str = not in_str
+            chars.append(ch)
+        elif in_str:
+            chars.append({"\n": "\\n", "\r": "\\r", "\t": "\\t"}.get(ch, ch))
+        else:
+            if ch == ",":
+                comma_at.append(len(chars))
+            chars.append(ch)
+
+    drop = set()
+    for i in comma_at:
+        j = i + 1
+        while j < len(chars) and chars[j].isspace():
+            j += 1
+        if j < len(chars) and chars[j] in "}]":
+            drop.add(i)
+    return "".join(c for k, c in enumerate(chars) if k not in drop)
+
+
+def parse_json(s):
+    """Extract and parse the model's JSON, repairing what is safely repairable."""
+    frag = _extract_json(s)
+    err = None
+    for candidate in (frag, _repair_json(frag)):
+        try:
+            return json.loads(candidate)
+        except json.JSONDecodeError as e:
+            err = e
+    # Print the offending region. Without this the bad output dies with the
+    # process and the next failure is exactly as blind as this one was.
+    lo, hi = max(0, err.pos - 300), min(len(frag), err.pos + 300)
+    print(
+        f"[parse] JSON invalid at line {err.lineno} col {err.colno} "
+        f"(char {err.pos}): {err.msg}",
+        file=sys.stderr,
+    )
+    print(f"[parse] ...{frag[lo:hi]}...", file=sys.stderr)
+    raise err
+
+
+def call_json(model, prompt, system, tools=None, label="call"):
+    """call() + parse_json, retrying when the model returns unparseable JSON.
+
+    Attempt 1 is the real request. Each retry is a cheap no-tool turn that
+    hands the bad text back and asks for the corrected object - no tools, so
+    a tool_use block is never replayed without its matching tool_result.
+    """
+    resp = call(model, [{"role": "user", "content": prompt}], system, tools=tools)
+    text = text_of(resp)
+    for attempt in range(1, JSON_RETRIES + 1):
+        try:
+            return parse_json(text)
+        except (ValueError, json.JSONDecodeError) as e:
+            print(f"[{label}] unparseable JSON ({e}); repair {attempt}/{JSON_RETRIES}")
+            fix = (
+                "The text below was meant to be one JSON object but does not "
+                f"parse: {e}\n\nReturn ONLY the corrected JSON object - no "
+                "prose, no code fence, no commentary.\n\n" + text[:12000]
+            )
+            resp = call(model, [{"role": "user", "content": fix}], system)
+            text = text_of(resp)
+    return parse_json(text)
 
 def next_case():
     """Pull the next unprocessed row from the case bank."""
