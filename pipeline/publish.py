@@ -1,23 +1,27 @@
 """
-Node 04 — POST.
+Node 04 - POST.  Per-channel routing.
 
-Pushes approved posts into the Buffer queue. Buffer's free tier gives 3
-channels, 10 queued posts per channel refilled as they publish, and API
-access with 1 key. That covers one post a day across IG, TikTok and Shorts
-at zero cost.
+Buffer free tier, org 6a952155eb370bd724a858b3:
+  Instagram  6a952a60065799be465c13d0   business
+  TikTok     6a952c83065799be465c1afb
+  X          6a953137065799be465c288a
 
 Only posts with status == "approved" are sent. Flip the status in
-data/queue.json (or the GitHub web editor on your phone) to approve.
-That is the 15-minutes-a-week human gate. Do not remove it.
+data/queue.json to approve. That is the human gate. Do not remove it.
 
-NOTE: verify the endpoint against Buffer's current API docs before first run.
-Buffer has kept the /1/updates/create.json shape for a long time but confirm
-rather than trust this file.
+Per-channel behaviour, because these platforms are not the same:
+
+  IG / TikTok - full caption, hashtags in the caption block, slides attached
+                as a carousel via raw GitHub URLs.
+  X           - a native thread. No hashtags. No link in the body (an outbound
+                link costs roughly 30-40% of reach); the link is the final
+                thread item instead.
 """
 
 import json
 import os
 import pathlib
+import time
 import urllib.parse
 import urllib.request
 
@@ -25,31 +29,82 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 
 TOKEN = os.environ["BUFFER_ACCESS_TOKEN"]
-PROFILE_IDS = [p for p in os.environ.get("BUFFER_PROFILE_IDS", "").split(",") if p]
+
+CHANNELS = {
+    "instagram": os.environ.get("BUFFER_IG_ID", "6a952a60065799be465c13d0"),
+    "tiktok": os.environ.get("BUFFER_TIKTOK_ID", "6a952c83065799be465c1afb"),
+    "x": os.environ.get("BUFFER_X_ID", "6a953137065799be465c288a"),
+}
 
 CREATE = "https://api.bufferapp.com/1/updates/create.json"
 
+# Slides are committed to the repo. Buffer needs a fetchable URL for media,
+# and raw.githubusercontent.com only serves these without auth on a PUBLIC repo.
+GH_REPO = os.environ.get("GH_REPO", "kirazberen/lkp-engine")
+GH_BRANCH = os.environ.get("GH_BRANCH", "main")
+RAW = f"https://raw.githubusercontent.com/{GH_REPO}/{GH_BRANCH}/"
 
-def push(text, media_paths=None):
+YT = "https://www.youtube.com/@LastKnownPositionTV"
+X_LIMIT = 280
+
+
+def media_urls(pkg):
+    """Repo-relative slide paths -> raw URLs Buffer can fetch."""
+    out = []
+    for rel in pkg.get("rendered") or []:
+        rel = str(rel).lstrip("/")
+        if rel.startswith("home/runner"):  # legacy absolute path, skip
+            continue
+        out.append(RAW + rel)
+    return out
+
+
+def push(text, profile_ids, media=None, thread=None):
     fields = [("text", text), ("access_token", TOKEN)]
-    for pid in PROFILE_IDS:
+    for pid in profile_ids:
         fields.append(("profile_ids[]", pid))
-
-    data = urllib.parse.urlencode(fields).encode()
-    req = urllib.request.Request(CREATE, data=data)
+    for url in media or []:
+        fields.append(("media[photo]", url))
+    if thread:
+        fields.append(("metadata", json.dumps({"twitter": {"thread": thread}})))
+    req = urllib.request.Request(CREATE, data=urllib.parse.urlencode(fields).encode())
     with urllib.request.urlopen(req, timeout=60) as r:
         return json.loads(r.read())
 
 
-def build_caption(pkg):
-    return "\n\n".join(
-        [
-            pkg["caption"],
-            pkg["source_line"],
-            f"DAILY {pkg['daily_no']} · {pkg.get('coordinates', '')}",
-            " ".join(pkg.get("hashtags", [])),
-        ]
-    ).strip()
+def caption_ig_tiktok(pkg):
+    """First line is the hook verbatim. IG and TikTok truncate after one line."""
+    parts = [
+        pkg.get("caption", ""),
+        pkg.get("source_line", ""),
+        f"DAILY {pkg['daily_no']} - {pkg.get('coordinates', '')}",
+        " ".join(pkg.get("hashtags", [])),
+    ]
+    return "\n\n".join(p for p in parts if p).strip()
+
+
+def x_thread(pkg):
+    """
+    Build the thread. Prefers the model's native x_post; falls back to slide
+    copy. The link is always the final item, never the body.
+    """
+    items = []
+    body = (pkg.get("x_post") or "").strip()
+    if body:
+        items.append(body)
+    else:
+        for s in pkg.get("slides", []):
+            t = (s.get("text") or "").strip()
+            if t:
+                items.append(t)
+        if pkg.get("source_line"):
+            items.append(pkg["source_line"])
+
+    items = [i[: X_LIMIT - 1] for i in items if i][:5]
+    if not items:
+        return None, None
+    items.append(pkg.get("x_reply") or f"Full case file: {YT}")
+    return items[0], [{"text": t} for t in items]
 
 
 def main():
@@ -59,12 +114,30 @@ def main():
     for pkg in queue:
         if pkg.get("status") != "approved":
             continue
+
+        pkg.setdefault("buffer_ids", [])
+        media = media_urls(pkg)
+
         try:
-            res = push(build_caption(pkg), pkg.get("rendered"))
+            if media:
+                res = push(caption_ig_tiktok(pkg),
+                           [CHANNELS["instagram"], CHANNELS["tiktok"]],
+                           media=media)
+                pkg["buffer_ids"] += [u.get("id") for u in res.get("updates", [])]
+                print(f"[publish] DAILY {pkg['daily_no']} -> IG + TikTok ({len(media)} slides)")
+            else:
+                print(f"[publish] DAILY {pkg['daily_no']} -> no slides, skipping IG/TikTok")
+
+            head, thread = x_thread(pkg)
+            if thread:
+                time.sleep(1)
+                res_x = push(head, [CHANNELS["x"]], thread=thread)
+                pkg["buffer_ids"] += [u.get("id") for u in res_x.get("updates", [])]
+                print(f"[publish] DAILY {pkg['daily_no']} -> X ({len(thread)} items)")
+
             pkg["status"] = "scheduled"
-            pkg["buffer_ids"] = [u.get("id") for u in res.get("updates", [])]
             sent += 1
-            print(f"[publish] DAILY {pkg['daily_no']} queued to Buffer")
+
         except Exception as e:
             pkg["status"] = "publish_failed"
             pkg["error"] = str(e)
