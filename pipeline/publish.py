@@ -89,11 +89,20 @@ def publishable(pkg):
 
 
 def media_urls(pkg):
-    """Repo-relative slide paths -> raw URLs Buffer can fetch."""
+    """Repo-relative slide paths -> raw URLs Buffer can fetch.
+
+    Older packages stored runner-absolute paths
+    (/home/runner/work/lkp-engine/lkp-engine/out/...). Recover the repo-relative
+    tail rather than dropping them, or those posts silently lose their carousel.
+    """
     out = []
     for rel in pkg.get("rendered") or []:
-        rel = str(rel).lstrip("/")
-        if rel.startswith("home/runner"):  # legacy absolute path, skip
+        rel = str(rel).replace("\\", "/")
+        if "/out/" in rel:
+            rel = "out/" + rel.split("/out/", 1)[1]
+        rel = rel.lstrip("/")
+        if not rel.startswith("out/"):
+            print(f"[publish] unusable slide path, skipping: {rel}")
             continue
         out.append(RAW + rel)
     return out
