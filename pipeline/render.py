@@ -162,11 +162,13 @@ def draw_slide(s, idx, total, pkg, asset_url=None):
     box_h = BOX_BOTTOM - BOX_TOP
 
     # measure both blocks first, then centre the whole thing vertically so
-    # short copy does not leave a dead half-canvas above the rule
+    # short copy does not leave a dead half-canvas above the rule.
+    # headline ceiling is deliberately huge: a three-character number is the
+    # hook and must dominate the frame.
     blocks, total_h = [], 0
     if headline:
         cap = int(box_h * (0.95 if not body else 0.60))
-        hf, hlines, hlh = fit(d, headline.upper(), "Anton-Regular.ttf", box_w, cap, 104, 34, 1.14)
+        hf, hlines, hlh = fit(d, headline.upper(), "Anton-Regular.ttf", box_w, cap, 260, 34, 1.10)
         blocks.append((hf, hlines, hlh, FOG))
         total_h += len(hlines) * hlh + (34 if body else 0)
     if body:
