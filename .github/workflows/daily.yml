@@ -64,6 +64,9 @@ jobs:
         run: |
           git config user.name  "lkp-engine"
           git config user.email "actions@github.com"
+          # out/ only exists after a render produced slides; data/ is always present
+          # but create both so `git add` can never fail with 'pathspec did not match'
+          mkdir -p data out
           git add data out
           git diff --staged --quiet || git commit -m "lkp: $(date -u +%F)"
           git push
