@@ -1,0 +1,52 @@
+Copyright (c) 2026 kirazberen. All rights reserved.
+
+LKP ENGINE - PROPRIETARY NOTICE
+
+This repository is source-available, not open source. It is published so that
+it can be read and referenced. Publication does not grant a license.
+
+No permission is granted to any person to use, copy, modify, adapt, merge,
+publish, distribute, sublicense, sell, host, or create derivative works from
+any part of this repository, in whole or in part, for commercial or
+non-commercial purposes, without the prior written consent of the copyright
+holder.
+
+Without limiting the foregoing, the following require prior written consent:
+
+  - running this pipeline, or any component of it, in whole or in part
+  - reusing the source code, prompts, JSON schema, tier definitions,
+    scoring weights, or the case bank
+  - reproducing the slide templates, layout, colour system, or the
+    output format they produce
+  - redistributing this repository or any derivative of it
+  - using this repository, or any part of it, as training, fine-tuning,
+    evaluation, or retrieval data for machine learning systems
+
+Requesting consent: open an issue on this repository, or contact the
+repository owner directly. Consent is only given in writing, and silence is
+not consent.
+
+NO WARRANTY. This software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of
+merchantability, fitness for a particular purpose, and noninfringement. In no
+event shall the copyright holder be liable for any claim, damages, or other
+liability arising from, out of, or in connection with the software or its use.
+
+--------------------------------------------------------------------------
+THIRD-PARTY COMPONENTS
+
+The font files in assets/fonts/ are NOT covered by the terms above. They are
+the work of their respective authors, are licensed under the SIL Open Font
+License, Version 1.1, and remain governed solely by that license:
+
+  Anton-Regular.ttf       (c) The Anton Project Authors       see OFL-Anton.txt
+  Inter-Regular.ttf       (c) The Inter Project Authors       see OFL-Inter.txt
+  SpaceMono-Regular.ttf   (c) The Space Mono Project Authors  see OFL-SpaceMono.txt
+  SpaceMono-Bold.ttf      (c) The Space Mono Project Authors  see OFL-SpaceMono.txt
+
+Nothing in this notice restricts, or purports to restrict, any right granted
+by the SIL Open Font License in respect of those files.
+
+Case material referenced by this project derives from public investigative
+records published by their originating agencies. Those underlying documents
+carry their own terms, which this notice does not alter.

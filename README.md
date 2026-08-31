@@ -131,3 +131,21 @@ data/shortlist.json    long-form ranking, written by score.py
 - **Verify the Buffer endpoint.** `publish.py` targets `/1/updates/create.json`. Buffer has kept that shape a long time but confirm against their current docs rather than trusting this file.
 - **Buffer image posting.** Text posts go through the documented endpoint cleanly. Attaching the rendered slides may need their media upload flow. If it fights you, the slides are sitting in `out/` and take 30 seconds to attach by hand.
 - **Run it manually first.** Actions tab → LKP daily → Run workflow, with a `case_hint`. Read the output before you let the cron touch anything.
+
+---
+
+## LICENSE
+
+Source-available, **not** open source. Copyright (c) 2026 kirazberen, all rights
+reserved.
+
+You may read this repository. You may not use, copy, modify, redistribute, host,
+or build on any part of it - including running the pipeline, reusing the prompts,
+schema or case bank, reproducing the slide system, or using it as ML training
+data - without prior written consent.
+
+To request consent, open an issue. Silence is not consent.
+
+Exception: the fonts in `assets/fonts/` are third-party works under the SIL Open
+Font License 1.1 and keep their own terms. See [LICENSE](LICENSE) for the full
+notice.
