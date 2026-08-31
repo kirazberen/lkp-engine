@@ -14,6 +14,7 @@ import os
 import sys
 import pathlib
 import datetime
+from datetime import timezone
 import urllib.request
 
 API_URL = "https://api.anthropic.com/v1/messages"
@@ -59,6 +60,21 @@ Name, in one sentence, the specific thing the investigation could not settle.
 "Two agencies published opposite conclusions and both still stand" = PASS.
 A FAIL can still be a Tier B or C post. It never becomes a long-form episode.
 
+WHERE THE STRONGEST UNRESOLVED THREADS ACTUALLY LIVE.
+Look here BEFORE settling for a physical failure-sequence dispute. A timing
+question about which component fractured first is usually footnote-level and
+scores FAIL. These score PASS far more often:
+  - A regulator approved something repeatedly with no supporting data, and no
+    investigation ever established what it believed it was reviewing.
+  - An exemption, waiver, or interval extension granted on the operator's own
+    say-so.
+  - A safety recommendation issued, then closed unacceptable, then never revisited.
+  - Two bodies with opposite findings on the same component, both still standing.
+  - A regulator investigating its own enforcement failures.
+  - A rule that existed but covered nobody, or covered the wrong party.
+Search the approval chain, the waiver, and the recommendation status. The
+mechanism is almost always settled. The permission for it usually is not.
+
 TIERS
 A = case drop, full docket, real unresolved question, long-form candidate
 B = artifact drop, one document/photo/transcript excerpt
@@ -103,6 +119,9 @@ SCHEMA = """
   "source_line": str,
   "caption": str,
   "hashtags": [str],
+  "x_post": str,
+  "x_post_type": "exhibit" | "correction" | "clock" | "on_this_day" | "parallel",
+  "x_reply": str,
   "hook_alternates": [{"shape": str, "hook": str}],
   "longform_note": str
 }
@@ -151,6 +170,11 @@ news coverage of it. Then produce:
 4. could_not_verify — anything you could not trace to a primary document
 5. assets — every usable visual with its rights status
 
+Before settling the structural test, check the approval chain specifically:
+who authorised the condition that failed, what data they had, and whether any
+safety recommendation about it was issued, closed, or ignored. That thread
+outranks a failure-sequence timing dispute every time.
+
 Return JSON with those keys plus case_name, event_date, location, coordinates,
 agency, docket_url, the_number, the_unresolved_thing, tier, structural_test."""
 
@@ -185,10 +209,28 @@ closes on the unresolved thing. Caption's first line is the hook verbatim
 because IG and TikTok truncate after one line. Then two sentences of context,
 then the source line, then the coordinate strip.
 
-5 to 7 hashtags, two broad two niche two case-specific.
+5 to 7 hashtags, two broad two niche two case-specific. No generic tags like
+#mystery or #disaster on their own.
 
 Three hook_alternates using DIFFERENT shapes, not rewordings: contradiction,
 impossible number, document, countdown, correction, price tag.
+
+X POST - write a NATIVE version. Do not reuse the IG caption. X punishes
+cross-posted hook-speak and outbound links (a link in the body costs roughly
+30-40% of reach). Rules:
+  - No hashtags. They do nothing on X and read as spam.
+  - No link in x_post. The link goes in x_reply.
+  - Under 270 characters.
+  - Flat and factual. The channel states, it does not tease.
+  - A reply is weighted 27x a like, so the post should invite correction or
+    "actually" - but only about interpretation, never about facts.
+Pick x_post_type from:
+  exhibit     - the document/gauge/chart, one flat factual line under it
+  correction  - "Everyone says X about [event]. The [agency] report says Y."
+  clock       - 3-4 timecoded lines, tightening, last line is the event
+  on_this_day - "On [date], [year]: [flat statement]." evergreen
+  parallel    - connects the case to a current industry story
+x_reply is always: "Full case file: https://www.youtube.com/@LastKnownPositionTV"
 
 Return the complete JSON object matching this schema, merging in the research
 fields you were given:
@@ -255,7 +297,7 @@ def main():
         tier = findings["tier"] = "C"
 
     package = write(findings, tier)
-    package["generated_at"] = datetime.datetime.utcnow().isoformat() + "Z"
+    package["generated_at"] = datetime.datetime.now(timezone.utc).isoformat()
     package["status"] = "pending_approval"
 
     queue = json.loads((DATA / "queue.json").read_text())
