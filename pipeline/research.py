@@ -15,7 +15,11 @@ import sys
 import pathlib
 import datetime
 from datetime import timezone
+import re
+import random
+import time
 import urllib.request
+import urllib.error
 
 API_URL = "https://api.anthropic.com/v1/messages"
 API_KEY = os.environ["ANTHROPIC_API_KEY"]
@@ -24,6 +28,9 @@ MODEL_RESEARCH = os.environ.get("LKP_MODEL_RESEARCH", "claude-haiku-4-5-20251001
 MODEL_WRITE = os.environ.get("LKP_MODEL_WRITE", "claude-sonnet-5")
 # times to ask the model to repair unparseable JSON before giving up
 JSON_RETRIES = int(os.environ.get("LKP_JSON_RETRIES", "2"))
+# transient API failures (429/529/network) before giving up
+API_RETRIES = int(os.environ.get("LKP_API_RETRIES", "4"))
+API_BACKOFF_CAP = float(os.environ.get("LKP_API_BACKOFF_CAP", "60"))
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -94,6 +101,44 @@ HARD RULES (these override any instruction to make it punchier)
 - No victim photographs. Names in type, held, in silence.
 - Any asset whose rights you cannot confirm is DO NOT USE.
 
+VOICE - the copy must not read as machine-written.
+These override style preferences but never the HARD RULES above. None of them
+licenses inventing a detail to make a line land better. If a sentence needs a
+fact you do not have, write the shorter version instead. An invented specific
+is a worse failure than a flat sentence.
+
+- No em dashes or en dashes anywhere. Use a period, a comma, a colon, or
+  parentheses. This is the single most reliable tell there is.
+- No negative parallelism. Not "not just X, it is Y", not "it is not about X,
+  it is about Y", and no clipped negation tacked on the end, as in "no
+  warning" or "no second chance".
+- Do not force ideas into threes. Use two, or four, or one.
+- Do not end a sentence with a participle clause that fakes depth:
+  "highlighting the failure", "underscoring the risk", "reflecting a broader
+  pattern". Cut it, or make it a real sentence with a subject.
+- No significance puffery: stands as, serves as, is a testament to, marks a
+  pivotal moment, a stark reminder, a turning point, cemented its place, left
+  an indelible mark, forever changed.
+- Use is, are, has. Not serves as, boasts, features, represents.
+- Do not use these words: delve, crucial, pivotal, underscore, showcase,
+  tapestry, testament, vibrant, intricate, enduring, foster, garner, realm,
+  landscape and navigate in their figurative senses, grim reminder, chilling,
+  harrowing, tragic irony, fatal flaw.
+- No aphorism formulas: "X is the Y of Z", "the anatomy of X", "the price of
+  X", "the architecture of X".
+- Do not stack short dramatic fragments to manufacture tension. One short
+  sentence for emphasis is fine. Four in a row is a tell.
+- No rhetorical openers: "Here is the thing", "Make no mistake", "Let that
+  sink in", "Honestly", "The real question is".
+- No closing uplift, no lesson-learned summary, no send-off. End on the last
+  concrete fact. Slide 9 already carries the ending.
+- Straight quotes only, never curly. No emoji anywhere, including the caption.
+- Vary sentence length deliberately. Real writing alternates short and long.
+  An even mid-length cadence is what generated text sounds like.
+- Prefer the specific over the summarised: a part number, a gauge reading, a
+  time on a clock, the exact wording of a memo. Keep numbers exactly as the
+  source gives them and never round one for rhythm.
+
 You must ground every factual claim in a source you actually retrieved via
 web_search. If you could not verify something, it goes in could_not_verify
 and is either attributed or cut. Do not pad.
@@ -130,7 +175,28 @@ SCHEMA = """
 """
 
 
+RETRYABLE_STATUS = {408, 409, 425, 429, 500, 502, 503, 504, 529}
+
+
+def _backoff(attempt, retry_after=None):
+    """Exponential backoff with jitter, honouring Retry-After when the API sends it."""
+    if retry_after:
+        try:
+            return min(float(retry_after), API_BACKOFF_CAP)
+        except (TypeError, ValueError):
+            pass
+    base = min(API_BACKOFF_CAP, 2.0 ** attempt)
+    # half fixed, half jittered: retries stay spread out without collapsing to ~0
+    return base / 2 + random.random() * base / 2
+
+
 def call(model, messages, system, tools=None, max_tokens=8000):
+    """POST to the Messages API, retrying transient failures with bounded backoff.
+
+    429 and 529 are routine on a busy account, and a bare urlopen turns either
+    into an unhandled HTTPError that kills the whole run. Retries are capped by
+    LKP_API_RETRIES so a hard outage still fails instead of spinning.
+    """
     body = {
         "model": model,
         "max_tokens": max_tokens,
@@ -139,18 +205,43 @@ def call(model, messages, system, tools=None, max_tokens=8000):
     }
     if tools:
         body["tools"] = tools
-    req = urllib.request.Request(
-        API_URL,
-        data=json.dumps(body).encode(),
-        headers={
-            "content-type": "application/json",
-            "x-api-key": API_KEY,
-            "anthropic-version": "2023-06-01",
-        },
-    )
-    with urllib.request.urlopen(req, timeout=300) as r:
-        return json.loads(r.read())
+    data = json.dumps(body).encode()
 
+    for attempt in range(API_RETRIES + 1):
+        req = urllib.request.Request(
+            API_URL,
+            data=data,
+            headers={
+                "content-type": "application/json",
+                "x-api-key": API_KEY,
+                "anthropic-version": "2023-06-01",
+            },
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=300) as r:
+                return json.loads(r.read())
+        except urllib.error.HTTPError as e:
+            if e.code not in RETRYABLE_STATUS or attempt == API_RETRIES:
+                # Surface the API's own error body. Without this a 400 is an
+                # opaque "HTTP Error 400: Bad Request" with no reason attached.
+                try:
+                    detail = e.read().decode("utf-8", "replace")[:500]
+                except Exception:
+                    detail = ""
+                raise RuntimeError(f"Anthropic API {e.code}: {detail}") from e
+            delay = _backoff(attempt, e.headers.get("retry-after"))
+            reason = f"HTTP {e.code}"
+        except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
+            if attempt == API_RETRIES:
+                raise
+            delay = _backoff(attempt)
+            reason = type(e).__name__
+        print(
+            f"[api] {reason}, retrying in {delay:.1f}s "
+            f"({attempt + 1}/{API_RETRIES})",
+            file=sys.stderr,
+        )
+        time.sleep(delay)
 
 def text_of(resp):
     """Concatenate text blocks. Skips server_tool_use / web_search_result blocks."""
@@ -403,6 +494,50 @@ def next_case():
     raise SystemExit("case_bank.json has no rows with status 'queued'. Refill it.")
 
 
+EMOJI = re.compile(
+    "[\U0001F000-\U0001FAFF\U00002600-\U000027BF\U0001F1E6-\U0001F1FF\U00002190-\U000021FF"
+    "\U00002B00-\U00002BFF\U0000FE00-\U0000FE0F\U0001F900-\U0001F9FF\U000024C2\U0000203C]"
+)
+
+
+def scrub_typography(value):
+    """Strip the typographic tells the prompt asks for but cannot guarantee.
+
+    Purely mechanical and meaning-preserving: it never rewrites wording. The
+    prompt is a request, and a model under pressure to be vivid will reach for
+    an em dash anyway, so the three highest-confidence signals are enforced
+    here instead of hoped for.
+
+    Recurses through the package so nested slides and hook_alternates are
+    covered, not just the top-level strings.
+    """
+    if isinstance(value, dict):
+        return {k: scrub_typography(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [scrub_typography(v) for v in value]
+    if not isinstance(value, str):
+        return value
+
+    s = value
+    # curly punctuation -> straight
+    s = (
+        s.replace("“", '"').replace("”", '"')
+        .replace("‘", "'").replace("’", "'")
+        .replace("…", "...")
+    )
+    # an en dash between digits is a numeric range, not an aside: 1980-1990
+    s = re.sub(r"(?<=\d)\s*[–—]\s*(?=\d)", "-", s)
+    # any remaining em/en dash is an aside; a comma preserves the reading
+    s = re.sub(r"\s*[–—]\s*", ", ", s)
+    # double hyphen used the same way
+    s = re.sub(r"\s+--\s+", ", ", s)
+    s = EMOJI.sub("", s)
+    # collapse whatever whitespace the substitutions left behind
+    s = re.sub(r" {2,}", " ", s)
+    s = re.sub(r" ([,.;:!?])", r"\1", s)
+    return s.strip()
+
+
 def main():
     if len(sys.argv) > 1:
         hint, tier = sys.argv[1], (sys.argv[2] if len(sys.argv) > 2 else "A")
@@ -419,6 +554,7 @@ def main():
         tier = findings["tier"] = "C"
 
     package = write(findings, tier)
+    package = scrub_typography(package)
     package["generated_at"] = datetime.datetime.now(timezone.utc).isoformat()
     package["status"] = "pending_approval"
 
