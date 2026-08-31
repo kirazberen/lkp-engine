@@ -10,6 +10,7 @@ in from the PD asset URLs the research node found; everything else is type.
 
 import json
 import pathlib
+import re
 import textwrap
 import urllib.request
 
@@ -86,28 +87,54 @@ def draw_slide(n, text, headline=False, asset_url=None, source=None, coords=None
 
 
 def render(package):
-    slug = package["case_name"].lower().replace(" ", "-")[:40]
-    outdir = OUT / f"{package['daily_no']}-{slug}"
+    """Render a package's slides.
+
+    Everything in `package` came from a model, so nothing here may assume a
+    key exists or holds the documented type. A tier B package is a reel
+    (vo_script + shot_list) and legitimately has no slides at all.
+    """
+    slides = [s for s in (package.get("slides") or []) if isinstance(s, dict)]
+    if not slides:
+        print(f"[render] no slides in package (tier {package.get('tier')}) - skipping")
+        return []
+
+    case_name = str(package.get("case_name") or "untitled")
+    daily_no = package.get("daily_no") or "000"
+    # model-authored text: strip anything that is not filesystem-safe, or a
+    # case_name containing "/" or ":" breaks mkdir
+    slug = re.sub(r"[^a-z0-9]+", "-", case_name.lower()).strip("-")[:40] or "untitled"
+    outdir = OUT / f"{daily_no}-{slug}"
     outdir.mkdir(parents=True, exist_ok=True)
 
     primary = next(
-        (a["source_url"] for a in package.get("assets", []) if a.get("primary") and a["rights"] == "PD"),
+        (
+            a["source_url"]
+            for a in (package.get("assets") or [])
+            if isinstance(a, dict)
+            and a.get("primary")
+            and a.get("rights") == "PD"
+            and a.get("source_url")
+        ),
         None,
     )
 
     paths = []
-    for s in package["slides"]:
-        last = s["n"] == len(package["slides"])
+    total = len(slides)
+    for i, s in enumerate(slides, 1):
+        # trust position over a model-supplied "n", which may be missing,
+        # non-integer, or not sequential
+        n = s["n"] if isinstance(s.get("n"), int) else i
+        last = i == total
         img = draw_slide(
-            s["n"],
-            s["text"],
-            headline=(s["n"] == 1),
-            asset_url=primary if s["n"] == 1 else None,
-            source=package["source_line"] if last else None,
+            n,
+            str(s.get("text") or ""),
+            headline=(n == 1),
+            asset_url=primary if n == 1 else None,
+            source=package.get("source_line") if last else None,
             coords=package.get("coordinates"),
-            daily_no=package["daily_no"],
+            daily_no=daily_no,
         )
-        p = outdir / f"slide_{s['n']}.jpg"
+        p = outdir / f"slide_{n}.jpg"
         img.save(p, quality=92)
         paths.append(str(p))
         print(f"[render] {p.name}")
@@ -118,7 +145,7 @@ def render(package):
 def main():
     queue = json.loads((DATA / "queue.json").read_text())
     for pkg in queue:
-        if pkg.get("status") == "pending_approval" and not pkg.get("rendered"):
+        if pkg.get("status") == "pending_approval" and pkg.get("rendered") is None:
             pkg["rendered"] = render(pkg)
     (DATA / "queue.json").write_text(json.dumps(queue, indent=2))
 
