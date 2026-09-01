@@ -10,42 +10,144 @@
     "the_number": "88",
     "the_unresolved_thing": "The lubrication interval on the jackscrew was extended four times between 1987 and 1996 and the FAA approved every extension. No investigation established what data the FAA believed it was reviewing.",
     "tier": "C",
-    "structural_test": { "result": "PASS", "why": "Approval chain, not failure sequence. Four approvals, no supporting data on the record." },
+    "structural_test": {
+      "result": "PASS",
+      "why": "Approval chain, not failure sequence. Four approvals, no supporting data on the record."
+    },
     "commonly_wrong": [
-      { "claim": "The jackscrew broke in flight.", "record": "The jackscrew survived. The acme nut riding on it lost its threads; roughly 90% had already worn away.", "source": "NTSB/AAR-02/01", "why_it_matters": "Confusing the shaft with the nut misattributes the failure mode entirely." },
-      { "claim": "A mechanic missed a lubrication.", "record": "The interval itself was extended, repeatedly and with approval. The NTSB named the extensions and the FAA's approval of them as contributing causes.", "source": "NTSB/AAR-02/01", "why_it_matters": "It was not an individual lapse. It was an authorised schedule." },
-      { "claim": "There was no warning.", "record": "In 1997 a lead mechanic found the end play at its 0.040 inch limit and ordered the assembly replaced. The aircraft returned to service days later with it installed.", "source": "NTSB/AAR-02/01; Docket DCA00MA023", "why_it_matters": "There is a documented flag on this exact assembly, years early." }
+      {
+        "claim": "The jackscrew broke in flight.",
+        "record": "The jackscrew survived. The acme nut riding on it lost its threads; roughly 90% had already worn away.",
+        "source": "NTSB/AAR-02/01",
+        "why_it_matters": "Confusing the shaft with the nut misattributes the failure mode entirely."
+      },
+      {
+        "claim": "A mechanic missed a lubrication.",
+        "record": "The interval itself was extended, repeatedly and with approval. The NTSB named the extensions and the FAA's approval of them as contributing causes.",
+        "source": "NTSB/AAR-02/01",
+        "why_it_matters": "It was not an individual lapse. It was an authorised schedule."
+      },
+      {
+        "claim": "There was no warning.",
+        "record": "In 1997 a lead mechanic found the end play at its 0.040 inch limit and ordered the assembly replaced. The aircraft returned to service days later with it installed.",
+        "source": "NTSB/AAR-02/01; Docket DCA00MA023",
+        "why_it_matters": "There is a documented flag on this exact assembly, years early."
+      }
     ],
     "investigators_disagree": [],
     "could_not_verify": [
-      { "item": "Specific CVR dialogue", "disposition": "ATTRIBUTE", "note": "Only agency summaries accessed; direct quotes would need the docket transcript." },
-      { "item": "Claim that an unapproved grease type was used", "disposition": "CUT", "note": "Secondary sources only, not in AAR-02/01." }
+      {
+        "item": "Specific CVR dialogue",
+        "disposition": "ATTRIBUTE",
+        "note": "Only agency summaries accessed; direct quotes would need the docket transcript."
+      },
+      {
+        "item": "Claim that an unapproved grease type was used",
+        "disposition": "CUT",
+        "note": "Secondary sources only, not in AAR-02/01."
+      }
     ],
     "assets": [
-      { "asset": "Recovered jackscrew assembly", "source_url": "https://data.ntsb.gov/Docket/?NTSBNumber=DCA00MA023", "rights": "PD", "use_for": "slide 1 backdrop", "primary": true },
-      { "asset": "MIG-4 maintenance card, Figure 11", "source_url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR0201.pdf", "rights": "PD", "use_for": "document slide", "primary": false }
+      {
+        "asset": "Recovered jackscrew assembly",
+        "source_url": "https://data.ntsb.gov/Docket/?NTSBNumber=DCA00MA023",
+        "rights": "PD",
+        "use_for": "slide 1 backdrop",
+        "primary": true
+      },
+      {
+        "asset": "MIG-4 maintenance card, Figure 11",
+        "source_url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR0201.pdf",
+        "rights": "PD",
+        "use_for": "document slide",
+        "primary": false
+      }
     ],
     "slides": [
-      { "n": 1, "kind": "anomaly", "headline": "88", "text": "Everyone aboard Alaska Airlines Flight 261 died in the Pacific, 2.7 miles north of Anacapa Island, on 31 January 2000." },
-      { "n": 2, "kind": "correction", "label": "What everyone gets wrong", "headline": "The jackscrew never broke.", "text": "The shaft survived the impact. What failed was the acme nut riding on it. Roughly 90% of its threads had already worn away before the aircraft ever left the gate." },
-      { "n": 3, "kind": "barrier", "label": "The barrier", "headline": "One screw. No backup.", "text": "The MD-80 horizontal stabilizer is driven by a single jackscrew. Lose the acme nut threads and you lose pitch control entirely. There is no second system." },
-      { "n": 4, "kind": "document", "label": "The document", "headline": "0.040 inches. Replace it.", "text": "In 1997 a lead mechanic measured the end play at its maximum allowable limit and ordered the assembly replaced. The aircraft was back in service within days, same part fitted." },
-      { "n": 5, "kind": "signal", "label": "The interval", "headline": "500 hours became 2,550.", "text": "The lubrication interval was extended four times between 1987 and 1996. By July 1996 it stood at eight calendar months. The end play inspection interval was stretched as well." },
-      { "n": 6, "kind": "rationalization", "label": "Who approved it", "headline": "The FAA signed all four.", "text": "Every extension was authorised. The NTSB found no supporting data was offered for any of them, and named both the extensions and their approval as contributing causes." },
-      { "n": 7, "kind": "names", "headline": "88", "text": "83 passengers and 5 crew. There were no survivors." },
-      { "n": 8, "kind": "contradiction", "label": "Unresolved", "headline": "Reviewing what, exactly?", "text": "No investigation ever established what data the FAA believed it was assessing when it approved four consecutive extensions to the interval that kept this assembly alive." }
+      {
+        "n": 1,
+        "kind": "anomaly",
+        "headline": "88",
+        "text": "Everyone aboard Alaska Airlines Flight 261 died in the Pacific, 2.7 miles north of Anacapa Island, on 31 January 2000."
+      },
+      {
+        "n": 2,
+        "kind": "correction",
+        "label": "What everyone gets wrong",
+        "headline": "The jackscrew never broke.",
+        "text": "The shaft survived the impact. What failed was the acme nut riding on it. Roughly 90% of its threads had already worn away before the aircraft ever left the gate."
+      },
+      {
+        "n": 3,
+        "kind": "barrier",
+        "label": "The barrier",
+        "headline": "One screw. No backup.",
+        "text": "The MD-80 horizontal stabilizer is driven by a single jackscrew. Lose the acme nut threads and you lose pitch control entirely. There is no second system."
+      },
+      {
+        "n": 4,
+        "kind": "document",
+        "label": "The document",
+        "headline": "0.040 inches. Replace it.",
+        "text": "In 1997 a lead mechanic measured the end play at its maximum allowable limit and ordered the assembly replaced. The aircraft was back in service within days, same part fitted."
+      },
+      {
+        "n": 5,
+        "kind": "signal",
+        "label": "The interval",
+        "headline": "500 hours became 2,550.",
+        "text": "The lubrication interval was extended four times between 1987 and 1996. By July 1996 it stood at eight calendar months. The end play inspection interval was stretched as well."
+      },
+      {
+        "n": 6,
+        "kind": "rationalization",
+        "label": "Who approved it",
+        "headline": "The FAA signed all four.",
+        "text": "Every extension was authorised. The NTSB found no supporting data was offered for any of them, and named both the extensions and their approval as contributing causes."
+      },
+      {
+        "n": 7,
+        "kind": "names",
+        "headline": "88",
+        "text": "83 passengers and 5 crew. There were no survivors."
+      },
+      {
+        "n": 8,
+        "kind": "contradiction",
+        "label": "Unresolved",
+        "headline": "Reviewing what, exactly?",
+        "text": "No investigation ever established what data the FAA believed it was assessing when it approved four consecutive extensions to the interval that kept this assembly alive."
+      }
     ],
     "source_line": "NTSB Aircraft Accident Report NTSB/AAR-02/01, 10 December 2002; NTSB Docket DCA00MA023.",
     "caption": "The jackscrew on Alaska 261 never broke. The nut riding on it lost its threads.\n\nThe lubrication interval for that assembly started at 500 flight hours. By 1996 it had been extended four times, to roughly 2,550. The FAA approved every extension and the NTSB found no supporting data was offered for any of them.\n\nSource: NTSB Aircraft Accident Report AAR-02/01; NTSB Docket DCA00MA023.\n\nDAILY 001 \u00b7 34.0583\u00b0N 119.3467\u00b0W",
-    "hashtags": ["#AlaskaAirlines261", "#NTSB", "#aviationsafety", "#aircraftmaintenance", "#MD83", "#casefile"],
+    "hashtags": [
+      "#AlaskaAirlines261",
+      "#NTSB",
+      "#aviationsafety",
+      "#aircraftmaintenance",
+      "#MD83",
+      "#casefile"
+    ],
     "x_post": "The Alaska 261 jackscrew lubrication interval started at 500 flight hours.\n\nIt was extended four times between 1987 and 1996, ending near 2,550. The FAA approved each one.\n\nNTSB AAR-02/01 lists the extensions, and the approvals, as contributing causes.",
     "x_post_type": "exhibit",
     "x_reply": "Full case file: https://www.youtube.com/@LastKnownPositionTV",
     "longform_note": "The episode is the FAA approval chain, not the metallurgy.",
     "generated_at": "2026-08-31T12:02:52Z",
     "status": "pending_approval",
-    "skip_channels": ["x"],
-    "rendered": null
+    "skip_channels": [
+      "x"
+    ],
+    "rendered": [
+      "out/001-alaska-airlines-flight-261/slide_01.jpg",
+      "out/001-alaska-airlines-flight-261/slide_02.jpg",
+      "out/001-alaska-airlines-flight-261/slide_03.jpg",
+      "out/001-alaska-airlines-flight-261/slide_04.jpg",
+      "out/001-alaska-airlines-flight-261/slide_05.jpg",
+      "out/001-alaska-airlines-flight-261/slide_06.jpg",
+      "out/001-alaska-airlines-flight-261/slide_07.jpg",
+      "out/001-alaska-airlines-flight-261/slide_08.jpg"
+    ]
   },
   {
     "daily_no": "002",
@@ -58,46 +160,168 @@
     "the_number": "44 minutes, 2,000+ rounds, 18 wounded, 0 of them killed",
     "the_unresolved_thing": "LAPD patrol shotguns were restricted to buckshot only. No primary source establishes who authorised that restriction, on what ballistic grounds, or whether any recommendation about patrol armament was ever issued or closed.",
     "tier": "A",
-    "structural_test": { "result": "PASS", "why": "The mechanism is understood. The approval chain for the ammunition policy is not." },
+    "structural_test": {
+      "result": "PASS",
+      "why": "The mechanism is understood. The approval chain for the ammunition policy is not."
+    },
     "commonly_wrong": [
-      { "claim": "The robbers used armor-piercing ammunition.", "record": "They used standard high-velocity rifle ammunition, 7.62x39mm and 5.56mm. Not formally designated AP rounds.", "source": "Cross-checked against available docket materials", "why_it_matters": "The gap between handgun and rifle rounds beat the officers, not exotic bullets." },
-      { "claim": "Officers had rifles from the start.", "record": "Patrol officers carried sidearms. Armor was not confirmed until 9:33am, about 16 minutes in, after which officers obtained AR-15s from a nearby gun dealer.", "source": "LAPD Use of Force Review Board Report, 12 June 1998", "why_it_matters": "That 16-minute gap is the structural failure the department had to account for." }
+      {
+        "claim": "The robbers used armor-piercing ammunition.",
+        "record": "They used standard high-velocity rifle ammunition, 7.62x39mm and 5.56mm. Not formally designated AP rounds.",
+        "source": "Cross-checked against available docket materials",
+        "why_it_matters": "The gap between handgun and rifle rounds beat the officers, not exotic bullets."
+      },
+      {
+        "claim": "Officers had rifles from the start.",
+        "record": "Patrol officers carried sidearms. Armor was not confirmed until 9:33am, about 16 minutes in, after which officers obtained AR-15s from a nearby gun dealer.",
+        "source": "LAPD Use of Force Review Board Report, 12 June 1998",
+        "why_it_matters": "That 16-minute gap is the structural failure the department had to account for."
+      }
     ],
     "investigators_disagree": [
-      { "question": "How many were wounded?", "position_a": "11 officers and 7 bystanders, per several outlets", "position_b": "10 officers and 4 civilians, per others; 11 and 6 elsewhere", "status": "The 1998 LAPD report should control. Public secondary sources have never converged." }
+      {
+        "question": "How many were wounded?",
+        "position_a": "11 officers and 7 bystanders, per several outlets",
+        "position_b": "10 officers and 4 civilians, per others; 11 and 6 elsewhere",
+        "status": "The 1998 LAPD report should control. Public secondary sources have never converged."
+      }
     ],
     "could_not_verify": [
-      { "item": "Whether the buckshot-only restriction was written policy or informal practice", "disposition": "ATTRIBUTE", "note": "Central to the unresolved thread. Stated as unresolved, never asserted either way." },
-      { "item": "Any written LAPD recommendation on patrol rifle procurement after the incident", "disposition": "ATTRIBUTE", "note": "No such document located. The absence is part of the claim." }
+      {
+        "item": "Whether the buckshot-only restriction was written policy or informal practice",
+        "disposition": "ATTRIBUTE",
+        "note": "Central to the unresolved thread. Stated as unresolved, never asserted either way."
+      },
+      {
+        "item": "Any written LAPD recommendation on patrol rifle procurement after the incident",
+        "disposition": "ATTRIBUTE",
+        "note": "No such document located. The absence is part of the claim."
+      }
     ],
     "assets": [
-      { "asset": "Use of Force Review Board Report, 12 June 1998", "source_url": "https://www.documentcloud.org/documents/3475142-UseofForceReview6-12-98/", "rights": "PD", "use_for": "document slide", "primary": true },
-      { "asset": "KTLA / NBC LA helicopter coverage", "source_url": "", "rights": "RESTRICTED", "use_for": "do not use without clearance", "primary": false },
-      { "asset": "Gene Blevins / LA Daily News photographs", "source_url": "", "rights": "DO NOT USE", "use_for": "n/a", "primary": false }
+      {
+        "asset": "Use of Force Review Board Report, 12 June 1998",
+        "source_url": "https://www.documentcloud.org/documents/3475142-UseofForceReview6-12-98/",
+        "rights": "PD",
+        "use_for": "document slide",
+        "primary": true
+      },
+      {
+        "asset": "KTLA / NBC LA helicopter coverage",
+        "source_url": "",
+        "rights": "RESTRICTED",
+        "use_for": "do not use without clearance",
+        "primary": false
+      },
+      {
+        "asset": "Gene Blevins / LA Daily News photographs",
+        "source_url": "",
+        "rights": "DO NOT USE",
+        "use_for": "n/a",
+        "primary": false
+      }
     ],
     "slides": [
-      { "n": 1, "kind": "anomaly", "headline": "44 minutes. 2,000 rounds. Nobody died.", "text": "Eleven officers and seven bystanders were hit outside a Bank of America in North Hollywood on 28 February 1997. Every one of them lived." },
-      { "n": 2, "kind": "correction", "label": "What everyone gets wrong", "headline": "They weren't armor-piercing rounds.", "text": "The press said armor-piercing. The record says standard 7.62x39 and 5.56 rifle ammunition. What beat the officers was the gap between a handgun and a rifle, not exotic bullets." },
-      { "n": 3, "kind": "barrier", "label": "The barrier", "headline": "A 9mm against a rifle plate.", "text": "Patrol officers carried 9mm sidearms, .38 revolvers and shotguns. The robbers wore homemade Type III-A armor with a trauma plate. Nothing the officers carried went through it." },
-      { "n": 4, "kind": "document", "label": "The document", "headline": "Buckshot only.", "text": "LAPD patrol shotguns were restricted to buckshot. That single ammunition choice is the reason the one long gun on scene could not answer the threat." },
-      { "n": 5, "kind": "signal", "label": "The signal", "headline": "9:33 a.m.", "text": "Sixteen minutes into the firefight, officers confirmed what they were shooting at was armored. Until that moment they were still firing rounds that could not work." },
-      { "n": 6, "kind": "rationalization", "label": "The improvisation", "headline": "They borrowed the rifles.", "text": "Officers drove to a gun shop three blocks away and commandeered AR-15s off the rack. A department of nine thousand officers armed itself mid-incident from a retail shelf." },
-      { "n": 7, "kind": "clock", "label": "The clock", "headline": "09:17 first shots\n09:33 armor confirmed\n09:35 rifles commandeered\n10:01 last shot fired", "text": "" },
-      { "n": 8, "kind": "names", "headline": "18 wounded. 0 killed.", "text": "Both robbers died. Every officer and bystander who was hit survived, several because rounds passed through unarmored gaps rather than through anything the department had issued." },
-      { "n": 9, "kind": "contradiction", "label": "Unresolved", "headline": "Nobody signed it.", "text": "The 1998 Use of Force Review Board report never establishes who restricted patrol shotguns to buckshot, on what ballistic grounds, or whether that decision was ever formally reviewed." },
-      { "n": 10, "kind": "outro", "label": "Case file 002", "headline": "The mechanism was obvious. The permission was not.", "text": "Full case file on YouTube. @LastKnownPositionTV" }
+      {
+        "n": 1,
+        "kind": "anomaly",
+        "headline": "44 minutes. 2,000 rounds. Nobody died.",
+        "text": "Eleven officers and seven bystanders were hit outside a Bank of America in North Hollywood on 28 February 1997. Every one of them lived."
+      },
+      {
+        "n": 2,
+        "kind": "correction",
+        "label": "What everyone gets wrong",
+        "headline": "They weren't armor-piercing rounds.",
+        "text": "The press said armor-piercing. The record says standard 7.62x39 and 5.56 rifle ammunition. What beat the officers was the gap between a handgun and a rifle, not exotic bullets."
+      },
+      {
+        "n": 3,
+        "kind": "barrier",
+        "label": "The barrier",
+        "headline": "A 9mm against a rifle plate.",
+        "text": "Patrol officers carried 9mm sidearms, .38 revolvers and shotguns. The robbers wore homemade Type III-A armor with a trauma plate. Nothing the officers carried went through it."
+      },
+      {
+        "n": 4,
+        "kind": "document",
+        "label": "The document",
+        "headline": "Buckshot only.",
+        "text": "LAPD patrol shotguns were restricted to buckshot. That single ammunition choice is the reason the one long gun on scene could not answer the threat."
+      },
+      {
+        "n": 5,
+        "kind": "signal",
+        "label": "The signal",
+        "headline": "9:33 a.m.",
+        "text": "Sixteen minutes into the firefight, officers confirmed what they were shooting at was armored. Until that moment they were still firing rounds that could not work."
+      },
+      {
+        "n": 6,
+        "kind": "rationalization",
+        "label": "The improvisation",
+        "headline": "They borrowed the rifles.",
+        "text": "Officers drove to a gun shop three blocks away and commandeered AR-15s off the rack. A department of nine thousand officers armed itself mid-incident from a retail shelf."
+      },
+      {
+        "n": 7,
+        "kind": "clock",
+        "label": "The clock",
+        "headline": "09:17 first shots\n09:33 armor confirmed\n09:35 rifles commandeered\n10:01 last shot fired",
+        "text": ""
+      },
+      {
+        "n": 8,
+        "kind": "names",
+        "headline": "18 wounded. 0 killed.",
+        "text": "Both robbers died. Every officer and bystander who was hit survived, several because rounds passed through unarmored gaps rather than through anything the department had issued."
+      },
+      {
+        "n": 9,
+        "kind": "contradiction",
+        "label": "Unresolved",
+        "headline": "Nobody signed it.",
+        "text": "The 1998 Use of Force Review Board report never establishes who restricted patrol shotguns to buckshot, on what ballistic grounds, or whether that decision was ever formally reviewed."
+      },
+      {
+        "n": 10,
+        "kind": "outro",
+        "label": "Case file 002",
+        "headline": "The mechanism was obvious. The permission was not.",
+        "text": "Full case file on YouTube. @LastKnownPositionTV"
+      }
     ],
     "source_line": "LAPD Board of Police Commissioners, Use of Force Review Board Report, 12 June 1998.",
     "caption": "44 minutes. Over 2,000 rounds fired. 11 officers and 7 bystanders wounded. Zero deaths among them.\n\nTwo robbers in homemade body armor fought LAPD patrol officers carrying handguns and buckshot-loaded shotguns. None of it penetrated. Officers eventually got rifles by commandeering them from a gun store three blocks away.\n\nThe 1998 Use of Force Review Board report never establishes who restricted patrol shotguns to buckshot in the first place.\n\nSource: LAPD Board of Police Commissioners, Use of Force Review Board Report, 12 June 1998.\n\nDAILY 002 \u00b7 34.1899\u00b0N 118.3764\u00b0W",
-    "hashtags": ["#NorthHollywoodShootout", "#LAPD", "#useofforce", "#policehistory", "#1997", "#casefile"],
+    "hashtags": [
+      "#NorthHollywoodShootout",
+      "#LAPD",
+      "#useofforce",
+      "#policehistory",
+      "#1997",
+      "#casefile"
+    ],
     "x_post": "Everyone says LAPD officers were simply outgunned on 28 Feb 1997. The 1998 Use of Force Review Board report says something narrower: patrol shotguns were restricted to buckshot only. No surviving record says who set that restriction, or why it was never revisited.",
     "x_post_type": "correction",
     "x_reply": "Full case file: https://www.youtube.com/@LastKnownPositionTV",
     "longform_note": "Long-form candidate. The unresolved thread is institutional, not forensic: the ammunition-restriction approval chain.",
     "generated_at": "2026-08-31T19:54:49Z",
     "status": "pending_approval",
-    "skip_channels": ["x"],
-    "rendered": null
+    "skip_channels": [
+      "x"
+    ],
+    "rendered": [
+      "out/002-north-hollywood-shootout/slide_01.jpg",
+      "out/002-north-hollywood-shootout/slide_02.jpg",
+      "out/002-north-hollywood-shootout/slide_03.jpg",
+      "out/002-north-hollywood-shootout/slide_04.jpg",
+      "out/002-north-hollywood-shootout/slide_05.jpg",
+      "out/002-north-hollywood-shootout/slide_06.jpg",
+      "out/002-north-hollywood-shootout/slide_07.jpg",
+      "out/002-north-hollywood-shootout/slide_08.jpg",
+      "out/002-north-hollywood-shootout/slide_09.jpg",
+      "out/002-north-hollywood-shootout/slide_10.jpg"
+    ]
   },
   {
     "daily_no": "003",
@@ -110,7 +334,10 @@
     "the_number": "155",
     "the_unresolved_thing": "The 2.5 square metre inlet threshold that exempted this engine class from large-bird ingestion testing was set in 1996 and has never been revised.",
     "tier": "A",
-    "structural_test": { "result": "PASS", "why": "NTSB recommended re-evaluating the exemption in 2010; the FAA declined in 2018; the threshold still stands." },
+    "structural_test": {
+      "result": "PASS",
+      "why": "NTSB recommended re-evaluating the exemption in 2010; the FAA declined in 2018; the threshold still stands."
+    },
     "source_line": "NTSB Aircraft Accident Report NTSB/AAR-10/03, 4 May 2010; NTSB Docket SA-532; public hearing transcripts June 2009; Federal Register notices 2018 and 2023.",
     "status": "scheduled",
     "note": "Published to IG and TikTok manually on 2026-08-31 for Sep 1 16:20 PT. Do not republish.",
