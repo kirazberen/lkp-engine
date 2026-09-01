@@ -82,7 +82,7 @@ def main():
             continue
         age = age_days(pkg.get("generated_at"))
         if age is None:
-            print(f"[score] DAILY {pkg.get(chr(39)+chr(39))} no usable generated_at, skipping")
+            print(f"[score] DAILY {pkg.get('daily_no')} no usable generated_at, skipping")
             continue
         window = 3 if age >= 3 else None
         window = 14 if age >= 14 else window
