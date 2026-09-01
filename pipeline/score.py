@@ -49,9 +49,29 @@ def score(metrics):
 
 
 def age_days(iso):
-    t = datetime.datetime.fromisoformat(iso.replace("Z", ""))
-    return (datetime.datetime.utcnow() - t).days
+    """Days since an ISO timestamp, or None if it is missing or unparseable.
 
+    Two shapes reach this. research.py writes an offset-aware stamp ending
+    "+00:00"; older queue entries end in "Z". The previous version stripped
+    only "Z" and compared against a naive utcnow(), so an offset-aware value
+    raised "can't subtract offset-naive and offset-aware datetimes". Both
+    sides are normalised to aware UTC here.
+
+    Returns None rather than raising: a package with no usable timestamp
+    should be skipped, not take the whole scoring pass down with it.
+    """
+    if not isinstance(iso, str) or not iso.strip():
+        return None
+    s = iso.strip()
+    if s.endswith(("Z", "z")):
+        s = s[:-1] + "+00:00"
+    try:
+        t = datetime.datetime.fromisoformat(s)
+    except ValueError:
+        return None
+    if t.tzinfo is None:
+        t = t.replace(tzinfo=datetime.timezone.utc)
+    return (datetime.datetime.now(datetime.timezone.utc) - t).days
 
 def main():
     queue = json.loads((DATA / "queue.json").read_text())
@@ -60,7 +80,10 @@ def main():
     for pkg in queue:
         if pkg.get("status") != "scheduled":
             continue
-        age = age_days(pkg["generated_at"])
+        age = age_days(pkg.get("generated_at"))
+        if age is None:
+            print(f"[score] DAILY {pkg.get(chr(39)+chr(39))} no usable generated_at, skipping")
+            continue
         window = 3 if age >= 3 else None
         window = 14 if age >= 14 else window
         if window is None:
@@ -79,16 +102,16 @@ def main():
         pkg["scored_at_day"] = window
         scores.append(
             {
-                "daily_no": pkg["daily_no"],
-                "case_name": pkg["case_name"],
-                "tier": pkg["tier"],
+                "daily_no": pkg.get("daily_no"),
+                "case_name": pkg.get("case_name"),
+                "tier": pkg.get("tier"),
                 "window_days": window,
                 "metrics": metrics,
                 "case_score": s,
                 "the_unresolved_thing": pkg.get("the_unresolved_thing"),
             }
         )
-        print(f"[score] DAILY {pkg['daily_no']} day{window} = {s}")
+        print(f"[score] DAILY {pkg.get('daily_no')} day{window} = {s}")
 
     (DATA / "queue.json").write_text(json.dumps(queue, indent=2))
     (DATA / "scores.json").write_text(json.dumps(scores, indent=2))
@@ -96,13 +119,13 @@ def main():
     # long-form shortlist: tier A only, rolling 30 days, best window per case
     best = {}
     for row in scores:
-        if row["tier"] != "A":
+        if row.get("tier") != "A":
             continue
-        k = row["daily_no"]
-        if k not in best or row["case_score"] > best[k]["case_score"]:
+        k = row.get("daily_no")
+        if k not in best or row.get("case_score", 0) > best[k].get("case_score", 0):
             best[k] = row
 
-    ranked = sorted(best.values(), key=lambda r: -r["case_score"])[:10]
+    ranked = sorted(best.values(), key=lambda r: -r.get("case_score", 0))[:10]
     (DATA / "shortlist.json").write_text(json.dumps(ranked, indent=2))
 
     print("\n=== LONG-FORM SHORTLIST ===")
