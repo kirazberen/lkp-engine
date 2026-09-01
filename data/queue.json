@@ -442,5 +442,185 @@
     "rendered": [
       "out/004-apollo-13-service-module-oxygen-tank-2-e/slide_01.jpg"
     ]
+  },
+  {
+    "case_name": "Space Shuttle Challenger STS-51-L",
+    "event_date": "1986-01-28",
+    "location": "Atlantic Ocean, off Cape Canaveral, Florida",
+    "coordinates": "28.64000\u00b0N 80.28000\u00b0W",
+    "agency": "Rogers Commission (Presidential Commission on the Space Shuttle Challenger Accident)",
+    "docket_url": "https://www.nasa.gov/history/rogersrep/",
+    "the_number": "73 seconds",
+    "the_unresolved_thing": "NASA and Thiokol continued operating the field joint design and approving launches despite certification programs that neither agency understood to be adequate, and no post-Commission investigation ever settled what either agency believed it was actually reviewing when it certified the O-ring seal as flight-ready.",
+    "tier": "C",
+    "structural_test": {
+      "result": "FAIL",
+      "why": "The Rogers Commission concluded the O-ring flaw was known to NASA managers as early as 1977, and both NASA and Thiokol accepted the joint's unsuitability as a baseline rather than demanding redesign. The open question is not the failure sequence, it is why the certification process kept permitting flight of a component both agencies knew was eroding, and on what data."
+    },
+    "commonly_wrong": [
+      {
+        "claim": "The night before the launch, Thiokol engineers warned NASA that the O-rings were dangerous, and NASA ignored them.",
+        "record": "Thiokol management initially recommended against launching below 53 degrees. After NASA personnel challenged that reasoning and Thiokol requested a recess, Thiokol management reversed its own position and recommended proceeding with the launch.",
+        "source": "Rogers Commission Report, Vol. 1, Ch. V-VI",
+        "why_it_matters": "The warning did not go unheard. It was withdrawn by the same company that issued it, after NASA pushed back on the data, not the risk."
+      }
+    ],
+    "investigators_disagree": [
+      {
+        "question": "Did the Rogers Commission and the later Congressional investigation reach different conclusions on the immediate cause?",
+        "position_a": "Rogers Commission: failure of the pressure seal in the aft field joint of the right solid rocket motor, due to a faulty design unacceptably sensitive to temperature, dynamic loading, and other factors.",
+        "position_b": "House Committee on Science and Technology: affirms the same joint design flaw and finds neither NASA nor Thiokol fully understood the joint's operation prior to the accident.",
+        "status": "No disagreement between the two bodies on the physical cause. The disagreement that never got resolved is upstream of both reports, in the certification and waiver process itself."
+      }
+    ],
+    "could_not_verify": [
+      {
+        "item": "The exact start time of the January 27 teleconference between Thiokol and NASA.",
+        "disposition": "CUT",
+        "note": "Secondary sources cite 8:45 p.m. but this could not be confirmed against the primary Rogers Commission transcript."
+      },
+      {
+        "item": "The statement attributed to NASA's Lawrence Mulloy: 'My God Thiokol, when do you want me to launch? Next April?'",
+        "disposition": "CUT",
+        "note": "Appears only in secondary analysis, not in Rogers Commission testimony or hearing transcripts."
+      },
+      {
+        "item": "The specific schedule pressure NASA managers cited to reverse Thiokol's no-launch position during the recess.",
+        "disposition": "ATTRIBUTE",
+        "note": "The Commission describes generalized 'institutional pressure' but does not attribute a specific statement to a specific manager during the recess."
+      }
+    ],
+    "assets": [
+      {
+        "asset": "Rogers Commission Report Volume 1",
+        "source_url": "https://ntrs.nasa.gov/search.jsp?R=19860015255",
+        "rights": "PD",
+        "use_for": "Primary document slide, source citation",
+        "primary": true
+      },
+      {
+        "asset": "Rogers Commission Report PDF",
+        "source_url": "https://sma.nasa.gov/SignificantIncidents/assets/rogers_commission_report.pdf",
+        "rights": "PD",
+        "use_for": "Document slide, full report reference",
+        "primary": false
+      },
+      {
+        "asset": "Rogers Commission Report HTML Chapters",
+        "source_url": "https://www.nasa.gov/history/rogersrep/v1ch5.htm",
+        "rights": "PD",
+        "use_for": "Approval chain and finding text",
+        "primary": false
+      },
+      {
+        "asset": "Challenger Crew Voice Transcript",
+        "source_url": "https://www.nasa.gov/missions/space-shuttle/sts-51l/challenger-crew-transcript/",
+        "rights": "PD",
+        "use_for": "Not used visually, background verification only",
+        "primary": false
+      },
+      {
+        "asset": "Presidential Commission Hearings Volume 4, McDonald handwritten notes",
+        "source_url": "",
+        "rights": "PD",
+        "use_for": "Document slide, teleconference reconstruction",
+        "primary": false
+      },
+      {
+        "asset": "Congressional Investigation Report",
+        "source_url": "https://www.govinfo.gov/content/pkg/GPO-CRPT-99hrpt1016/pdf/GPO-CRPT-99hrpt1016.pdf",
+        "rights": "PD",
+        "use_for": "Investigators disagree slide, cross-check",
+        "primary": false
+      }
+    ],
+    "slides": [
+      {
+        "n": 1,
+        "kind": "anomaly",
+        "label": "",
+        "headline": "73 seconds",
+        "text": "Space Shuttle Challenger broke apart 73 seconds after liftoff on January 28, 1986, killing all seven crew members.",
+        "visual": "Black frame, white type only. No launch photo on this slide."
+      },
+      {
+        "n": 2,
+        "kind": "correction",
+        "label": "What everyone gets wrong",
+        "headline": "Thiokol didn't warn NASA. They reversed.",
+        "text": "The night before launch, Thiokol's engineers recommended against flying below 53 degrees. After NASA challenged the data and Thiokol took a recess, Thiokol management reversed that recommendation and cleared the launch.",
+        "visual": "Rogers Commission Report Vol. 1, Ch. V text excerpt, cropped tight."
+      },
+      {
+        "n": 3,
+        "kind": "barrier",
+        "label": "The safeguard that existed",
+        "headline": "23 launches. Minimum temp: 53\u00b0F.",
+        "text": "Every prior shuttle flight had launched above 53 degrees Fahrenheit, the coldest data point Thiokol had for O-ring performance. Challenger launched at 36 degrees, 15 degrees below any flight on record.",
+        "visual": "Rogers Commission Report Vol. 1, Ch. VI temperature chart, document excerpt only."
+      },
+      {
+        "n": 4,
+        "kind": "history",
+        "label": "What NASA knew, and when",
+        "headline": "1977: the joint rotation problem is already on paper.",
+        "text": "The Commission found NASA managers were aware of O-ring erosion and joint rotation concerns as early as 1977, nine years before the accident. Launches continued.",
+        "visual": "Rogers Commission Report Vol. 1, Ch. IV, document excerpt."
+      },
+      {
+        "n": 5,
+        "kind": "correction",
+        "label": "Investigators disagree",
+        "headline": "Same joint. Same flaw. No agreement on why it was allowed.",
+        "text": "The Rogers Commission and the House Committee on Science and Technology both identified the same field joint design flaw. Neither report resolved how a joint with a documented erosion history kept receiving flight certification.",
+        "visual": "House Committee Report GPO-CRPT-99hrpt1016 cover page, document excerpt."
+      },
+      {
+        "n": 6,
+        "kind": "barrier",
+        "label": "The permission, not the mechanism",
+        "headline": "Waivers, not redesign.",
+        "text": "Rather than redesigning the joint after erosion was first observed, NASA and Thiokol treated each instance of O-ring erosion within a widening margin of what they considered 'acceptable risk,' a margin that expanded with each successful flight rather than contracting.",
+        "visual": "Rogers Commission Report Vol. 1, Ch. VI, 'acceptable risk' text excerpt."
+      },
+      {
+        "n": 7,
+        "kind": "history",
+        "label": "The recess",
+        "headline": "Thiokol asked for five minutes. Took thirty.",
+        "text": "During the January 27 teleconference, Thiokol engineers recommended against launch. NASA officials questioned the flight-readiness rationale. Thiokol requested a caucus, and returned roughly thirty minutes later with a reversed recommendation to launch.",
+        "visual": "Rogers Commission Report Vol. 1, Ch. V, teleconference summary excerpt."
+      },
+      {
+        "n": 8,
+        "kind": "correction",
+        "label": "What the record shows",
+        "headline": "No new data. Same data, different conclusion.",
+        "text": "The Commission found that no new engineering data was introduced during the recess. The same temperature and erosion data was reinterpreted to support a different outcome.",
+        "visual": "Rogers Commission Report Vol. 1, Ch. VI, findings text excerpt."
+      },
+      {
+        "n": 9,
+        "kind": "unresolved",
+        "label": "What was never settled",
+        "headline": "No investigation ever fixed what 'flight-ready' meant.",
+        "text": "Both NASA's certification process and Thiokol's engineering sign-off continued for years without a shared, documented standard for what data justified clearing a known erosion defect for flight. Neither the Rogers Commission nor Congress resolved what either organization believed it was actually reviewing when it certified the joint.",
+        "visual": "Rogers Commission Report Vol. 1, Ch. VI, closing findings page, document excerpt only."
+      }
+    ],
+    "generated_at": "2026-09-01T17:46:45.536238+00:00",
+    "status": "pending_approval",
+    "daily_no": "005",
+    "rendered": [
+      "out/005-space-shuttle-challenger-sts-51-l/slide_01.jpg",
+      "out/005-space-shuttle-challenger-sts-51-l/slide_02.jpg",
+      "out/005-space-shuttle-challenger-sts-51-l/slide_03.jpg",
+      "out/005-space-shuttle-challenger-sts-51-l/slide_04.jpg",
+      "out/005-space-shuttle-challenger-sts-51-l/slide_05.jpg",
+      "out/005-space-shuttle-challenger-sts-51-l/slide_06.jpg",
+      "out/005-space-shuttle-challenger-sts-51-l/slide_07.jpg",
+      "out/005-space-shuttle-challenger-sts-51-l/slide_08.jpg",
+      "out/005-space-shuttle-challenger-sts-51-l/slide_09.jpg"
+    ]
   }
 ]
