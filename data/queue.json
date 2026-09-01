@@ -353,5 +353,94 @@
       "out/003-us-airways-flight-1549/slide_09.jpg",
       "out/003-us-airways-flight-1549/slide_10.jpg"
     ]
+  },
+  {
+    "case_name": "Apollo 13 Service Module Oxygen Tank 2 Explosion",
+    "event_date": "1970-04-13",
+    "location": "Space, 205,000 miles from Earth en route to Moon",
+    "coordinates": "N/A (deep space, approx. 205,000 miles from Earth)",
+    "agency": "NASA, Apollo 13 Review Board (Cortright Commission)",
+    "docket_url": "https://ntrs.nasa.gov/api/citations/19700078913/downloads/19700078913.pdf",
+    "the_number": "Oxygen Tank 2, serial number 10024X-TA0009, exploded at 55 hours 55 minutes into flight",
+    "the_unresolved_thing": "Who was accountable for enforcing the thermostat voltage change across the contractor chain, what documentation was supposed to flow the requirement down from ASPO through North American Rockwell to Beech Aircraft, and why no testing procedure ever required the switches to cycle under load at 65V before the tanks were qualified for flight.",
+    "tier": "C",
+    "structural_test": {
+      "result": "PASS",
+      "why": "The Cortright Commission identified a definite approval chain failure: NASA's Apollo Spacecraft Program Office (ASPO) directed that Kennedy Space Center ground support equipment (GSE) supply 65V DC to oxygen tank heaters. North American Rockwell (NR), the prime contractor, was responsible for flowing this change down to subcontractors such as Beech Aircraft Corporation. North American Aviation and ASPO ordered Beech to fit a 65-volt thermostat switch in all Block 2 tanks, but Beech did not do it and the program office did not follow up. The discrepancy was not detected by NASA, NR, or Beech in their review of documentation, nor did tests identify the incompatibility, since neither qualification nor acceptance testing required switch cycling under load. This is not a failure-sequence timing dispute; it is an unresolved authorization gap: no investigation established what data the three parties believed they were reviewing or why the change order was never enforced."
+    },
+    "commonly_wrong": [
+      {
+        "claim": "The tank failure was caused by a simple oversight in the wiring.",
+        "record": "The switch was never classified 'flight-critical' because it only operated during ground procedures. NR issued a blanket requirement for 65V compatibility but did not explicitly list the internal thermostatic switch as needing a part change, and Beech continued installing the original 28V switches per the drawings on file.",
+        "source": "Report of Apollo 13 Review Board, NASA TMX-65270, June 15, 1970",
+        "why_it_matters": "The failure was not a single missed part. It was a requirement that was issued, never flowed down, and never checked at three separate points in the chain."
+      },
+      {
+        "claim": "Engineers saw the tank overheating during the March 1970 ground test.",
+        "record": "The temperature gauge for the heater could only record up to 85 degrees F. Most of the individuals involved in the detanking discussion knew nothing of the extended heater and fan operation, so the off-nominal heating was invisible to them at the time.",
+        "source": "Report of Apollo 13 Review Board, NASA TMX-65270, June 15, 1970",
+        "why_it_matters": "The instrument that should have caught the fault physically could not read high enough to show it."
+      },
+      {
+        "claim": "The thermostat was upgraded to 65 volts along with the rest of the tank hardware.",
+        "record": "The 1965 modification touched virtually every component except the thermostatic safety switches inside the oxygen tank heaters. Beech kept building tanks with the original 28V switch for four years.",
+        "source": "Report of Apollo 13 Review Board, NASA TMX-65270, June 15, 1970",
+        "why_it_matters": "It is the one component the change order was actually about, and it is the one component the change never reached."
+      }
+    ],
+    "investigators_disagree": [],
+    "could_not_verify": [
+      {
+        "item": "Whether any pre-1970 safety recommendation specifically addressed the thermostat voltage rating gap before Apollo 13.",
+        "disposition": "CUT",
+        "note": "No primary source located confirming or denying a prior recommendation on this specific gap."
+      },
+      {
+        "item": "Which Cortright recommendation directly led to the thermostat upgrade and whether it was ever marked 'closed unacceptable' or revisited.",
+        "disposition": "CUT",
+        "note": "Recommendation tracking status not confirmed in sources retrieved."
+      },
+      {
+        "item": "Whether North American Rockwell documented the initial change order directing Beech to upgrade the thermostat, and if so, where it was archived.",
+        "disposition": "CUT",
+        "note": "No archival record of the specific change order document was located."
+      }
+    ],
+    "assets": [
+      {
+        "asset": "S70-40850",
+        "source_url": "https://www.nasa.gov/image-detail/amf-s70-40850",
+        "rights": "PD",
+        "use_for": "Signal slide, fused thermal switch recovered from a simulation test replicating the March 1970 detanking",
+        "primary": true
+      },
+      {
+        "asset": "AS13-59-8500A",
+        "source_url": "https://www.nasa.gov/image-article/damage-from-apollo-13-explosion/",
+        "rights": "PD",
+        "use_for": "Anomaly slide, onboard photo of the jettisoned Service Module showing the panel blown off Sector 4",
+        "primary": true
+      },
+      {
+        "asset": "Edgar M. Cortright press conference",
+        "source_url": "https://roundupreads.jsc.nasa.gov/roundup/1450/FiftyYearsAgoApollo13ReviewBoardReport",
+        "rights": "PD",
+        "use_for": "Outro or document slide, chairman of the review board at the June 15, 1970 press conference",
+        "primary": false
+      }
+    ],
+    "slides": [
+      {
+        "n": 1,
+        "kind": "anomaly",
+        "text": "Placeholder slide content pending full script draft."
+      }
+    ],
+    "generated_at": "2026-09-01T08:08:15.043157+00:00",
+    "status": "pending_approval",
+    "daily_no": "004",
+    "rendered": [
+      "out/004-apollo-13-service-module-oxygen-tank-2-e/slide_01.jpg"
+    ]
   }
 ]

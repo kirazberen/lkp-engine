@@ -14,7 +14,7 @@
   {
     "hint": "Apollo 13 oxygen tank 2 failure 1970 - NASA Cortright Commission report, the thermostat switch never upgraded to 65 volts",
     "tier": "A",
-    "status": "queued",
+    "status": "processed",
     "hook_familiarity": "Apollo 13"
   },
   {
