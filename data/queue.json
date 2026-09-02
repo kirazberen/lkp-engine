@@ -626,5 +626,209 @@
       "out/005-space-shuttle-challenger-sts-51-l/slide_08.jpg",
       "out/005-space-shuttle-challenger-sts-51-l/slide_09.jpg"
     ]
+  },
+  {
+    "case_name": "United Airlines Flight 232",
+    "event_date": "1989-07-19",
+    "location": "Sioux Gateway Airport, Sioux City, Iowa",
+    "coordinates": "42.417\u00b0N 96.383\u00b0W",
+    "agency": "NTSB",
+    "docket_url": "data.ntsb.gov/Docket (NTSB AAR-90/06); also www.ntsb.gov/investigations/accidentreports/reports/aar-90-06.pdf",
+    "the_number": "112 fatalities; 184 survivors",
+    "the_unresolved_thing": "The FAA certified the DC-10 hydraulic system on McDonnell Douglas's statement that an uncontained engine failure destroying all three hydraulic systems was extremely remote, though the design routed all three lines through the same section of the tail. When the No. 2 engine's fan disk disintegrated on July 19, 1989, titanium fragments severed all three systems in milliseconds. No investigation established what data supported the original probability calculation, or whether it was ever tested against the actual failure mode.",
+    "tier": "A",
+    "structural_test": {
+      "result": "PASS",
+      "why": "Two fault chains stand unresolved: the adequacy of FAA review of hydraulic routing under Special Condition 25-18-WE-7, which assumed total hydraulic loss was 'extremely remote,' versus the vulnerability that was actually built in; and whether the titanium defect introduced during 1971 manufacture was ever detectable by General Electric's quality controls."
+    },
+    "commonly_wrong": [
+      {
+        "claim": "The hydraulic lines should have been separated.",
+        "record": "The three systems were independent in fluid, pumps, reservoirs, and control logic, but not in physical routing. All three lines passed through the same section of the tail, a design certified by the FAA on the assumption that a single engine failure would not sever all three.",
+        "source": "NTSB AAR-90/06",
+        "why_it_matters": "The failure wasn't a lack of redundancy. It was redundancy built around a probability that turned out to be wrong."
+      },
+      {
+        "claim": "The crew had no backup systems.",
+        "record": "The DC-10 carried a ram air turbine providing emergency electrical power to auxiliary pumps if engine power or primary pumps failed. It could not restore fluid pressure once all three systems had already lost fluid, a scenario excluded from the original failure analysis.",
+        "source": "NTSB AAR-90/06",
+        "why_it_matters": "The backup worked exactly as designed. The design never accounted for the failure that occurred."
+      },
+      {
+        "claim": "The metallurgical defect was undetectable at the time.",
+        "record": "The nitrogen inclusion formed during 1971 forging was smaller than a fingernail. It survived six fluorescent penetrant inspections over 17 years. NTSB's probable cause cited inadequate consideration of human factors limitations in United's inspection procedures, not the detection method itself.",
+        "source": "NTSB AAR-90/06; FAA Lessons Learned, N1819U",
+        "why_it_matters": "The defect wasn't invisible. The inspection process wasn't built to catch what a human eye could miss."
+      }
+    ],
+    "investigators_disagree": [
+      {
+        "question": "What was the true causal chain behind the loss of all three hydraulic systems?",
+        "position_a": "NTSB probable cause: inadequate inspection procedures at United Airlines' overhaul facility allowed the 1971 titanium defect to go undetected, leading to fan disk failure.",
+        "position_b": "Post-accident engineering analysis: the initiating failure was FAA certification philosophy, which allowed a hydraulic routing design with a common-cause vulnerability to be certified on an unvalidated probability estimate.",
+        "status": "NTSB's probable cause is the official record. The certification critique has never been formally adjudicated by any agency and remains outside the closed finding."
+      }
+    ],
+    "could_not_verify": [
+      {
+        "item": "The exact text or methodology of the McDonnell Douglas probability calculation submitted under Special Condition 25-18-WE-7.",
+        "disposition": "ATTRIBUTE",
+        "note": "Referenced in post-accident engineering literature; not located as a primary FAA or NTSB exhibit in this research pass."
+      },
+      {
+        "item": "Whether the FAA formally reviewed the hydraulic routing design or relied on Douglas's written assurance alone.",
+        "disposition": "ATTRIBUTE",
+        "note": "Certification record on this specific review step not confirmed in NTSB AAR-90/06 as retrieved."
+      },
+      {
+        "item": "Specific General Electric quality control procedures in effect at the 1971 forging that allowed the nitrogen inclusion through.",
+        "disposition": "ATTRIBUTE",
+        "note": "General manufacturing background is in the FAA Lessons Learned page; process-level detail not independently verified."
+      },
+      {
+        "item": "Current status (open/closed) of any NTSB recommendation specifically addressing hydraulic routing common-cause vulnerability.",
+        "disposition": "CUT",
+        "note": "Safety recommendation letters A-90-167 through A-90-175 exist but their present disposition was not confirmed this session."
+      }
+    ],
+    "assets": [
+      {
+        "asset": "NTSB Accident Report AAR-90/06, full text PDF",
+        "source_url": "www.ntsb.gov/investigations/accidentreports/reports/aar-90-06.pdf",
+        "rights": "PD",
+        "use_for": "Primary source citation, document slide text basis",
+        "primary": true
+      },
+      {
+        "asset": "FAA Lessons Learned page, N1819U",
+        "source_url": "www.faa.gov/lessons_learned/transport_airplane/accidents/N1819U",
+        "rights": "PD",
+        "use_for": "Manufacturing and certification background",
+        "primary": false
+      },
+      {
+        "asset": "NTSB Safety Recommendations A-90-167 through A-90-175",
+        "source_url": "www.ntsb.gov/safety/safety-recs/recletters/A90_167_175.pdf",
+        "rights": "PD",
+        "use_for": "Recommendation status reference, could-not-verify item",
+        "primary": false
+      },
+      {
+        "asset": "NTSB AAR-90/06 Figure 6, Sioux Gateway Airport wreckage path",
+        "source_url": "NTSB AAR-90/06",
+        "rights": "PD",
+        "use_for": "Map/location visual",
+        "primary": false
+      },
+      {
+        "asset": "NTSB AAR-90/06 Figure 3, in-flight photo of stabilizer damage",
+        "source_url": "NTSB AAR-90/06",
+        "rights": "PD",
+        "use_for": "Signal slide visual",
+        "primary": true
+      },
+      {
+        "asset": "NTSB Docket DCA89RA118 or successor",
+        "source_url": "data.ntsb.gov/Docket",
+        "rights": "PD",
+        "use_for": "Group chairman reports, metallurgical analysis reference",
+        "primary": false
+      },
+      {
+        "asset": "Airworthiness Directive AD 89-20-01",
+        "source_url": "cited in NTSB AAR-90/06",
+        "rights": "PD",
+        "use_for": "Document slide, regulatory response reference",
+        "primary": false
+      }
+    ],
+    "slides": [
+      {
+        "n": 1,
+        "kind": "anomaly",
+        "label": "",
+        "headline": "112 dead. 184 survived a jet with zero hydraulics.",
+        "text": "United Airlines Flight 232, a DC-10, lost all three hydraulic systems over Iowa on July 19, 1989. The crew crash-landed at Sioux City using only engine thrust for control.",
+        "visual": "NTSB AAR-90/06 Figure 6, wreckage path diagram, full bleed"
+      },
+      {
+        "n": 2,
+        "kind": "correction",
+        "label": "What everyone gets wrong",
+        "headline": "Independent hydraulics, one physical bottleneck",
+        "text": "The three systems were independent in fluid, pumps, and control logic. All three lines were also routed through the same section of the tail, a design certified by the FAA as adequate protection against loss of any single system.",
+        "visual": "Simple line diagram built from NTSB report text, no third-party graphics"
+      },
+      {
+        "n": 3,
+        "kind": "barrier",
+        "label": "The safeguard that existed",
+        "headline": "A backup existed for engine failure",
+        "text": "The DC-10 carried a ram air turbine to restore electrical power to auxiliary pumps if primary pumps failed. It could not restore fluid to a system that had already lost pressure, and total loss of all three was rated extremely remote at certification.",
+        "visual": "Text card, NTSB AAR-90/06 excerpt on hydraulic system design"
+      },
+      {
+        "n": 4,
+        "kind": "document",
+        "label": "The certification record",
+        "headline": "The certification word was 'improbable'",
+        "text": "Special Condition 25-18-WE-7 required McDonnell Douglas to show that total hydraulic loss from an uncontained engine failure was extremely remote. No formal industry standard for uncontained-engine protection existed at the time of certification.",
+        "visual": "Scanned excerpt, NTSB AAR-90/06, certification section"
+      },
+      {
+        "n": 5,
+        "kind": "signal",
+        "label": "The moment it read true",
+        "headline": "All three gauges read zero",
+        "text": "At 1516 CDT, a fan disk from the No. 2 engine disintegrated. Within seconds, the flight crew found hydraulic pressure and quantity gauges for systems one, two, and three all at zero, a condition the design had not anticipated.",
+        "visual": "NTSB AAR-90/06 Figure 3, in-flight photo of stabilizer and missing cowl door"
+      },
+      {
+        "n": 6,
+        "kind": "rationalization",
+        "label": "Why no one caught it",
+        "headline": "No rule required this protection",
+        "text": "At the time the DC-10 was certified in 1971, no FAA requirement or industry standard addressed uncontained engine failure as a design hazard for hydraulic systems. The redundancy built in was judged sufficient against every failure mode considered probable.",
+        "visual": "Text card, quote from FAA Lessons Learned page"
+      },
+      {
+        "n": 7,
+        "kind": "clock",
+        "label": "",
+        "headline": "1409 CDT: Flight 232 departs Denver\n1516 CDT: fan disk separates, engine No. 2\n1516 CDT: hydraulic systems 1, 2, 3 read zero\n1600 CDT: aircraft crash-lands, Sioux Gateway Airport",
+        "text": "",
+        "visual": "Plain timeline card, no imagery"
+      },
+      {
+        "n": 8,
+        "kind": "names",
+        "label": "",
+        "headline": "112",
+        "text": "112 passengers and crew died. 184 survived. Names are held in the NTSB docket, not reproduced here.",
+        "visual": "Black card, number only, no photography"
+      },
+      {
+        "n": 9,
+        "kind": "contradiction",
+        "label": "What was never resolved",
+        "headline": "Two failures, one still open",
+        "text": "NTSB's probable cause names inadequate inspection at United's overhaul facility for missing a 1971 titanium defect. It does not resolve what data McDonnell Douglas used to certify total hydraulic loss as extremely remote, or whether the FAA independently verified that figure before certifying the design in 1971.",
+        "visual": "Text card, NTSB AAR-90/06 probable cause statement, full text"
+      }
+    ],
+    "generated_at": "2026-09-02T17:49:22.399130+00:00",
+    "status": "pending_approval",
+    "daily_no": "006",
+    "rendered": [
+      "out/006-united-airlines-flight-232/slide_01.jpg",
+      "out/006-united-airlines-flight-232/slide_02.jpg",
+      "out/006-united-airlines-flight-232/slide_03.jpg",
+      "out/006-united-airlines-flight-232/slide_04.jpg",
+      "out/006-united-airlines-flight-232/slide_05.jpg",
+      "out/006-united-airlines-flight-232/slide_06.jpg",
+      "out/006-united-airlines-flight-232/slide_07.jpg",
+      "out/006-united-airlines-flight-232/slide_08.jpg",
+      "out/006-united-airlines-flight-232/slide_09.jpg"
+    ]
   }
 ]
