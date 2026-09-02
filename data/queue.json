@@ -134,7 +134,7 @@
     "x_reply": "Full case file: https://www.youtube.com/@LastKnownPositionTV",
     "longform_note": "The episode is the FAA approval chain, not the metallurgy.",
     "generated_at": "2026-08-31T12:02:52Z",
-    "status": "pending_approval",
+    "status": "publish_failed",
     "skip_channels": [
       "x"
     ],
@@ -147,7 +147,9 @@
       "out/001-alaska-airlines-flight-261/slide_06.jpg",
       "out/001-alaska-airlines-flight-261/slide_07.jpg",
       "out/001-alaska-airlines-flight-261/slide_08.jpg"
-    ]
+    ],
+    "buffer_ids": [],
+    "error": "HTTP Error 401: Unauthorized"
   },
   {
     "daily_no": "002",
@@ -306,7 +308,7 @@
     "x_reply": "Full case file: https://www.youtube.com/@LastKnownPositionTV",
     "longform_note": "Long-form candidate. The unresolved thread is institutional, not forensic: the ammunition-restriction approval chain.",
     "generated_at": "2026-08-31T19:54:49Z",
-    "status": "pending_approval",
+    "status": "publish_failed",
     "skip_channels": [
       "x"
     ],
@@ -321,7 +323,9 @@
       "out/002-north-hollywood-shootout/slide_08.jpg",
       "out/002-north-hollywood-shootout/slide_09.jpg",
       "out/002-north-hollywood-shootout/slide_10.jpg"
-    ]
+    ],
+    "buffer_ids": [],
+    "error": "HTTP Error 401: Unauthorized"
   },
   {
     "daily_no": "003",
