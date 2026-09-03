@@ -830,5 +830,100 @@
       "out/006-united-airlines-flight-232/slide_08.jpg",
       "out/006-united-airlines-flight-232/slide_09.jpg"
     ]
+  },
+  {
+    "case_name": "Lion Air Flight 610 / Ethiopian Airlines Flight 302 (Boeing 737 MAX MCAS Certification)",
+    "event_date": "October 29, 2018 / March 10, 2019",
+    "location": "Java Sea near Jakarta, Indonesia / near Ejere, Ethiopia",
+    "coordinates": "-6.0, 106.0 / 9.2, 37.9",
+    "agency": "House Committee on Transportation and Infrastructure; FAA; NTSB; DOT OIG",
+    "docket_url": "https://www.govinfo.gov/content/pkg/GOVPUB-Y4_T68_2-PURL-gpo144993/pdf/GOVPUB-Y4_T68_2-PURL-gpo144993.pdf",
+    "the_number": "346",
+    "the_unresolved_thing": "The FAA's 2015 decision to delegate MCAS safety assessments to Boeing under the ODA program was never independently verified by agency documents that now exist in the public record. The DOT OIG stated in June 2020 that 'FAA did not have a complete understanding of Boeing's safety assessments performed on MCAS until after the first accident,' meaning the approval chain rested on Boeing's own representations. No safety recommendation was ever issued or closed on the delegation decision itself or the criteria used to classify MCAS as 'major' rather than 'hazardous.'",
+    "tier": "A",
+    "structural_test": {
+      "result": "PASS",
+      "why": "Two federal bodies (House Committee, DOT OIG) and the FAA itself reached opposite conclusions on whether the agency understood what it had delegated, and the delegation criteria were never independently reconstructed. Both findings still stand."
+    },
+    "commonly_wrong": [
+      {
+        "claim": "Boeing hid MCAS from pilots to avoid training requirements",
+        "record": "On June 7, 2013, Boeing staff concluded internally: 'If we emphasize MCAS is a new function there may be a greater certification and training impact.' They decided to 'externally communicate it as an addition to the Speed Trim' while developing it internally as a new system. Boeing told the FAA about MCAS repeatedly during certification; it downplayed the system's scope in certification documents.",
+        "source": "House Committee on Transportation and Infrastructure Final Report, Sept. 2020",
+        "why_it_matters": "The distinction between a certification strategy and a hidden system changes who bears responsibility for FAA's incomplete picture, and whether existing disclosure rules were even adequate to catch it."
+      },
+      {
+        "claim": "The FAA never knew MCAS could move the plane's nose down repeatedly",
+        "record": "Boeing's own System Safety Analysis, submitted to the FAA, 'underestimated the power of MCAS to move the plane's horizontal tail' and 'did not account for the system deploying multiple times.' Boeing changed MCAS design during certification, making it more powerful, and 'key people at FAA were not always told.'",
+        "source": "NTSB, DOT OIG, House Committee Final Report",
+        "why_it_matters": "The failure was not agency ignorance of a hidden fact but the FAA's acceptance of a flawed analysis it was supposed to validate independently."
+      },
+      {
+        "claim": "MCAS was approved as a single-sensor system despite known risks",
+        "record": "An unnamed Boeing engineer raised concerns internally in 2015 about 'relying on a single AOA sensor.' Boeing's safety analysis classified MCAS failure as 'major,' meaning the flight crew serves as the backup, rather than requiring dual-sensor input. The FAA accepted that classification without independent review.",
+        "source": "House Committee on Transportation and Infrastructure Final Report, Sept. 2020",
+        "why_it_matters": "The structural gap was not the sensor count. It was who got to decide the risk category that made a single sensor acceptable."
+      }
+    ],
+    "investigators_disagree": [
+      {
+        "question": "Whether the FAA had adequate understanding of MCAS before the crashes",
+        "position_a": "House Committee: FAA oversight was 'hampered by poor, disjointed FAA communication among the agency's own internal offices responsible for certifying new critical 737 MAX systems, including MCAS.' DOT OIG, June 2020: 'FAA did not have a complete understanding of Boeing's safety assessments performed on MCAS until after the first accident.'",
+        "position_b": "FAA testimony: the agency was 'directly involved in the System Safety Review' of MCAS, cited 297 certification flight tests including MCAS testing, and called the certification process 'detailed and thorough.'",
+        "status": "Still unresolved. No finding established whether documented 'involvement' without independent validation of Boeing's analysis constitutes adequate understanding."
+      },
+      {
+        "question": "Whether MCAS should have been classified as 'hazardous' rather than 'major'",
+        "position_a": "A May 2019 internal FAA administrative review 'tentatively determined that senior agency officials didn't participate in or monitor crucial safety assessments,' and noted Boeing 'didn't flag the automated stall-prevention feature as a system whose malfunction or failure could cause a catastrophic event.'",
+        "position_b": "The FAA later acknowledged MCAS should have been considered 'safety-critical,' but characterized this as a post-accident reassessment, not evidence the 2015 classification logic was wrong at the time.",
+        "status": "Never resolved. No investigation determined what classification MCAS should have received under 2015 standards or who at the FAA was responsible for validating it before delegation."
+      },
+      {
+        "question": "Whether the failure was communication breakdown or intentional concealment",
+        "position_a": "Joint Authorities Technical Review, chaired by former NTSB chairman Christopher Hart: MCAS 'evolved from a relatively benign system to a not-so-benign system without adequate knowledge by the FAA,' with 'no indication of intentional wrongdoing.'",
+        "position_b": "The Department of Justice: Boeing pleaded guilty in January 2021 to conspiracy to defraud the United States, admitting it 'engaged in criminal conduct intended to deceive and mislead the Federal Aviation Administration' through 'misleading statements, half-truths, and omissions.'",
+        "status": "Both findings stand. No single investigation reconciled a safety panel's finding of no intentional wrongdoing with a signed federal guilty plea to fraud."
+      }
+    ],
+    "could_not_verify": [
+      {
+        "item": "The exact list of FAA personnel who reviewed Boeing's System Safety Analysis and when",
+        "disposition": "CUT",
+        "note": "No public document names the specific reviewers or review dates."
+      },
+      {
+        "item": "The specific technical assumptions in Boeing's 2015 safety analysis later found flawed",
+        "disposition": "ATTRIBUTE",
+        "note": "General findings exist (NTSB, DOT OIG) but the underlying analysis document itself is not fully public."
+      },
+      {
+        "item": "Whether any FAA engineer formally documented objections to the ODA delegation decision at the time",
+        "disposition": "CUT",
+        "note": "No such record has surfaced in released reports."
+      },
+      {
+        "item": "Full text of Boeing-FAA email communications on MCAS design changes, 2012-2017",
+        "disposition": "CUT",
+        "note": "Only excerpts appear in the House report; the full correspondence is not in the public docket."
+      },
+      {
+        "item": "Whether any safety recommendation was ever issued specifically on ODA delegation for flight control systems",
+        "disposition": "ATTRIBUTE",
+        "note": "No confirmed recommendation or status found; stated as an open question rather than a fact."
+      }
+    ],
+    "assets": [
+      {
+        "asset": "House Committee on Transportation and Infrastructure Final Report on Boeing 737 MAX Design, Development & Certification (Sept. 2020), 245 pp.",
+        "source_url": "https://www.govinfo.gov/content/pkg/GOVPUB-Y4_T68_2-PURL-gpo144993/pdf/GOVPUB-Y4_T68_2-PURL-gpo144993.pdf",
+        "rights": "PD",
+        "use_for": "Document slide, quote sourcing, timeline",
+        "primary": true
+      }
+    ],
+    "generated_at": "2026-09-03T17:45:14.618262+00:00",
+    "status": "pending_approval",
+    "daily_no": "007",
+    "rendered": []
   }
 ]
