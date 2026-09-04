@@ -925,5 +925,214 @@
     "status": "pending_approval",
     "daily_no": "007",
     "rendered": []
+  },
+  {
+    "case_name": "Exxon Valdez",
+    "event_date": "1989-03-24",
+    "location": "Bligh Reef, Prince William Sound, near Valdez, Alaska",
+    "coordinates": "60.8400\u00b0N, 146.8625\u00b0W",
+    "agency": "NTSB (National Transportation Safety Board)",
+    "docket_url": "https://data.ntsb.gov/Docket",
+    "the_number": "11 million gallons (10.8 million US gallons per NTSB/Coast Guard/State of Alaska)",
+    "the_unresolved_thing": "Exxon knew the tanker's RAYCAS collision-avoidance radar had been disabled for over a year, but that fact does not appear in NTSB's official probable cause statement or findings, per secondary reporting that surfaced it after the fact.",
+    "tier": "C",
+    "structural_test": {
+      "result": "FAIL",
+      "why": "This is not two standing bodies with opposite findings. It is a single agency's report that omits a documented, known equipment failure. Correction-drop material, not long-form."
+    },
+    "commonly_wrong": [
+      {
+        "claim": "News coverage treats Captain Hazelwood's drinking as the cause of the spill.",
+        "record": "NTSB's probable cause statement weighs the captain's alcohol impairment alongside the third mate's fatigue and failure to maneuver, Exxon's crew staffing, and the Coast Guard's failed vessel traffic monitoring, as roughly equal causal factors.",
+        "source": "NTSB Marine Accident Report MAR-90/04",
+        "why_it_matters": "The public narrative isolates one man; the agency's own finding spreads responsibility across four separate parties."
+      },
+      {
+        "claim": "The broken radar is what caused the grounding.",
+        "record": "Multiple secondary sources report Exxon knew the RAYCAS radar was disabled for over a year, but per Wikipedia's summary of the case, this factor is not presented in the official accident report.",
+        "source": "Secondary reporting (Greg Palast); not confirmed in NTSB report text",
+        "why_it_matters": "A widely repeated claim outruns what the official record actually states."
+      }
+    ],
+    "investigators_disagree": [
+      {
+        "question": "What role did the disabled RAYCAS radar play in the probable cause?",
+        "position_a": "NTSB's official probable cause statement does not address the radar's condition.",
+        "position_b": "Investigative reporting (Greg Palast) identifies the disabled radar as a factor that would have detected Bligh Reef.",
+        "status": "Unresolved. No source confirms whether this was a deliberate omission, a secondary finding buried outside probable cause, or a genuine gap in the investigation."
+      },
+      {
+        "question": "Did Coast Guard inspections check radar maintenance compliance?",
+        "position_a": "NTSB found the Coast Guard failed to maintain effective vessel traffic monitoring; GAO found Valdez tanker inspections were not being conducted and staffing had been reduced.",
+        "position_b": "No source confirms whether radar operational testing was ever part of the inspection protocol.",
+        "status": "Unresolved. No document in the accessible record specifies an inspection standard for onboard collision-avoidance radar in 1988-89."
+      }
+    ],
+    "could_not_verify": [
+      {
+        "item": "The exact date the RAYCAS radar was disabled or damaged",
+        "disposition": "ATTRIBUTE",
+        "note": "Sources describe it only as 'over a year' before the grounding."
+      },
+      {
+        "item": "Whether federal regulation required collision-avoidance radar maintenance certification in 1988-89",
+        "disposition": "CUT",
+        "note": "No confirming source found."
+      },
+      {
+        "item": "Whether NTSB issued a specific safety recommendation on radar maintenance and its closure status",
+        "disposition": "CUT",
+        "note": "Not located in accessible sources; requires full docket review."
+      },
+      {
+        "item": "Whether Coast Guard inspections included radar operational testing",
+        "disposition": "CUT",
+        "note": "GAO report cites reduced staffing and skipped inspections but does not detail checklist contents."
+      }
+    ],
+    "assets": [
+      {
+        "asset": "NOAA Earth Observatory satellite/spill imagery, Prince William Sound",
+        "source_url": "https://earthobservatory.nasa.gov",
+        "rights": "PD",
+        "use_for": "B-roll of oil slick and coastline",
+        "primary": true
+      },
+      {
+        "asset": "DVIDS Coast Guard response imagery, Exxon Valdez cleanup",
+        "source_url": "https://www.dvidshub.net",
+        "rights": "PD",
+        "use_for": "B-roll of cleanup operations, verify no 'Courtesy Photo' byline before use",
+        "primary": false
+      },
+      {
+        "asset": "NTSB Marine Accident Report MAR-90/04 (PDF)",
+        "source_url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/MAR9004.pdf",
+        "rights": "PD",
+        "use_for": "Document slide, on-screen text excerpt",
+        "primary": true
+      }
+    ],
+    "slides": [
+      {
+        "n": 1,
+        "kind": "anomaly",
+        "label": "",
+        "headline": "11 million gallons",
+        "text": "NTSB, the Coast Guard, and the State of Alaska each gave slightly different totals: 11 million gallons, 10.8 million US gallons in some counts.",
+        "visual": "NOAA satellite image of Prince William Sound oil slick, slow push in"
+      },
+      {
+        "n": 2,
+        "kind": "correction",
+        "label": "What everyone gets wrong",
+        "headline": "It wasn't just Hazelwood",
+        "text": "NTSB's probable cause weighs the captain's impairment equally against the third mate's fatigue, Exxon's crew staffing, and the Coast Guard's failed vessel traffic monitoring.",
+        "visual": "Text overlay on dark chart graphic, four boxes representing four causal factors"
+      },
+      {
+        "n": 3,
+        "kind": "barrier",
+        "label": "The safeguard",
+        "headline": "A radar built to catch this",
+        "text": "The Exxon Valdez carried a RAYCAS collision-avoidance radar designed to flag exactly this kind of hazard in open water.",
+        "visual": "Archival tanker photo or radar schematic, DVIDS-sourced if available"
+      },
+      {
+        "n": 4,
+        "kind": "document",
+        "label": "The record",
+        "headline": "Not in the official report",
+        "text": "Multiple sources report Exxon knew the radar had been disabled for over a year. It does not appear in NTSB's probable cause statement or findings.",
+        "visual": "NTSB MAR-90/04 cover page, text zoom on probable cause section"
+      },
+      {
+        "n": 5,
+        "kind": "signal",
+        "label": "The moment",
+        "headline": "VTS lost the track",
+        "text": "The Coast Guard's Vessel Traffic Service was monitoring the tanker by radar that night. Investigators found it failed to provide effective traffic monitoring.",
+        "visual": "Simple radar-screen graphic with vessel track fading out"
+      },
+      {
+        "n": 6,
+        "kind": "rationalization",
+        "label": "Why no one flagged it",
+        "headline": "Broken and running anyway",
+        "text": "Secondary analyses report Exxon management knew the radar was inoperative for over a year and kept the ship in service. No public record explains that decision.",
+        "visual": "Text on black, single line typewriter reveal"
+      },
+      {
+        "n": 7,
+        "kind": "clock",
+        "label": "",
+        "headline": "9:12 PM: Exxon Valdez departs Valdez terminal\n11:30 PM: Third Mate Cousins takes the conn\n12:04 AM: Vessel strikes Bligh Reef",
+        "text": "",
+        "visual": "Map graphic, vessel track from terminal to reef, timestamps appearing in sequence"
+      },
+      {
+        "n": 8,
+        "kind": "names",
+        "label": "The finding",
+        "headline": "4",
+        "text": "NTSB's probable cause names four causal factors: the captain's impairment, the third mate's fatigue, Exxon's crew staffing, and the Coast Guard's failed vessel traffic service.",
+        "visual": "Large numeral 4 on black, four factor labels appearing below"
+      },
+      {
+        "n": 9,
+        "kind": "contradiction",
+        "label": "Unresolved",
+        "headline": "The radar isn't in the report",
+        "text": "Exxon knew the RAYCAS radar had been disabled for over a year. Reporter Greg Palast surfaced this. NTSB's official report includes none of it.",
+        "visual": "Split screen, tanker photo left, blank report page right"
+      },
+      {
+        "n": 10,
+        "kind": "outro",
+        "label": "",
+        "headline": "Full case file on YouTube",
+        "text": "@LastKnownPositionTV",
+        "visual": "Logo card, static"
+      }
+    ],
+    "source_line": "Source: NTSB Marine Accident Report MAR-90/04, National Transportation Safety Board.",
+    "caption": "11 million gallons.\n\nThat's what spilled when the Exxon Valdez ran aground on Bligh Reef in Prince William Sound, March 24, 1989. NTSB's official probable cause names four causal factors, and a radar that had been broken for over a year isn't one of them.\n\nSource: NTSB Marine Accident Report MAR-90/04.\n60.8400\u00b0N, 146.8625\u00b0W",
+    "hashtags": [
+      "#MaritimeDisaster",
+      "#OilSpill",
+      "#NTSBinvestigation",
+      "#VesselTrafficService",
+      "#ExxonValdez",
+      "#BlighReef",
+      "#PrinceWilliamSound"
+    ],
+    "x_post": "NTSB's official probable cause for the Exxon Valdez grounding names four factors: captain impairment, third mate fatigue, Exxon's crew staffing, and Coast Guard's failed vessel traffic service. A radar that had been broken for over a year isn't one of them.",
+    "x_post_type": "correction",
+    "x_reply": "Full case file: https://www.youtube.com/@LastKnownPositionTV",
+    "hook_alternates": [
+      {
+        "shape": "contradiction",
+        "hook": "NTSB's report blames the captain. It doesn't mention the radar that had been broken for a year."
+      },
+      {
+        "shape": "impossible number",
+        "hook": "Zero deaths. Eleven million gallons. Four causal factors in the official report, and the broken radar is not one of them."
+      }
+    ],
+    "generated_at": "2026-09-04T17:32:06.348262+00:00",
+    "status": "pending_approval",
+    "daily_no": "008",
+    "rendered": [
+      "out/008-exxon-valdez/slide_01.jpg",
+      "out/008-exxon-valdez/slide_02.jpg",
+      "out/008-exxon-valdez/slide_03.jpg",
+      "out/008-exxon-valdez/slide_04.jpg",
+      "out/008-exxon-valdez/slide_05.jpg",
+      "out/008-exxon-valdez/slide_06.jpg",
+      "out/008-exxon-valdez/slide_07.jpg",
+      "out/008-exxon-valdez/slide_08.jpg",
+      "out/008-exxon-valdez/slide_09.jpg",
+      "out/008-exxon-valdez/slide_10.jpg"
+    ]
   }
 ]
