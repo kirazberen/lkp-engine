@@ -1120,7 +1120,7 @@
       }
     ],
     "generated_at": "2026-09-04T17:32:06.348262+00:00",
-    "status": "pending_approval",
+    "status": "publish_failed",
     "daily_no": "008",
     "rendered": [
       "out/008-exxon-valdez/slide_01.jpg",
@@ -1133,6 +1133,8 @@
       "out/008-exxon-valdez/slide_08.jpg",
       "out/008-exxon-valdez/slide_09.jpg",
       "out/008-exxon-valdez/slide_10.jpg"
-    ]
+    ],
+    "buffer_ids": [],
+    "error": "HTTP Error 401: Unauthorized"
   }
 ]
