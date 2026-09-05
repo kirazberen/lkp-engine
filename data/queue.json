@@ -1136,5 +1136,234 @@
     ],
     "buffer_ids": [],
     "error": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "case_name": "Three Mile Island Unit 2 Accident",
+    "event_date": "1979-03-28",
+    "location": "Londonderry Township, Dauphin County, Pennsylvania; Susquehanna River near Harrisburg",
+    "coordinates": "40.3476\u00b0 N, 76.4240\u00b0 W",
+    "agency": "NRC (Nuclear Regulatory Commission) / President's Commission on the Accident at Three Mile Island (Kemeny Commission)",
+    "docket_url": "https://www.nrc.gov/reading-rm/doc-collections/nuregs/ and https://tmi.dickinson.edu/",
+    "the_number": "2 hours 20 minutes of PORV leakage; 2,800 lb/min coolant loss rate",
+    "the_unresolved_thing": "Why the NRC and Babcock & Wilcox approved control room instrumentation that displayed command signal to close rather than actual valve position, despite 11 prior PORV failures known to B&W, and why no corrective action was mandated before TMI-2 licensed despite this known failure mode.",
+    "tier": "C",
+    "structural_test": {
+      "result": "FAIL",
+      "why": "The investigation could not resolve the regulatory accountability gap: Babcock & Wilcox had documented 11 previous PORV failures, nine of them open. The indicator light showed solenoid de-energization, a close command, not valve position. Both the manufacturer and NRC knew the distinction existed, but no rule required position indication before March 1979."
+    },
+    "commonly_wrong": [
+      {
+        "claim": "Operators ignored or misread the indicator light.",
+        "record": "The light showed exactly what it was built to show: that a close command had been sent to the solenoid. It was never designed to confirm the valve had actually closed.",
+        "source": "NUREG-0600, NRC Office of Inspection and Enforcement",
+        "why_it_matters": "The operators were reading the instrument correctly. The instrument was lying about the thing that mattered."
+      },
+      {
+        "claim": "The PORV's failure mode was unknown before the accident.",
+        "record": "Babcock & Wilcox had documented 11 prior PORV failures across the fleet, nine of them stuck open.",
+        "source": "Kemeny Commission Final Report, October 31, 1979",
+        "why_it_matters": "This was not a surprise mechanical fault. It was a known, repeating problem with no mandated fix."
+      },
+      {
+        "claim": "A single operator error caused the accident.",
+        "record": "The purchase order for the PORV never specified it had to reseat after two-phase flow or water discharge. The supplier did not know the valve carried a safety function.",
+        "source": "GAO EMD-80-109",
+        "why_it_matters": "The gap sits in procurement and design review, not in a control room decision made at 4 a.m."
+      }
+    ],
+    "investigators_disagree": [
+      {
+        "question": "Who bears primary responsibility for the accident?",
+        "position_a": "Kemeny Commission: systemic failures in NRC organization, procedure, and design oversight, compounded by human factors and poor control room layout.",
+        "position_b": "GAO review: equipment malfunction, inadequate training and procedures, but also NRC's prior knowledge of the deficiencies, deprioritized in its own licensing strategy.",
+        "status": "Both findings stand. The dispute is not over facts but over where the burden of the failure lands."
+      },
+      {
+        "question": "Was pressurizer level instrumentation reliable during a loss of coolant?",
+        "position_a": "Carl Michelson, TVA/NRC consultant, January 1978: pressurizer level alone is not reliable for judging core cooling and could lead operators to shut down emergency injection.",
+        "position_b": "Babcock & Wilcox, January 23, 1979: agreed the reading was not reliable alone but said it was adequate combined with other instruments.",
+        "status": "No remedial action followed either position. Fourteen months later operators did precisely what Michelson had warned they would."
+      }
+    ],
+    "could_not_verify": [
+      {
+        "item": "Exact specifications of a maintenance tag described as covering the PORV indicator light at the time of the accident.",
+        "disposition": "ATTRIBUTE",
+        "note": "Referenced in secondary accounts; physical documentation not located in the archives searched."
+      },
+      {
+        "item": "Whether the tag, if present, was placed to obscure the light or was incidental to routine maintenance labeling.",
+        "disposition": "CUT",
+        "note": "No primary source confirms intent either way."
+      },
+      {
+        "item": "Precise mechanism of the PORV disc seizure.",
+        "disposition": "ATTRIBUTE",
+        "note": "Sources describe mechanical fault, water hammer damage, or deposit buildup differently; no single cause is confirmed."
+      },
+      {
+        "item": "Whether NRC formally tracked prior PORV failures as a generic safety issue before March 1979.",
+        "disposition": "ATTRIBUTE",
+        "note": "Not confirmed whether each failure was logged as isolated or aggregated for trend review."
+      }
+    ],
+    "assets": [
+      {
+        "asset": "NRC animated diagram of PORV location and primary system flow path",
+        "source_url": "https://www.nrc.gov/reading-rm/doc-collections/fact-sheets/3mile-isle",
+        "rights": "PD",
+        "use_for": "Barrier slide, safeguard explainer",
+        "primary": true
+      },
+      {
+        "asset": "Kemeny Commission Final Report, October 31, 1979",
+        "source_url": "https://tmi.dickinson.edu/",
+        "rights": "PD",
+        "use_for": "Document slide, findings text overlay",
+        "primary": true
+      },
+      {
+        "asset": "NUREG-0600 Investigation Report",
+        "source_url": "https://www.nrc.gov/reading-rm/doc-collections/nuregs/",
+        "rights": "PD",
+        "use_for": "Clock/timeline slide sourcing",
+        "primary": false
+      },
+      {
+        "asset": "GAO EMD-80-109",
+        "source_url": "https://www.gao.gov/products/emd-80-109",
+        "rights": "PD",
+        "use_for": "Investigators disagree slide",
+        "primary": false
+      },
+      {
+        "asset": "Carl Michelson TVA/NRC Consultant Report, January 1978",
+        "source_url": "Michigan Daily archive / NRC-TVA records",
+        "rights": "PD",
+        "use_for": "Document slide, rationalization text",
+        "primary": true
+      },
+      {
+        "asset": "Babcock & Wilcox letter, January 23, 1979",
+        "source_url": "https://digitalcollections.statelibrary.pa.gov/three-mile-island-collection",
+        "rights": "PD",
+        "use_for": "Document slide counterpoint",
+        "primary": false
+      },
+      {
+        "asset": "NRC control room panel documentation and photos, TMI-2",
+        "source_url": "https://www.orau.org/health-physics-museum/collection/reactors/control-knobs-from-three-mile-island-unit-2.html",
+        "rights": "PD",
+        "use_for": "Signal slide, indicator light close-up",
+        "primary": true
+      }
+    ],
+    "slides": [
+      {
+        "n": 1,
+        "kind": "anomaly",
+        "label": "",
+        "headline": "2,800 lb/min",
+        "text": "Reactor coolant left Three Mile Island Unit 2 at that rate for 2 hours 20 minutes before anyone shut the leak off.",
+        "visual": "NRC PORV/system diagram, plain background, number in large type over the primary loop schematic."
+      },
+      {
+        "n": 2,
+        "kind": "correction",
+        "label": "What everyone gets wrong",
+        "headline": "The light wasn't misread",
+        "text": "The indicator showed that a close signal had been sent to the valve solenoid. It was never built to confirm the valve had actually shut.",
+        "visual": "Close-up render of control room indicator light, labeled 'command' vs 'position' overlay text."
+      },
+      {
+        "n": 3,
+        "kind": "barrier",
+        "label": "The safeguard",
+        "headline": "One valve, 2,255 psi",
+        "text": "The pilot-operated relief valve was set to open automatically above 2,255 psi and reseat once pressure dropped. It was the last line of pressure control on the primary loop.",
+        "visual": "NRC schematic, PORV highlighted, setpoint annotation."
+      },
+      {
+        "n": 4,
+        "kind": "document",
+        "label": "The memo",
+        "headline": "\"Not reliable for core cooling\"",
+        "text": "January 1978: NRC consultant Carl Michelson warned pressurizer level readings could mislead operators into cutting emergency injection. Babcock & Wilcox's January 23, 1979 reply agreed the reading was unreliable alone, but said no change was needed. No retrofit followed either letter.",
+        "visual": "Scanned excerpt of Michelson report text and B&W reply, side by side, plain typeset."
+      },
+      {
+        "n": 5,
+        "kind": "signal",
+        "label": "The reading",
+        "headline": "04:15 a.m., 12 minutes in",
+        "text": "An operator noted abnormally high temperature in the line downstream of the PORV. It was logged as residual heat from the valve's earlier normal opening, not a sign the valve was still open.",
+        "visual": "Timeline still frame with 04:15 timestamp and temperature gauge illustration."
+      },
+      {
+        "n": 6,
+        "kind": "rationalization",
+        "label": "Why they trusted it",
+        "headline": "Level rising, light off",
+        "text": "With the close light dark and pressurizer level climbing, exactly as Michelson had warned it would during a loss of coolant, operators concluded the reactor was overfilling and throttled back emergency injection.",
+        "visual": "Split panel: indicator light (off) next to rising pressurizer level gauge."
+      },
+      {
+        "n": 7,
+        "kind": "contradiction",
+        "label": "Unresolved",
+        "headline": "11 failures, no mandate",
+        "text": "Babcock & Wilcox had logged 11 prior PORV failures, nine open, before TMI-2 came online. The purchase order never required the valve to reseat after two-phase flow. No design change or retrofit was ordered before March 28, 1979.",
+        "visual": "Kemeny Commission report page, failure count highlighted."
+      },
+      {
+        "n": 8,
+        "kind": "outro",
+        "label": "",
+        "headline": "Full case file on YouTube",
+        "text": "@LastKnownPositionTV",
+        "visual": "Plain title card, agency seal only."
+      }
+    ],
+    "source_line": "NRC NUREG-0600; Kemeny Commission Final Report, Oct 31, 1979; GAO EMD-80-109.",
+    "caption": "2,800 lb/min. That's how fast coolant left Three Mile Island Unit 2 for 2 hours 20 minutes on March 28, 1979.\n\nThe control room light didn't lie about the valve closing. It was never built to know. Babcock & Wilcox had logged 11 prior failures of that same valve, nine stuck open, before this reactor ever went critical.\n\nSource: NRC NUREG-0600; Kemeny Commission Final Report (Oct 31, 1979); GAO EMD-80-109.\n40.3476\u00b0 N, 76.4240\u00b0 W",
+    "hashtags": [
+      "#nuclearsafety",
+      "#engineeringfailure",
+      "#threemileisland",
+      "#PORV",
+      "#NRC",
+      "#disasterinvestigation"
+    ],
+    "x_post": "Everyone says the TMI-2 operators misread a warning light. The NRC record says the light was never built to show valve position, only that a close command had been sent. Babcock & Wilcox had logged 11 prior failures of that valve before the plant opened.",
+    "x_post_type": "correction",
+    "x_reply": "Full case file: https://www.youtube.com/@LastKnownPositionTV",
+    "hook_alternates": [
+      {
+        "shape": "document",
+        "hook": "A January 1978 memo warned this exact reading would fool operators. Fourteen months later, it did."
+      },
+      {
+        "shape": "countdown",
+        "hook": "04:03 valve opens. 04:15 high temp logged, dismissed. 05:43 valve found still open. 140 minutes."
+      },
+      {
+        "shape": "impossible number",
+        "hook": "11 prior failures of the same valve. Zero design changes before Three Mile Island."
+      }
+    ],
+    "longform_note": "This is Tier C, not A. The mechanical failure sequence is well established and not seriously contested. The stronger unresolved thread, if pursued long-form, is procurement: the PORV purchase order never specified a safety function, meaning the supplier built a valve without knowing what it needed to survive. Pair that with the closed-but-unactioned Michelson warning for a two-part video, not a single episode.",
+    "generated_at": "2026-09-05T16:42:28.968268+00:00",
+    "status": "pending_approval",
+    "daily_no": "009",
+    "rendered": [
+      "out/009-three-mile-island-unit-2-accident/slide_01.jpg",
+      "out/009-three-mile-island-unit-2-accident/slide_02.jpg",
+      "out/009-three-mile-island-unit-2-accident/slide_03.jpg",
+      "out/009-three-mile-island-unit-2-accident/slide_04.jpg",
+      "out/009-three-mile-island-unit-2-accident/slide_05.jpg",
+      "out/009-three-mile-island-unit-2-accident/slide_06.jpg",
+      "out/009-three-mile-island-unit-2-accident/slide_07.jpg",
+      "out/009-three-mile-island-unit-2-accident/slide_08.jpg"
+    ]
   }
 ]
