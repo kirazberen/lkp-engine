@@ -1367,5 +1367,34 @@
     ],
     "buffer_ids": [],
     "error": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "case": "ValuJet Flight 592, Everglades crash, May 11, 1996",
+    "tier": "A",
+    "structural_test": "The NTSB determined how the fire started and who mishandled the cargo, but the record never establishes why the FAA's Class D cargo compartment standard, which certified a compartment as safe because it was sealed tightly enough to starve a fire of oxygen, was allowed to stand for decades without in-service testing against the kind of cargo airlines were actually carrying.",
+    "hook_open": "110 people were on board. None survived.",
+    "slides": [
+      "May 11, 1996. ValuJet Flight 592, a DC-9-32, departs Miami International bound for Atlanta. Six minutes after takeoff, the crew reports smoke in the cockpit and cabin. The airplane crashes into the Florida Everglades. All 110 people on board, 105 passengers and 5 crew, are killed.",
+      "NTSB investigators traced the fire to the forward cargo compartment, a Class D hold with no smoke detectors and no fire suppression system. Chemical oxygen generators, the kind that supply emergency oxygen masks, had been loaded there without their required safety caps.",
+      "The generators belonged to ValuJet but had been removed from other aircraft by SabreTech, a maintenance contractor, and packed into boxes labeled as aircraft parts rather than hazardous material. NTSB found SabreTech failed to properly prepare and identify the generators, and that ValuJet failed to adequately oversee the contractor's work.",
+      "The NTSB's probable cause finding also named the FAA directly: the agency had not required smoke detection or fire suppression equipment in Class D cargo compartments, a design class that depended on the compartment being airtight enough to smother a fire before it could spread.",
+      "That design standard had already been questioned. After a 1988 in-flight cargo fire on another carrier, the NTSB had recommended the FAA require fire detection and suppression systems in all cargo compartments. The FAA's response treated the Class D sealing design as sufficient protection on its own.",
+      "Following Flight 592, the FAA issued a rule in 1998 eliminating Class D cargo compartments industry-wide and requiring smoke detectors and fire suppression systems in all cargo holds on passenger aircraft.",
+      "What the docket does not resolve is the gap in between: the basis on which the FAA's original Class D standard was approved and re-approved for years after cargo fires had already raised doubts about it, and whether any test data supporting the oxygen-starvation assumption existed for the aircraft types flying with it at the time of the crash."
+    ],
+    "unresolved_thread": "The FAA's Class D cargo compartment standard was treated as adequate for years despite an earlier NTSB recommendation on cargo fire protection, and no investigation record establishes what data, if any, the FAA relied on to keep re-certifying the design before Flight 592 forced a rule change.",
+    "sources": [
+      "NTSB Aircraft Accident Report, ValuJet Airlines Flight 592, DC-9-32, N904VJ, Everglades near Miami, Florida, May 11, 1996",
+      "Federal Register, FAA final rule on cargo compartment fire protection, 1998"
+    ],
+    "could_not_verify": [
+      "Exact NTSB safety recommendation numbers tied to the 1988 cargo fire that predated Flight 592",
+      "Whether FAA possessed specific in-service test data for the Class D oxygen-starvation design at the time it was reaffirmed prior to 1996",
+      "Full injury/casualty breakdown by passenger versus crew beyond the total of 110 fatalities"
+    ],
+    "generated_at": "2026-09-06T16:50:43.231478+00:00",
+    "status": "pending_approval",
+    "daily_no": "010",
+    "rendered": []
   }
 ]
