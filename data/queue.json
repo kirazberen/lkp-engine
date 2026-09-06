@@ -1353,7 +1353,7 @@
     ],
     "longform_note": "This is Tier C, not A. The mechanical failure sequence is well established and not seriously contested. The stronger unresolved thread, if pursued long-form, is procurement: the PORV purchase order never specified a safety function, meaning the supplier built a valve without knowing what it needed to survive. Pair that with the closed-but-unactioned Michelson warning for a two-part video, not a single episode.",
     "generated_at": "2026-09-05T16:42:28.968268+00:00",
-    "status": "pending_approval",
+    "status": "publish_failed",
     "daily_no": "009",
     "rendered": [
       "out/009-three-mile-island-unit-2-accident/slide_01.jpg",
@@ -1364,6 +1364,8 @@
       "out/009-three-mile-island-unit-2-accident/slide_06.jpg",
       "out/009-three-mile-island-unit-2-accident/slide_07.jpg",
       "out/009-three-mile-island-unit-2-accident/slide_08.jpg"
-    ]
+    ],
+    "buffer_ids": [],
+    "error": "HTTP Error 401: Unauthorized"
   }
 ]
