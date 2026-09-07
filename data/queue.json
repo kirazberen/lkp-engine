@@ -1396,5 +1396,177 @@
     "status": "pending_approval",
     "daily_no": "010",
     "rendered": []
+  },
+  {
+    "case_name": "Sinking of RMS Titanic",
+    "event_date": "April 14-15, 1912",
+    "location": "North Atlantic Ocean",
+    "coordinates": "41\u00b046'N, 50\u00b014'W",
+    "agency": "US Senate Subcommittee on the Sinking of the White Star Liner Titanic; British Board of Trade Wreck Commissioner's Inquiry",
+    "docket_url": "https://www.govinfo.gov/app/details/SERIALSET-06179_00_00-019-0933-0000 (S. Doc. 62-933); https://www.titanicinquiry.org/USInq/USReport/AmInqRep03.php (US Senate Report)",
+    "the_number": "1,502 to 1,635 dead; 2,224 aboard; lifeboat capacity 1,176",
+    "the_unresolved_thing": "None. The lifeboat regulation and the binocular locker are both documented, settled facts, not disputes. This is corrective, not investigative: the ship met every rule that existed. The rule itself sat unrevised for eighteen years while ship tonnage nearly quintupled, and the body that wrote the rule was the same body that later inquired into why it failed.",
+    "tier": "C",
+    "structural_test": {
+      "result": "FAIL",
+      "why": "FAIL: Both the missing binoculars and the lifeboat capacity approval are mechanically settled. The binoculars were locked in a locker after their keeper was transferred off the ship. The vessel met every requirement of the 1894 Merchant Shipping Act. No investigation reached opposite conclusions on either point."
+    },
+    "commonly_wrong": [
+      {
+        "claim": "Binoculars were simply not provided to the lookouts.",
+        "record": "Lookout Frederick Fleet testified the lookouts asked Second Officer Lightoller for binoculars in Southampton and were told 'there was none intended for us.' Binoculars existed aboard, locked in a crow's nest locker; the officer holding the key, David Blair, had been transferred off the ship before departure and never returned it.",
+        "source": "Frederick Fleet testimony, US Senate Inquiry, April 19-20, 1912",
+        "why_it_matters": "The failure was administrative, a lost key, not a decision to sail without equipment."
+      },
+      {
+        "claim": "The Titanic was legally inadequate on lifeboats.",
+        "record": "The US Senate report states the ship was 'fulfilling all the requirements of the British Board of Trade.' The Merchant Shipping Act of 1894 fixed lifeboat capacity by tonnage bracket, capping requirements at ships of 10,000 tons. Titanic was 46,328 tons.",
+        "source": "US Senate Report 806, 62nd Congress, 2nd Session",
+        "why_it_matters": "The ship complied exactly. The regulation had not been revised in eighteen years of shipbuilding growth."
+      }
+    ],
+    "investigators_disagree": null,
+    "could_not_verify": [
+      {
+        "item": "Whether Frederick Fleet made an explicit counterfactual claim that binoculars would have prevented the collision.",
+        "disposition": "ATTRIBUTE",
+        "note": "Fleet testified binoculars might have enabled earlier sighting, but this cannot be proven under the actual conditions that night: calm sea, no moon, no wave action."
+      },
+      {
+        "item": "The exact context of Fleet's 'none for us' statement at Southampton.",
+        "disposition": "CUT",
+        "note": "Unclear whether this referred to standing policy or the specific locker situation. Not load-bearing for the copy."
+      },
+      {
+        "item": "Whether any Board of Trade regulation explicitly addressed binoculars for lookouts.",
+        "disposition": "CUT",
+        "note": "No such regulation has been located in either inquiry record."
+      }
+    ],
+    "assets": [
+      {
+        "asset": "US Senate Inquiry Report, Senate Report 806, 62nd Congress, 2nd Session",
+        "source_url": "https://www.titanicinquiry.org/USInq/USReport/AmInqRep03.php",
+        "rights": "PD",
+        "use_for": "Document slide, quote source",
+        "primary": true
+      },
+      {
+        "asset": "British Wreck Commissioner's Report on Board of Trade Administration, Cd 6352, July 30, 1912",
+        "source_url": "https://www.titanicinquiry.org/BOTInq/BOTReport/botRepBOT.php",
+        "rights": "PD",
+        "use_for": "Signal and contradiction slides",
+        "primary": true
+      },
+      {
+        "asset": "Frederick Fleet testimony, US Senate Inquiry, April 19-20, 1912",
+        "source_url": "https://www.titanicinquiry.org/USInq/AmInq04Fleet02.php",
+        "rights": "PD",
+        "use_for": "Barrier slide quote",
+        "primary": false
+      },
+      {
+        "asset": "Frederick Fleet testimony, British Wreck Commissioner's Inquiry, Day 15",
+        "source_url": "https://www.titanicinquiry.org/BOTInq/BOTInq15Fleet02.php",
+        "rights": "PD",
+        "use_for": "Barrier slide backup quote",
+        "primary": false
+      },
+      {
+        "asset": "Contemporary sketches by Louis F. Grant, The Graphic, May 11, 1912",
+        "source_url": "n/a",
+        "rights": "DO NOT USE",
+        "use_for": "Rejected, rights unclear",
+        "primary": false
+      }
+    ],
+    "slides": [
+      {
+        "n": 1,
+        "kind": "anomaly",
+        "headline": "1,176 lifeboat seats. 2,224 people aboard.",
+        "text": "The Titanic complied fully with the Merchant Shipping Act of 1894. The regulation calculated lifeboat capacity by gross tonnage and capped requirements at ships of 10,000 tons. Titanic was 46,328 tons.",
+        "visual": "Full black frame, large white numerals '1,176' over '2,224', no image."
+      },
+      {
+        "n": 2,
+        "kind": "correction",
+        "label": "What everyone gets wrong",
+        "headline": "The ship broke no law",
+        "text": "The US Senate report states Titanic was 'fulfilling all the requirements of the British Board of Trade.' The lifeboat count was legal. The regulation itself was eighteen years out of date.",
+        "visual": "Scanned page excerpt from Senate Report 806 with the quoted line highlighted, PD."
+      },
+      {
+        "n": 3,
+        "kind": "barrier",
+        "label": "The safeguard that existed",
+        "headline": "Binoculars existed. They were locked away.",
+        "text": "Second Officer David Blair held the key to the crow's nest locker. He was transferred off the ship in Southampton before departure and never returned it. Lookout Frederick Fleet testified he asked for binoculars and was told 'there was none intended for us.'",
+        "visual": "Typographic slide, Fleet's quote set in typewriter font over plain background."
+      },
+      {
+        "n": 4,
+        "kind": "document",
+        "label": "The finding",
+        "headline": "\"Fulfilling all the requirements of the British Board of Trade\"",
+        "text": "The direct language of the US Senate's 1912 report on the ship's compliance status.",
+        "visual": "Cropped scan of the actual report page, PD, US Senate Report 806."
+      },
+      {
+        "n": 5,
+        "kind": "signal",
+        "label": "The gap nobody closed",
+        "headline": "Last revised: 1894. Still in force: 1912.",
+        "text": "The Merchant Shipping Act's lifeboat tables were written for a fleet that topped out near 10,000 tons. By 1912, ships had nearly quintupled in size. The tables never changed.",
+        "visual": "Simple timeline graphic, two dates, no imagery, white on black."
+      },
+      {
+        "n": 6,
+        "kind": "document",
+        "label": "The same body, twice",
+        "headline": "The Board of Trade wrote the rule. The Board of Trade investigated its failure.",
+        "text": "The British Wreck Commissioner's Inquiry examined the Board of Trade's own administration of lifeboat regulations, the same regulations the Board itself had authored and never updated since 1894.",
+        "visual": "Cropped title page of Cd 6352, PD, plain document scan."
+      },
+      {
+        "n": 7,
+        "kind": "correction",
+        "label": "What everyone gets wrong",
+        "headline": "A lost key, not a decision",
+        "text": "No testimony or finding from either inquiry shows a deliberate choice to sail without binoculars. Blair's transfer and the unreturned key are the documented cause of the empty locker.",
+        "visual": "Typographic slide, plain white text on black, no imagery."
+      },
+      {
+        "n": 8,
+        "kind": "document",
+        "label": "The number itself",
+        "headline": "1,502 to 1,635 dead",
+        "text": "US and British counts differ on the exact death toll. Both figures come from the same two inquiries, working from incomplete passenger and crew manifests.",
+        "visual": "Split-screen text card, US figure left, British figure right, PD document backgrounds."
+      },
+      {
+        "n": 9,
+        "kind": "signal",
+        "label": "What stayed the same",
+        "headline": "The tonnage tables were rewritten after 1912. The lookout equipment rule was not.",
+        "text": "The 1894 Act's lifeboat scale was revised following the disaster. No regulation was ever written requiring binoculars for lookouts on any vessel, British or American.",
+        "visual": "Plain black frame, single line of white text, no imagery."
+      }
+    ],
+    "caption": "The Titanic broke no law. Source: US Senate Report 806, 62nd Congress; British Wreck Commissioner's Report, Cd 6352.",
+    "generated_at": "2026-09-07T18:42:12.399468+00:00",
+    "status": "pending_approval",
+    "daily_no": "011",
+    "rendered": [
+      "out/011-sinking-of-rms-titanic/slide_01.jpg",
+      "out/011-sinking-of-rms-titanic/slide_02.jpg",
+      "out/011-sinking-of-rms-titanic/slide_03.jpg",
+      "out/011-sinking-of-rms-titanic/slide_04.jpg",
+      "out/011-sinking-of-rms-titanic/slide_05.jpg",
+      "out/011-sinking-of-rms-titanic/slide_06.jpg",
+      "out/011-sinking-of-rms-titanic/slide_07.jpg",
+      "out/011-sinking-of-rms-titanic/slide_08.jpg",
+      "out/011-sinking-of-rms-titanic/slide_09.jpg"
+    ]
   }
 ]
