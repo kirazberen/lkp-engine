@@ -1568,5 +1568,205 @@
       "out/011-sinking-of-rms-titanic/slide_08.jpg",
       "out/011-sinking-of-rms-titanic/slide_09.jpg"
     ]
+  },
+  {
+    "case_name": "Deepwater Horizon - Macondo Well Blowout",
+    "event_date": "2010-04-20",
+    "location": "Mississippi Canyon Block 252, Gulf of Mexico, approximately 41 miles off Louisiana coast",
+    "coordinates": "28.73806\u00b0N, 88.36611\u00b0W",
+    "agency": "BOEMRE/USCG Joint Investigation Team; National Academy of Engineering; Chemical Safety and Hazard Investigation Board; National Commission; Transocean internal investigation",
+    "docket_url": "https://www.bsee.gov/newsroom/latest-news/statements-and-releases/press-releases/bsee-issues-violations-following",
+    "the_number": "11",
+    "the_unresolved_thing": "Whether the MMS approval of the temporary abandonment procedure on April 16, 2010, covered the negative pressure test protocol BP actually ran, given BP produced at least five different abandonment plans in the eight days before the blowout and Transocean's own investigation found BP's final plan 'did not have the required approval by the MMS.'",
+    "tier": "C",
+    "structural_test": {
+      "result": "FAIL",
+      "why": "The negative pressure test between roughly 17:45 and 20:00 on April 20, 2010, produced abnormal readings for more than two hours. BP and Transocean crew read those signals as confirming the well was safe when they were showing cement had already failed."
+    },
+    "commonly_wrong": [
+      {
+        "claim": "The negative pressure test was simply 'failed' or 'missed.'",
+        "record": "CSB and JIT reports describe a repeated pattern: drillpipe pressure that should have stayed at zero rose instead, was bled off, and rose again. This happened more than once over roughly two hours.",
+        "source": "CSB Investigation Report, Vol. 1-2 (2012); BOEMRE/USCG JIT Volume II (2011)",
+        "why_it_matters": "A single missed step is a training problem. A signal that repeats for two hours and is explained away each time is a procedure problem."
+      },
+      {
+        "claim": "The test itself was a regulatory requirement BP skipped or botched.",
+        "record": "CSB notes BP elected to perform the negative pressure test; it was not mandated by MMS. What was required was that whatever procedure BP did run be an approved one.",
+        "source": "CSB Investigation Report (2012)",
+        "why_it_matters": "The failure isn't that a required test was botched. It's that an unrequired test, run under a procedure of uncertain approval status, became the only barrier standing."
+      }
+    ],
+    "investigators_disagree": [
+      {
+        "question": "Was the temporary abandonment procedure BP actually executed properly approved by MMS?",
+        "position_a": "BOEMRE/USCG JIT Volume II found BP, Transocean, and Halliburton violated federal safety regulations including 30 CFR 250.427, citing failure to conduct an accurate pressure integrity test.",
+        "position_b": "Transocean's internal investigation states BP 'proceeded with a temporary abandonment plan that created unnecessary risk and did not have the required approval by the MMS,' after 'a series of last-minute alterations.' BP's own report states MMS approved 'the procedure' on April 16 without addressing the four plan revisions that followed.",
+        "status": "Both findings stand. No document has surfaced showing MMS reviewed or re-approved the procedure BP actually ran on April 20."
+      },
+      {
+        "question": "Was cement failure or test misinterpretation the central cause?",
+        "position_a": "National Academy of Engineering/NRC emphasizes the negative pressure test itself produced confusing, inconclusive results that the crew mistakenly read as a pass.",
+        "position_b": "CSB frames it as four sequential failures, cement failure first, with test misinterpretation as failure number three, not the root cause.",
+        "status": "Both stand. The reports disagree on which failure in the chain should be called primary."
+      }
+    ],
+    "could_not_verify": [
+      {
+        "item": "Whether any offshore drilling standard (API RP 53, RP 65, or similar) required negative pressure testing as best practice in 2010.",
+        "disposition": "ATTRIBUTE",
+        "note": "CSB states it was 'not a regulatory requirement.' No MMS guidance document on the standard predating April 2010 was located."
+      },
+      {
+        "item": "Exact wording of the MMS April 16, 2010 approval letter for the temporary abandonment procedure.",
+        "disposition": "CUT",
+        "note": "Only referenced secondhand in BP and CSB reports. The approval document itself was not found in BOEMRE archives."
+      },
+      {
+        "item": "Whether prior industry safety recommendations on negative pressure test interpretation were ever formally closed or left open.",
+        "disposition": "CUT",
+        "note": "A Transocean internal advisory referencing 'tested barriers can fail' was noted in secondary sources but the primary recommendation-status document was not located."
+      }
+    ],
+    "assets": [
+      {
+        "asset": "USCG/BOEMRE Joint Investigation Team Report, Volume I",
+        "source_url": "https://www.bsee.gov/sites/bsee.gov/files/reports/safety/2-deepwaterhorizon-roi-uscg-volume-i-20110707-redacted-final.pdf",
+        "rights": "PD",
+        "use_for": "Explosion sequence, evacuation, sinking, safety systems documentation",
+        "primary": true
+      },
+      {
+        "asset": "BSEE press release, JIT Final Report release",
+        "source_url": "https://www.bsee.gov/site-page/deepwater-horizon-joint-investigation-team-releases-final-report",
+        "rights": "PD",
+        "use_for": "Regulatory violation summary",
+        "primary": false
+      },
+      {
+        "asset": "CSB Investigation Report, Deepwater Horizon",
+        "source_url": "https://www.csb.gov/investigations/deepwater-horizon-offshore-drilling-unit-explosion-and-oil-spill/",
+        "rights": "PD",
+        "use_for": "Failure sequence analysis, test interpretation timeline",
+        "primary": true
+      }
+    ],
+    "slides": [
+      {
+        "n": 1,
+        "kind": "anomaly",
+        "label": "",
+        "headline": "11",
+        "text": "Eleven men died when the Deepwater Horizon exploded on April 20, 2010, forty-one miles off the Louisiana coast.",
+        "visual": "Black slide, white numeral, no imagery. USCG/JIT report title in small type bottom corner."
+      },
+      {
+        "n": 2,
+        "kind": "correction",
+        "label": "What everyone gets wrong",
+        "headline": "The test wasn't missed",
+        "text": "It ran for more than two hours. Drillpipe pressure that should have stayed at zero kept climbing. The crew bled it off, watched it climb again, and called it a pass.",
+        "visual": "Simple pressure-vs-time line chart, redrawn from CSB report description, not the original graphic."
+      },
+      {
+        "n": 3,
+        "kind": "barrier",
+        "label": "The safeguard",
+        "headline": "One test stood between them and this",
+        "text": "The negative pressure test lowers pressure inside the well below the reservoir's own pressure. If cement is intact, nothing flows in. If hydrocarbons flow, the cement has failed.",
+        "visual": "Simple wellbore cross-section diagram, labeled, no branding."
+      },
+      {
+        "n": 4,
+        "kind": "document",
+        "label": "The record",
+        "headline": "'Did not have the required approval'",
+        "text": "Transocean's own internal investigation, June 2011: BP proceeded with a temporary abandonment plan that 'created unnecessary risk and did not have the required approval by the MMS.' MMS had approved a procedure on April 16. BP revised the plan four more times before April 20.",
+        "visual": "Quoted text on plain document-style card, sourced to Transocean investigation report cover page."
+      },
+      {
+        "n": 5,
+        "kind": "signal",
+        "label": "The reading",
+        "headline": "1,400 psi where zero should be",
+        "text": "During the final negative pressure test, drillpipe pressure rose to roughly 1,400 psi while the kill line read lower. An intact well reads zero. The differential meant hydrocarbons were already in the wellbore.",
+        "visual": "Gauge-style readout graphic, plain, numbers only."
+      },
+      {
+        "n": 6,
+        "kind": "clock",
+        "label": "",
+        "headline": "17:45 - positive test holds, 2,520 psig, 30 minutes\n17:45-20:00 - negative test, pressure rises, crew bleeds line twice\n20:00 - well declared safe, displacement begins\n21:50 - hydrocarbons reach the drill floor\n21:51 - first explosion",
+        "text": "",
+        "visual": "Vertical timecode stack, monospace type, black background."
+      },
+      {
+        "n": 7,
+        "kind": "names",
+        "label": "The toll",
+        "headline": "11 dead. 17 injured.",
+        "text": "Names held in silence. No photographs. Approximately 4.9 million barrels spilled over 87 days before the well was sealed on September 19, 2010.",
+        "visual": "Plain type on black. No imagery."
+      },
+      {
+        "n": 8,
+        "kind": "contradiction",
+        "label": "Unresolved",
+        "headline": "No one confirmed what MMS approved",
+        "text": "BP says MMS approved the temporary abandonment procedure on April 16. Transocean's investigation says the plan BP actually ran did not have that approval. Neither BOEMRE nor BP has produced the April 16 letter showing what MMS reviewed.",
+        "visual": "Split card: BP quote left, Transocean quote right, no imagery."
+      },
+      {
+        "n": 9,
+        "kind": "outro",
+        "label": "",
+        "headline": "Full case file on YouTube",
+        "text": "@LastKnownPositionTV",
+        "visual": "Channel logo, plain black background."
+      }
+    ],
+    "source_line": "BOEMRE/USCG Joint Investigation Team (2011); BP Internal Investigation Report (2010); CSB Investigation (2012); Transocean Internal Investigation (2011); National Academy of Engineering/NRC (2012)",
+    "caption": "11\n\nEleven men died when the Deepwater Horizon exploded on April 20, 2010. The negative pressure test that was supposed to catch the failing cement ran for more than two hours, showing pressure climbing when it should have read zero. Transocean's own investigation later found that BP's final abandonment plan \"did not have the required approval by the MMS.\" No one has produced the approval document that would settle what MMS actually signed off on.\n\nSource: BOEMRE/USCG Joint Investigation Team Vol. II (2011); Transocean Internal Investigation (2011); CSB Investigation Report (2012)\n\n28.73806\u00b0N, 88.36611\u00b0W, Mississippi Canyon Block 252, Gulf of Mexico",
+    "hashtags": [
+      "#disasterinvestigation",
+      "#offshoredrilling",
+      "#deepwaterhorizon",
+      "#macondowell",
+      "#oilspill",
+      "#BSEE",
+      "#NTSBstyle"
+    ],
+    "x_post": "Deepwater Horizon: the negative pressure test ran for over two hours on April 20, 2010. Drillpipe pressure kept climbing instead of holding at zero. Crew bled it off twice and called it a pass. Transocean's own investigation later said BP's final plan lacked MMS approval.",
+    "x_post_type": "correction",
+    "x_reply": "Full case file: https://www.youtube.com/@LastKnownPositionTV",
+    "hook_alternates": [
+      {
+        "shape": "contradiction",
+        "hook": "Transocean says BP's well plan lacked MMS approval. BP's report doesn't mention it."
+      },
+      {
+        "shape": "document",
+        "hook": "The MMS approval letter that would settle this has never surfaced."
+      },
+      {
+        "shape": "countdown",
+        "hook": "Two hours of rising pressure. One reading of 1,400 psi where zero should have been."
+      }
+    ],
+    "longform_note": "Structural test result is FAIL on the pure mechanical question (test misread), which keeps this at Tier C rather than a long-form episode. The stronger unresolved thread, buried under the physical failure sequence, is the approval chain: BP ran through five abandonment plan revisions in eight days, MMS's April 16 approval predates most of them, and no document confirms what MMS actually reviewed or whether it was ever asked to re-approve. That regulatory gap, not the pressure gauge, is where a full episode would live if the approval letter or MMS's internal review notes ever surface via FOIA.",
+    "generated_at": "2026-09-08T17:54:03.888087+00:00",
+    "status": "pending_approval",
+    "daily_no": "012",
+    "rendered": [
+      "out/012-deepwater-horizon-macondo-well-blowout/slide_01.jpg",
+      "out/012-deepwater-horizon-macondo-well-blowout/slide_02.jpg",
+      "out/012-deepwater-horizon-macondo-well-blowout/slide_03.jpg",
+      "out/012-deepwater-horizon-macondo-well-blowout/slide_04.jpg",
+      "out/012-deepwater-horizon-macondo-well-blowout/slide_05.jpg",
+      "out/012-deepwater-horizon-macondo-well-blowout/slide_06.jpg",
+      "out/012-deepwater-horizon-macondo-well-blowout/slide_07.jpg",
+      "out/012-deepwater-horizon-macondo-well-blowout/slide_08.jpg",
+      "out/012-deepwater-horizon-macondo-well-blowout/slide_09.jpg"
+    ]
   }
 ]
