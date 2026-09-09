@@ -1770,5 +1770,20 @@
     ],
     "buffer_ids": [],
     "error": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "structural_test": "could_not_verify: no case, incident, or topic was specified in this conversation to research or test.",
+    "tier": null,
+    "case": null,
+    "slides": [],
+    "sources": [],
+    "could_not_verify": [
+      "No investigation, incident, or subject was provided in the conversation history for research. Without a specified case, no claims can be sourced via web_search, and no JSON content can be generated per the required schema."
+    ],
+    "caption": null,
+    "generated_at": "2026-09-09T17:46:00.335626+00:00",
+    "status": "pending_approval",
+    "daily_no": "013",
+    "rendered": []
   }
 ]
