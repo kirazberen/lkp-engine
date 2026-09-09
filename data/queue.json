@@ -1755,7 +1755,7 @@
     ],
     "longform_note": "Structural test result is FAIL on the pure mechanical question (test misread), which keeps this at Tier C rather than a long-form episode. The stronger unresolved thread, buried under the physical failure sequence, is the approval chain: BP ran through five abandonment plan revisions in eight days, MMS's April 16 approval predates most of them, and no document confirms what MMS actually reviewed or whether it was ever asked to re-approve. That regulatory gap, not the pressure gauge, is where a full episode would live if the approval letter or MMS's internal review notes ever surface via FOIA.",
     "generated_at": "2026-09-08T17:54:03.888087+00:00",
-    "status": "pending_approval",
+    "status": "publish_failed",
     "daily_no": "012",
     "rendered": [
       "out/012-deepwater-horizon-macondo-well-blowout/slide_01.jpg",
@@ -1767,6 +1767,8 @@
       "out/012-deepwater-horizon-macondo-well-blowout/slide_07.jpg",
       "out/012-deepwater-horizon-macondo-well-blowout/slide_08.jpg",
       "out/012-deepwater-horizon-macondo-well-blowout/slide_09.jpg"
-    ]
+    ],
+    "buffer_ids": [],
+    "error": "HTTP Error 401: Unauthorized"
   }
 ]
